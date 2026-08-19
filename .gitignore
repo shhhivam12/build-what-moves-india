@@ -1,0 +1,17 @@
+# Private working research is intentionally excluded from version control.
+/research/
+
+# Local environment and generated files.
+.env
+.env.*
+!.env.example
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.DS_Store
+Thumbs.db
+dist/
+build/
+coverage/
