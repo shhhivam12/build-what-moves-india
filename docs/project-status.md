@@ -1,10 +1,10 @@
 # Project status
 
-Last updated: 19 August 2026
+Last updated: 25 August 2026
 
 ## Phase
 
-Problem discovery and research organization.
+The deployable proof-of-concept product is complete and awaiting the user's consolidated visual review. The free Neon project and reviewed schema are connected, while the event-permitted synthetic judge session keeps the full citizen experience reliable even when the free database sleeps. Better Auth and durable case persistence remain a documented production-path deferral, not a dependency of the public demonstration. User checkpoints and change control are defined in [docs/implementation/README.md](implementation/README.md).
 
 ## Confirmed
 
@@ -16,22 +16,43 @@ Problem discovery and research organization.
 - Sensitive interactions must use mock or synthetic data.
 - The research folder is private and excluded from Git.
 - Prompts are tracked in `prompts.md` for later submission evidence.
+- CPGRAMS is the selected public-service candidate for the prototype.
+- The product direction is `CPGRAMS Assured Journey` (working, unofficial name): describe-first intake, citizen-confirmed route assistance, immediate receipt, durable timeline, Resolution Receipt, and context-preserving appeal.
+- The proof of concept will use synthetic data and mock government/channel integrations only.
+- The selected proof-of-concept architecture is a Next.js/TypeScript modular monolith with PostgreSQL, UX4G-aligned design, and a replaceable AI adapter.
+- The future reference architecture maps to the official NextGen CPGRAMS direction: open-source, modular, API-led, observable, auditable, scalable, and deployable on an authorised MeitY-empanelled/NIC cloud after formal approval.
 
-## Not decided
+## Decided for the proof of concept
 
-- Government website or public service
-- Exact affected user group
-- Exact user journey
-- Validated problem statement for the prototype
-- Product scope and features
-- Architecture and technology stack
-- OpenAI/Codex role in the final product
-- Hosting and deployment approach
+- Primary user: a citizen filing and following a public grievance.
+- Exact journey: describe → confirm route → submit → receipt/timeline → Resolution Receipt → appeal draft.
+- OpenAI role: advisory route candidates/summary using strict schemas and synthetic data; never autonomous rejection, closure, or appeal decision.
+- Browser-first responsive public demo with seeded test credentials.
+- One deeply complete synthetic category journey before breadth.
+- Frozen main fixture: fictional citizen Asha Verma, telecommunications activation plus ₹499 fee, with one resolved and one partly resolved requested outcome.
+- Frozen initial catalogue: telecommunications, banking, labour/employment and posts; 48 publication-safe English/Hindi/Hinglish evaluation inputs.
+- Frozen design direction: Indian Civic Calm, using UX4G-aligned foundations, restrained civic blue/saffron/green accents, Noto English/Devanagari typography, semantic compact-first layouts and WCAG 2.2 AA as the engineering target.
+- Zero-cost demo decision: retain PostgreSQL and initially target Neon Free through a serverless driver; no payment method, paid add-on, or automatic paid overage is permitted.
+- Language parity decision: English plus all 22 scheduled Indian languages are interface targets. English/Hindi are reviewed first-class catalogues; other languages must be demoable with explicit translation provenance before submission freeze.
+- Identity decision: retain a restrained service masthead and accessible public-updates pattern, but do not use the State Emblem or present this unofficial prototype as a government-owned site.
+- Deadline decision: use the event-permitted mock backend for the deterministic judge journey while retaining Neon as the real relational deployment foundation; prioritize the complete consumer experience and a stable public URL over invisible authentication plumbing.
+
+## Still open
+
+- Final project/product name; the design-system direction and palette are selected but the public name remains open.
+- Exact public demo host; the standalone production/container build is ready, and free public deployment follows the visual checkpoint.
+- Human/policy review of the frozen Hindi/English fixture, route labels and Resolution Receipt wording.
+- Whether optional voice fits after the core journey is complete.
+- All production owner, procurement, identity, cloud, retention, integration, LLM-hosting, and certification decisions.
 
 ## Current decision gate
 
-Before implementation begins, select and validate one service problem using evidence such as direct user experience, journey observation, user reports, accessibility/performance checks, and the practical ability to demonstrate a safe end-to-end prototype with synthetic data.
+The five product gates remain frozen in [docs/architecture/09-finalized-development-gates.md](architecture/09-finalized-development-gates.md). Functional and deployability gates are complete for the proof of concept. The current decision is the user's consolidated visual refinement list before public deployment and submission packaging.
 
 ## Guardrail
 
-Examples such as pensions, certificates, farmer services, employment services, cybercrime reporting, court information, RTI, and travel are research scenarios only. None is the selected project.
+Do not reduce the selected direction to a cosmetic redesign, generic chatbot, or autonomous complaint classifier. Samadhan Didi and official NextGen plans already cover voice, multilingual filing, and AI-assisted routing. The differentiator is accountable continuity from filing through resolution evidence and appeal. Do not connect the POC to live CPGRAMS, identity, Bhashini, OTP, SMS/email/WhatsApp, or government systems.
+
+## Architecture reference
+
+See [docs/architecture/README.md](architecture/README.md) for the decision package, diagrams, DevSecOps/security design, current-vs-proposed product design, and development roadmap.

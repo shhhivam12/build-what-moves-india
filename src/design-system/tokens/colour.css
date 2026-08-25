@@ -1,0 +1,23 @@
+:root {
+  --colour-brand-civic-900: #173a63;
+  --colour-brand-civic-700: #1e4e8c;
+  --colour-brand-civic-100: #dce9f7;
+  --colour-brand-saffron-700: #a84f00;
+  --colour-brand-saffron-100: #fff0df;
+  --colour-semantic-success-700: #156b45;
+  --colour-semantic-success-100: #e2f4eb;
+  --colour-semantic-error-700: #b42318;
+  --colour-semantic-error-100: #feeceb;
+  --colour-semantic-warning-800: #8a5a00;
+  --colour-semantic-warning-100: #fff5d8;
+  --colour-focus-700: #005fcc;
+  --colour-ink-950: #1b1f24;
+  --colour-ink-700: #475467;
+  --colour-canvas-warm: #f7f4ed;
+  --colour-surface: #ffffff;
+  --colour-surface-muted: #f4f6f8;
+  --colour-border: #d5dce5;
+  --colour-border-strong: #8693a3;
+  --colour-overlay: rgb(27 31 36 / 62%);
+  --shadow-dialog: 0 1rem 3rem rgb(23 58 99 / 20%);
+}

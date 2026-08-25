@@ -1,0 +1,16 @@
+:root {
+  --font-sans: "Noto Sans Variable", "Noto Sans Devanagari", "Noto Sans", Arial, sans-serif;
+  --font-reference: ui-monospace, "Cascadia Mono", "Roboto Mono", monospace;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: clamp(1.125rem, 1.05rem + 0.25vw, 1.25rem);
+  --font-size-xl: clamp(1.375rem, 1.2rem + 0.6vw, 1.75rem);
+  --font-size-2xl: clamp(1.75rem, 1.45rem + 1vw, 2.4rem);
+  --line-height-body: 1.62;
+  --line-height-heading: 1.22;
+  --weight-regular: 400;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --measure-reading: 68ch;
+  --measure-form: 40rem;
+}
