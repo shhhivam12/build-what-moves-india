@@ -18,7 +18,7 @@
     "test:watch": "vitest",
     "test:e2e": "playwright test",
     "db:generate": "node --require ./scripts/node-userinfo-fallback.cjs ./node_modules/drizzle-kit/bin.cjs generate",
-    "db:migrate": "node --require ./scripts/node-userinfo-fallback.cjs ./node_modules/drizzle-kit/bin.cjs migrate",
+    "db:migrate": "node --env-file=.env.local ./scripts/migrate-neon.mjs",
     "check": "pnpm lint && pnpm typecheck && pnpm test && pnpm build"
   },
   "dependencies": {

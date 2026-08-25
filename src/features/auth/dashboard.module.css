@@ -1,0 +1,39 @@
+.page { min-height: 100svh; color: #15233a; background: #f3f6fb; }
+.topbar { height: 0.3rem; display: grid; grid-template-columns: 1fr 1fr 1fr; }
+.topbar i:nth-child(1) { background: #ff8a1f; }
+.topbar i:nth-child(2) { background: #f5f7fa; }
+.topbar i:nth-child(3) { background: #138a5b; }
+.header { min-height: 5.3rem; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; background: #071d3d; color: #fff; }
+.brand { color: inherit; text-decoration: none; }
+.brand strong, .brand small { display: block; }
+.brand strong { letter-spacing: 0.075em; }
+.brand small { margin-top: 0.18rem; color: #b8c7de; font-size: 0.72rem; }
+.header nav { display: flex; align-items: center; gap: 0.35rem; }
+.header nav a, .signOut { min-height: 2.65rem; padding: 0.65rem 0.85rem; color: #e5edf9; background: transparent; border: 0; border-radius: 0.7rem; text-decoration: none; cursor: pointer; }
+.header nav a:hover, .signOut:hover { background: rgba(255,255,255,0.09); }
+.signOut:disabled { opacity: 0.6; cursor: wait; }
+.main { width: min(76rem, calc(100% - 2rem)); margin: 0 auto; padding: clamp(2rem, 5vw, 4.5rem) 0; }
+.welcome { display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem; margin-bottom: 2rem; }
+.eyebrow { margin: 0 0 0.6rem; color: #0b5a52; font-size: 0.76rem; font-weight: 800; letter-spacing: 0.09em; text-transform: uppercase; }
+.welcome h1 { margin: 0; color: #071d3d; font-size: clamp(2rem, 4vw, 3.4rem); letter-spacing: -0.045em; }
+.welcome p:last-child { max-width: 42rem; margin: 0.8rem 0 0; color: #5f6d82; line-height: 1.6; }
+.identity { padding: 0.8rem 1rem; display: flex; align-items: center; gap: 0.75rem; color: #25354e; background: #fff; border: 1px solid #dce3ed; border-radius: 1rem; box-shadow: 0 0.7rem 1.5rem rgba(25,47,79,0.06); }
+.avatar { width: 2.7rem; height: 2.7rem; display: grid; place-items: center; border-radius: 0.8rem; color: #fff; background: linear-gradient(145deg, #0c4aa6, #0b7565); font-weight: 850; }
+.identity strong, .identity small { display: block; }
+.identity small { margin-top: 0.15rem; color: #718095; font-size: 0.72rem; }
+.quickGrid { display: grid; grid-template-columns: 1.35fr 1fr 1fr; gap: 1rem; }
+.primaryAction, .secondaryAction { min-height: 11rem; padding: 1.45rem; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; border-radius: 1.35rem; text-decoration: none; }
+.primaryAction { color: #fff; background: radial-gradient(circle at 90% 10%, rgba(255,138,31,0.36), transparent 10rem), linear-gradient(135deg, #082754, #0b4aa6); box-shadow: 0 1.3rem 2.6rem rgba(7,44,92,0.19); }
+.secondaryAction { color: #142744; background: #fff; border: 1px solid #dce3ed; box-shadow: 0 0.8rem 1.8rem rgba(25,47,79,0.06); }
+.primaryAction span, .secondaryAction span { width: 2.7rem; height: 2.7rem; display: grid; place-items: center; border-radius: 0.8rem; background: rgba(255,255,255,0.12); font-size: 1.2rem; }
+.secondaryAction span { color: #0b4aa6; background: #edf4ff; }
+.primaryAction strong, .secondaryAction strong { display: block; font-size: 1.05rem; }
+.primaryAction small, .secondaryAction small { display: block; margin-top: 0.32rem; color: #c5d7f1; line-height: 1.4; }
+.secondaryAction small { color: #718095; }
+.statusCard { margin-top: 1rem; padding: 1.3rem 1.45rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; color: #3e4d62; background: #fff; border: 1px solid #dce3ed; border-radius: 1.2rem; }
+.statusCard strong { color: #162b48; }
+.statusCard p { margin: 0.25rem 0 0; font-size: 0.82rem; }
+.statusCard span { color: #11734e; font-size: 0.75rem; font-weight: 800; }
+.disclaimer { margin: 2rem 0 0; color: #788599; font-size: 0.72rem; text-align: center; }
+@media (max-width: 48rem) { .welcome { align-items: flex-start; flex-direction: column; } .identity { width: 100%; } .quickGrid { grid-template-columns: 1fr; } .primaryAction, .secondaryAction { min-height: 8.5rem; } }
+@media (max-width: 32rem) { .header { padding: 0 0.75rem; } .header nav a { display: none; } .main { width: calc(100% - 1rem); } .welcome h1 { font-size: 2rem; } .statusCard { align-items: flex-start; flex-direction: column; } }

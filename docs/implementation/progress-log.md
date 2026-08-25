@@ -103,3 +103,18 @@ This is the append-only implementation record. Major updates record what changed
 - **Public documentation:** `docs/implementation/original-parity-audit.md`; `docs/implementation/checkpoints/deployable-product.md`; `docs/implementation/social-preview-prompt.md`
 - **Open:** User visual feedback, final public-host configuration, deployment smoke test and judge submission package.
 - **Next user action:** Review the finished product and provide one consolidated UI-change list. Public deployment follows that visual checkpoint.
+
+---
+
+## Update 007 — Real identity experience and one-click fictional access
+
+- **Date:** 25 August 2026
+- **Prompt:** Prompt 014
+- **Phase:** Production-style authentication slice
+- **Status:** Complete
+- **Changed:** Added distinct citizen sign-in and account-creation pages in the new India Next visual direction, a fictional registration autofill, one-click demo citizen provisioning, real Better Auth password hashing and session cookies, protected dashboard access, working sign-out and account-help guidance. The root route now enters through the new identity experience while the earlier citizen journey remains available behind the dashboard during the wider redesign.
+- **Database:** Applied the reviewed Better Auth tables and the required 1.7 issuer-identity migration to Neon through the HTTP migration path. Test identities use the reserved `.example` domain and contain no real citizen data.
+- **Validated:** Real account creation, persisted session entry, protected dashboard rendering and one-click demo access pass in compact and wide Chromium. Both identity pages pass the serious/critical automated accessibility check; the complete eighteen-test browser regression and production build pass.
+- **Public documentation:** `docs/implementation/checkpoints/identity-experience.md`
+- **Open:** Replace the legacy `/demo` presentation with the production-style filing, tracking, receipt and appeal routes; finish the public landing page and first-visit walkthrough.
+- **Next user action:** Review `/signin` and `/signup` as the representative visual direction for the wider redesign.

@@ -4,7 +4,7 @@ Last updated: 25 August 2026
 
 ## Phase
 
-The deployable proof-of-concept product is complete and awaiting the user's consolidated visual review. The free Neon project and reviewed schema are connected, while the event-permitted synthetic judge session keeps the full citizen experience reliable even when the free database sleeps. Better Auth and durable case persistence remain a documented production-path deferral, not a dependency of the public demonstration. User checkpoints and change control are defined in [docs/implementation/README.md](implementation/README.md).
+The deployable citizen journey baseline is undergoing a production-style product and visual rebuild. Real Better Auth email/password identities, Neon-backed sessions, separate sign-in/registration pages, one-click fictional evaluator access and a protected dashboard are now implemented. The earlier synthetic case flow remains behind the dashboard until its filing, tracking, receipt and appeal screens are rebuilt in the same India Next Civic direction. User checkpoints and change control are defined in [docs/implementation/README.md](implementation/README.md).
 
 ## Confirmed
 
@@ -35,7 +35,8 @@ The deployable proof-of-concept product is complete and awaiting the user's cons
 - Zero-cost demo decision: retain PostgreSQL and initially target Neon Free through a serverless driver; no payment method, paid add-on, or automatic paid overage is permitted.
 - Language parity decision: English plus all 22 scheduled Indian languages are interface targets. English/Hindi are reviewed first-class catalogues; other languages must be demoable with explicit translation provenance before submission freeze.
 - Identity decision: retain a restrained service masthead and accessible public-updates pattern, but do not use the State Emblem or present this unofficial prototype as a government-owned site.
-- Deadline decision: use the event-permitted mock backend for the deterministic judge journey while retaining Neon as the real relational deployment foundation; prioritize the complete consumer experience and a stable public URL over invisible authentication plumbing.
+- Identity decision: use Better Auth with Neon for real fictional accounts and sessions; retain one-click judge access without making the interface look like a judge-only prototype.
+- Deadline decision: keep government case actions synthetic while progressively replacing the client-only journey with real application persistence; prioritize a stable public URL and complete citizen value over simulated government integrations.
 
 ## Still open
 
@@ -47,7 +48,7 @@ The deployable proof-of-concept product is complete and awaiting the user's cons
 
 ## Current decision gate
 
-The five product gates remain frozen in [docs/architecture/09-finalized-development-gates.md](architecture/09-finalized-development-gates.md). Functional and deployability gates are complete for the proof of concept. The current decision is the user's consolidated visual refinement list before public deployment and submission packaging.
+The five product gates remain frozen in [docs/architecture/09-finalized-development-gates.md](architecture/09-finalized-development-gates.md). The current checkpoint is approval of `/signin` and `/signup` as the visual and interaction direction before rebuilding the public landing page and remaining citizen workflow.
 
 ## Guardrail
 

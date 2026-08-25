@@ -165,3 +165,17 @@ The entries in this section are temporary, faithful paraphrases of the planning-
 ### Prompt (verbatim)
 
 > lets finish the whole deplpoyable project first, ill tell the ui changes once evrything is done then we will start making is sumbission ready, so lets try finishing the project, also i want you to compare with the original website where we are lacking and re itrate to complete the project
+
+---
+
+## Prompt 014
+
+- **Date:** 25 August 2026
+- **Phase:** Production-style identity experience
+- **Purpose:** Replace the judge-only entry treatment with real sign-in and account-creation pages while retaining fast fictional access for evaluators.
+- **Result:** Added persistent Better Auth email/password accounts, separate responsive sign-in and registration pages, fictional-data autofill, one-click demo-citizen provisioning, protected dashboard entry and secure sign-out.
+- **Public record:** `docs/implementation/checkpoints/identity-experience.md`; `docs/implementation/progress-log.md`
+
+### Prompt (verbatim)
+
+> make actual pages of login/sign up with by adding some button to fill mock data and login quicky, but it should be there as i want to show them my vision

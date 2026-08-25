@@ -4,7 +4,7 @@ Working repository for the **Build What Moves India** hackathon.
 
 ## Current status
 
-CPGRAMS is the selected public-service candidate. The deployable synthetic proof of concept now contains the complete judge journey: instant fictional citizen access, describe-first intake, explainable and manually overridable routing, immediate acknowledgement, meaningful timeline, outcome-level Resolution Receipt, and context-preserving appeal.
+CPGRAMS is the selected public-service candidate. The product now includes persistent fictional citizen accounts, real password/session handling, separate sign-in and registration pages, one-click evaluator access, a protected dashboard, describe-first intake, explainable and manually overridable routing, immediate acknowledgement, meaningful timeline, outcome-level Resolution Receipt, and context-preserving appeal.
 
 The working product direction is **CPGRAMS Assured Journey**, an unofficial synthetic prototype covering describe-first intake, citizen-confirmed routing, immediate receipt, a durable timeline, a Resolution Receipt, and context-preserving appeal.
 
@@ -13,9 +13,11 @@ The working product direction is **CPGRAMS Assured Journey**, an unofficial synt
 1. Copy `.env.example` to `.env.local` and replace placeholders with a synthetic Neon connection and a private random authentication secret.
 2. Install the pinned dependencies with `pnpm install --frozen-lockfile`.
 3. Apply the reviewed schema with `pnpm db:migrate`.
-4. Start the site with `pnpm dev` and open `http://localhost:3000/demo`.
+4. Start the site with `pnpm dev` and open `http://localhost:3000`.
 
-The visible judge journey intentionally uses deterministic synthetic state, as permitted by the hackathon proof-of-concept rules. Neon provides the deployment-ready relational foundation and readiness check; no live CPGRAMS or real citizen system is contacted.
+Identity and sessions persist in Neon through Better Auth. The government case journey still uses deterministic synthetic state, as permitted by the hackathon proof-of-concept rules; no live CPGRAMS or real citizen system is contacted.
+
+For evaluation, choose **Enter as demo citizen** on `/signin`. The app creates or reuses the fictional account and signs in with a real server-issued session. `/signup` also provides editable fictional registration data.
 
 ## Validate
 
