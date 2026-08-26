@@ -41,13 +41,25 @@ export function PublicHome({ user }: { user: ShellUser }) {
             </div>
             <p className={styles.serviceNote}><span aria-hidden="true">●</span> Online grievance services are available 24 × 7. No fee is charged.</p>
           </div>
-          <aside className={styles.quickPanel} aria-label="Citizen services">
-            <div className={styles.panelHeader}><span aria-hidden="true">☸</span><div><strong>Citizen Services</strong><small lang="hi">नागरिक सेवाएं</small></div></div>
-            <Link href={user ? "/grievances/new" : "/signin?returnTo=/grievances/new"}><span>01</span><div><strong>Lodge grievance</strong><small>Register a new grievance</small></div><b aria-hidden="true">→</b></Link>
-            <Link href="/track"><span>02</span><div><strong>View status</strong><small>Track an existing grievance</small></div><b aria-hidden="true">→</b></Link>
-            <Link href={user ? "/dashboard" : "/signin"}><span>03</span><div><strong>Appeal</strong><small>Review eligible cases</small></div><b aria-hidden="true">→</b></Link>
-            <button onClick={() => { setTourStep(0); setTourOpen(true); }} type="button">Need help using the portal?</button>
-          </aside>
+          <div className={styles.heroAside}>
+            <section className={styles.culturalWelcome} aria-labelledby="citizen-reassurance">
+              <div className={styles.welcomeCopy}>
+                <p lang="hi">नागरिक सहायता</p>
+                <h2 id="citizen-reassurance" lang="hi">असुविधा के लिए<br />खेद है।</h2>
+                <span lang="hi">समाधान के लिए हम आपके साथ हैं।</span>
+              </div>
+              <div className={styles.jharokhaFrame}>
+                <Image alt="Woman greeting citizens with namaste" height={480} priority src="/culture/namaste-citizen-guide.png" width={320} />
+              </div>
+            </section>
+            <aside className={styles.quickPanel} aria-label="Citizen services">
+              <div className={styles.panelHeader}><span aria-hidden="true">☸</span><div><strong>Citizen Services</strong><small lang="hi">नागरिक सेवाएं</small></div></div>
+              <Link href={user ? "/grievances/new" : "/signin?returnTo=/grievances/new"}><span>01</span><div><strong>Lodge grievance</strong><small>Register a new grievance</small></div><b aria-hidden="true">→</b></Link>
+              <Link href="/track"><span>02</span><div><strong>View status</strong><small>Track an existing grievance</small></div><b aria-hidden="true">→</b></Link>
+              <Link href={user ? "/dashboard" : "/signin"}><span>03</span><div><strong>Appeal</strong><small>Review eligible cases</small></div><b aria-hidden="true">→</b></Link>
+              <button onClick={() => { setTourStep(0); setTourOpen(true); }} type="button">Need help using the portal?</button>
+            </aside>
+          </div>
         </div>
       </section>
 

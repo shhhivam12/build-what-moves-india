@@ -4,7 +4,7 @@ Last updated: 26 August 2026
 
 ## Phase
 
-The production-style civic product rebuild is complete and ready for user review. The public landing page, first-visit guidance, resilient identity entry, describe-first filing, citizen-confirmed route assistance, persistent dashboard, private tracking, case timeline, Action Taken Report and focused appeal now share one responsive modern tricolour government-portal system. User checkpoints and change control are defined in [docs/implementation/README.md](implementation/README.md).
+The production-style civic product rebuild is complete and ready for user review. The public landing page, first-visit guidance, resilient identity entry, describe-first filing, citizen-confirmed route assistance, persistent dashboard, private tracking, case timeline, Action Taken Report and focused appeal now share one responsive modern tricolour government-portal system with a restrained Rajasthani civic cultural layer. User checkpoints and change control are defined in [docs/implementation/README.md](implementation/README.md).
 
 ## Confirmed
 
@@ -31,11 +31,11 @@ The production-style civic product rebuild is complete and ready for user review
 - One deeply complete synthetic category journey before breadth.
 - Main evaluator fixture: a session-owned fictional telecommunications activation and ₹499 fee case, with one resolved and one partly resolved requested outcome. The quick evaluator account is Raghav Mehta.
 - Frozen initial catalogue: telecommunications, banking, labour/employment and posts; 48 publication-safe English/Hindi/Hinglish evaluation inputs.
-- Current design direction: a light saffron/ivory/green government-portal aesthetic with restrained glass surfaces, formal bilingual service language, compact official identity, semantic compact-first layouts, Noto English/Devanagari typography and WCAG 2.2 AA as the engineering target. This supersedes the earlier dark-blue Indian Civic Calm and India Next Civic presentation.
+- Current design direction: a light saffron/ivory/green government-portal aesthetic with restrained glass surfaces, formal bilingual service language, compact official identity, a subtle jharokha/jaali/mandana cultural layer, neutral numbered steps, semantic compact-first layouts, Noto English/Devanagari typography and WCAG 2.2 AA as the engineering target. This supersedes the earlier dark-blue Indian Civic Calm and India Next Civic presentation.
 - Zero-cost demo decision: retain PostgreSQL and initially target Neon Free through a serverless driver; no payment method, paid add-on, or automatic paid overage is permitted.
 - Language parity decision: English plus all 22 scheduled Indian languages are interface targets. English/Hindi are reviewed first-class catalogues; other languages must be demoable with explicit translation provenance before submission freeze.
 - Identity decision: use the unaltered official-source DARPG/CPGRAMS masthead at a restrained scale, formal government-style banners and a compact demonstration disclaimer. Do not imply endorsement or live government integration.
-- Identity decision: use Better Auth with Neon for real fictional accounts and sessions. If Neon does not respond within the evaluator budget, open an isolated HTTP-only sample session in roughly two seconds and preserve the complete fictional journey.
+- Identity decision: use Better Auth with Neon for fictional accounts entered through the normal sign-in and registration forms. The explicit sample-account action opens an isolated HTTP-only fictional session directly so an evaluator never waits on the free database.
 - Deadline decision: keep government case actions synthetic while progressively replacing the client-only journey with real application persistence; prioritize a stable public URL and complete citizen value over simulated government integrations.
 
 ## Still open
@@ -48,7 +48,7 @@ The production-style civic product rebuild is complete and ready for user review
 
 ## Current decision gate
 
-The five product gates remain the research baseline in [docs/architecture/09-finalized-development-gates.md](architecture/09-finalized-development-gates.md). The current checkpoint is the [1–3–10 grievance-record review](implementation/checkpoints/grievance-record-1-3-10.md), covering the compact masthead, dashboard density and the information hierarchy from status through Action Taken Report and appeal before public deployment.
+The five product gates remain the research baseline in [docs/architecture/09-finalized-development-gates.md](architecture/09-finalized-development-gates.md). The current checkpoint is the [Rajasthani civic cultural-layer review](implementation/checkpoints/rajasthani-civic-cultural-layer.md), covering cultural restraint, the homepage reassurance figure, neutral numbered steps and responsive presentation before public deployment.
 
 ## Guardrail
 

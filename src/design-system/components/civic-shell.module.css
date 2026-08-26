@@ -33,7 +33,8 @@
 .userMenu button { min-height:2.35rem; margin-left:.2rem; padding:.5rem .65rem; color:#40514b; background:rgba(255,255,255,.7); border:1px solid rgba(73,112,96,.2); border-radius:.65rem; cursor:pointer; font-size:.68rem; }
 .menuButton { display:none; }
 .compactContent { min-height:42rem; }
-.footer { color:#384b44; background:linear-gradient(115deg,#fff1e2,#fff 47%,#e7f5ee); border-top:1px solid rgba(76,119,101,.2); }
+.footer { position:relative; color:#384b44; background:linear-gradient(115deg,#fff1e2,#fff 47%,#e7f5ee); border-top:1px solid rgba(76,119,101,.2); }
+.footer::before { position:absolute; inset:0 0 auto; height:.45rem; opacity:.32; background:linear-gradient(135deg,transparent 42%,#9c5933 43% 57%,transparent 58%) 0 0/1rem 1rem; content:""; }
 .footerMain,.footerBottom { width:min(86rem,calc(100% - 2rem)); margin:0 auto; display:flex; justify-content:space-between; gap:2rem; }
 .footerMain { padding:2.4rem 0 1.7rem; }
 .footerMain strong { color:#26463b; font-size:.93rem; }

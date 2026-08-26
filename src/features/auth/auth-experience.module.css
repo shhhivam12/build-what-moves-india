@@ -11,9 +11,9 @@
 .story h1 em { color:#b85718; font-style:normal; }
 .storyCopy { max-width:39rem; margin:1.6rem 0 2.2rem; color:#5f7069; font-size:1.02rem; line-height:1.7; }
 .journey { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; max-width:43rem; position:relative; }
-.journey::before { position:absolute; top:1rem; left:2rem; right:2rem; height:2px; background:linear-gradient(90deg,var(--saffron),rgba(255,255,255,.9),var(--green)); content:""; }
+.journey::before { position:absolute; top:1rem; left:2rem; right:2rem; height:2px; background:#d9dedb; content:""; }
 .journey div { position:relative; padding-top:2.35rem; }
-.journey span { position:absolute; z-index:1; top:0; left:0; min-width:2rem; height:2rem; display:grid; place-items:center; color:#fff; background:linear-gradient(145deg,#ed7920,#0a8661); border:2px solid rgba(255,255,255,.8); border-radius:50%; font-size:.62rem; font-weight:800; }
+.journey span { position:absolute; z-index:1; top:0; left:0; min-width:2rem; height:2rem; display:grid; place-items:center; color:#3f4d47; background:#f7f6f2; border:1px solid #cfd7d2; border-radius:50%; font-size:.62rem; font-weight:800; }
 .journey strong,.journey small { display:block; }
 .journey strong { color:#385249; font-size:.84rem; margin-bottom:.3rem; }
 .journey small { color:#74817a; font-size:.68rem; line-height:1.45; }

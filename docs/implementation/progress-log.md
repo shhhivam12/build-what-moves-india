@@ -163,3 +163,19 @@ This is the append-only implementation record. Major updates record what changed
 - **Public documentation:** `docs/implementation/checkpoints/grievance-record-1-3-10.md`
 - **Open:** Final user visual approval, public deployment and submission packaging.
 - **Next user action:** Review `/dashboard` and `/grievances/CPG-DEMO-2026-001`, focusing on information order and whether the active stage and pending action are immediately clear.
+
+---
+
+## Update 011 — Rajasthani civic cultural layer and neutral numerals
+
+- **Date:** 26 August 2026
+- **Prompt:** Prompt 018
+- **Phase:** Cultural identity and visual comprehension
+- **Status:** Ready for user test
+- **Changed:** Added a responsive namaste citizen-service figure in a jharokha-inspired frame, the Hindi reassurance “असुविधा के लिए खेद है।” with a constructive support line, and low-contrast jaali/mandana geometry. Cultural elements remain outside dense form and case-record surfaces.
+- **Readability:** Replaced tricolour or status-coloured sequence numbers with a consistent neutral ink-and-ivory treatment across public services, authentication, filing, tracking, help and case progress.
+- **Resilience:** The sample-account button now opens the isolated fictional session directly, while the normal sign-in form remains the real Better Auth/Neon path.
+- **Validated:** Live desktop and 390 × 844 review, no compact horizontal overflow, transparent image load, neutral computed number styles, strict TypeScript, ESLint, seven unit/component tests, ten compact/wide judge journeys and production build.
+- **Public documentation:** `docs/implementation/checkpoints/rajasthani-civic-cultural-layer.md`
+- **Open:** User approval of the cultural restraint, figure style and Hindi reassurance before public deployment.
+- **Next user action:** Review `/` at desktop and compact widths, then confirm whether the cultural layer is approved or request one focused visual adjustment.

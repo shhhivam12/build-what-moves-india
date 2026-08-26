@@ -221,3 +221,17 @@ The entries in this section are temporary, faithful paraphrases of the planning-
 ### Prompt (verbatim)
 
 > this place is empty not looking good resuce size of main logo, also individual http://localhost:3000/grievances/CPG-DEMO-2026-001 is not clear, follow 1-3-10 sec rules with interactive visuals, right now it is very confusing ui , make it structured proper where important info is displayed first and , put , original website looks more clean and structutred than ours
+
+---
+
+## Prompt 018
+
+- **Date:** 26 August 2026
+- **Phase:** Rajasthani civic cultural layer
+- **Purpose:** Add a restrained Indian cultural identity to the grievance portal using a namaste service figure, humane Hindi reassurance and subtle Rajasthani architectural and geometric references while preserving task clarity and neutral numeric hierarchy.
+- **Result:** Added a responsive jharokha-inspired reassurance panel with a transparent namaste figure, subtle jaali and mandana accents, neutralised step numerals across the product and made one-click evaluator access independent of Neon availability.
+- **Public record:** `docs/implementation/checkpoints/rajasthani-civic-cultural-layer.md`; `docs/implementation/progress-log.md`; `docs/project-status.md`
+
+### Prompt (verbatim)
+
+> can we make it more for grievence like with indian rajasthani art elements in the website maybe, and a lady will be standing with namaste hands and tagline of the website maybe asuvidha ke liye khed hai, indian elemets should be very subtle but marvolouly beautiful showcasing indian culture, also dont put the tricolor on the numbers , number should be normal colors for clean reading

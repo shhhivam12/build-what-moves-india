@@ -206,4 +206,4 @@ User checkpoint 6:
 
 ## Current checkpoint
 
-Phases 0A–5 are complete for the proof of concept. The current light tricolour civic product and its compact 1–3–10 grievance record are ready for user testing under [the grievance-record checkpoint](checkpoints/grievance-record-1-3-10.md); public deployment and submission packaging remain in Phase 6. The real Neon/Better Auth path is primary, with a database-independent HTTP-only sample journey available within roughly two seconds when the free service is unavailable.
+Phases 0A–5 are complete for the proof of concept. The current light tricolour civic product, compact 1–3–10 grievance record and [subtle Rajasthani civic cultural layer](checkpoints/rajasthani-civic-cultural-layer.md) are ready for user testing; public deployment and submission packaging remain in Phase 6. The real Neon/Better Auth form path remains available, while the explicit sample-account action opens the database-independent fictional journey directly for reliable evaluator access.

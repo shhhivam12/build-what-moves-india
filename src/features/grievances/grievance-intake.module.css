@@ -17,12 +17,12 @@
 .steps small { font-size: .58rem; text-transform: uppercase; }
 .steps strong { margin-top: .1rem; font-size: .73rem; }
 .steps .current { color: #2b684f; background: #edf7f2; }
-.steps .current > span { color: #fff; background: #0a7f5c; }
+.steps .current > span { color: #35473f; background: #fff; border-color: #9eaaa4; box-shadow: 0 0 0 .2rem rgba(77,93,85,.08); }
 .steps .done { color: #127451; }
-.steps .done > span { color: #fff; background: #16865d; }
+.steps .done > span { color: #35473f; background: #f5f6f4; border: 1px solid #cfd7d2; }
 .workspace { min-height: 36rem; padding: clamp(1.25rem,3vw,2rem); background: #fff; border: 1px solid #dce3ed; border-radius: 1.1rem; box-shadow: 0 1rem 2.5rem rgba(25,48,81,.07); }
 .sectionTitle { margin-bottom: 1.7rem; display: flex; align-items: flex-start; gap: .85rem; }
-.sectionTitle > span { width: 2.7rem; height: 2.7rem; flex: 0 0 auto; display: grid; place-items: center; color: #0a7f5c; background: #edf7f2; border-radius: .7rem; font-size: .67rem; font-weight: 900; }
+.sectionTitle > span { width: 2.7rem; height: 2.7rem; flex: 0 0 auto; display: grid; place-items: center; color: #44534d; background: #f5f6f3; border: 1px solid #d5dcd7; border-radius: .7rem; font-size: .67rem; font-weight: 900; }
 .sectionTitle h2 { margin: 0; color: #102844; font-size: clamp(1.25rem,3vw,1.75rem); letter-spacing: -.025em; }
 .sectionTitle p { margin: .3rem 0 0; color: #69788d; font-size: .75rem; }
 .field { margin-bottom: 1.2rem; display: block; color: #233852; font-size: .78rem; font-weight: 800; }
@@ -48,7 +48,7 @@
 .sideHelp h2 { margin: 0; color: #2e4b41; font-size: 1rem; }
 .sideHelp ul { margin: 1rem 0; padding: 0; list-style: none; }
 .sideHelp li { padding: .6rem 0; display: flex; align-items: center; gap: .55rem; border-bottom: 1px solid rgba(70,105,91,.12); font-size: .68rem; }
-.sideHelp li span { width: 1.55rem; height: 1.55rem; display: grid; place-items: center; color: #fff; background: linear-gradient(145deg,#ee7b21,#0b8662); border-radius: .4rem; font-size: .57rem; font-weight: 850; }
+.sideHelp li span { width: 1.55rem; height: 1.55rem; display: grid; place-items: center; color: #44534d; background: #f5f6f3; border: 1px solid #d5dcd7; border-radius: .4rem; font-size: .57rem; font-weight: 850; }
 .sideHelp > p:not(.eyebrow) { color: #687970; font-size: .65rem; line-height: 1.55; }
 .sideHelp a { color: #176c50; font-size: .68rem; font-weight: 800; }
 .routeCard { margin-bottom: 1.3rem; overflow: hidden; border: 1px solid #cddcf0; border-radius: .9rem; }
@@ -67,7 +67,7 @@
 .outcomes h3 { color: #314b42; font-size: .85rem; }
 .outcomes p { margin-top: .25rem; color: #6d7c90; font-size: .65rem; }
 .outcomes label { margin-top: .75rem; display: grid; grid-template-columns: 2rem 1fr 2.4rem; align-items: center; }
-.outcomes label > span { height: 2.7rem; display: grid; place-items: center; color: #fff; background: #0a7f5c; border-radius: .6rem 0 0 .6rem; font-size: .65rem; font-weight: 850; }
+.outcomes label > span { height: 2.7rem; display: grid; place-items: center; color: #44534d; background: #f5f6f3; border: 1px solid #bdc9d9; border-right: 0; border-radius: .6rem 0 0 .6rem; font-size: .65rem; font-weight: 850; }
 .outcomes input { height: 2.7rem; padding: .65rem .75rem; border: 1px solid #bdc9d9; }
 .outcomes label button { height: 2.7rem; color: #73403b; background: #fff; border: 1px solid #bdc9d9; border-left: 0; border-radius: 0 .6rem .6rem 0; cursor: pointer; }
 .addOutcome { margin-top: .7rem; padding: .55rem; color: #0a7f5c; background: transparent; border: 0; cursor: pointer; font-size: .68rem; font-weight: 800; }

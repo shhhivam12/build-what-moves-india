@@ -45,28 +45,12 @@ export function AuthExperience({ mode }: { mode: Mode }) {
     return authClient.signIn.email({ email, password, rememberMe: remember });
   }
 
-  function withTimeout<T>(promise: Promise<T>, milliseconds = 1_200): Promise<T> {
-    return Promise.race([
-      promise,
-      new Promise<T>((_, reject) => window.setTimeout(() => reject(new Error("Database timeout")), milliseconds)),
-    ]);
-  }
-
   async function openMockAccount() {
     setNotice("Opening the sample account…");
     const response = await fetch("/api/demo-access", { method: "POST" });
     if (!response.ok) throw new Error("Sample access is temporarily unavailable.");
     await new Promise((resolve) => window.setTimeout(resolve, 450));
     await finishAuthentication();
-  }
-
-  async function provisionDatabaseDemo() {
-    const existing = await signIn(demoAccount.email, demoAccount.password);
-    if (!existing.error) return true;
-    const created = await authClient.signUp.email(demoAccount);
-    if (!created.error) return true;
-    const retry = await signIn(demoAccount.email, demoAccount.password);
-    return !retry.error;
   }
 
   async function finishAuthentication() {
@@ -110,16 +94,10 @@ export function AuthExperience({ mode }: { mode: Mode }) {
     setNotice("Checking sample account…");
 
     try {
-      const ready = await withTimeout(provisionDatabaseDemo(), 1_500).catch(() => false);
-      if (ready) await finishAuthentication();
-      else await openMockAccount();
+      await openMockAccount();
     } catch (caught) {
-      try {
-        await openMockAccount();
-      } catch {
-        setNotice("");
-        setError(caught instanceof Error ? caught.message : "Sample access is temporarily unavailable.");
-      }
+      setNotice("");
+      setError(caught instanceof Error ? caught.message : "Sample access is temporarily unavailable.");
     } finally {
       setPending(false);
     }

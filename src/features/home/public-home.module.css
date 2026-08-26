@@ -3,7 +3,7 @@
 .hero::before { width:31rem; height:31rem; top:-18rem; left:-7rem; background:rgba(244,122,31,.18); box-shadow:0 0 6rem rgba(244,122,31,.16); }
 .hero::after { width:34rem; height:34rem; right:-12rem; bottom:-21rem; background:rgba(8,127,91,.16); box-shadow:0 0 7rem rgba(8,127,91,.14); }
 .chakra { position:absolute; right:8%; top:8%; color:rgba(24,112,80,.07); font-size:clamp(14rem,27vw,26rem); line-height:1; transform:rotate(-9deg); }
-.heroInner { position:relative; z-index:1; width:min(82rem,calc(100% - 2rem)); min-height:35rem; margin:0 auto; padding:clamp(4rem,8vw,6.5rem) 0; display:grid; grid-template-columns:minmax(0,1.1fr) minmax(22rem,.7fr); gap:clamp(3rem,7vw,7rem); align-items:center; }
+.heroInner { position:relative; z-index:1; width:min(82rem,calc(100% - 2rem)); min-height:39rem; margin:0 auto; padding:clamp(3.2rem,6vw,5rem) 0; display:grid; grid-template-columns:minmax(0,1.05fr) minmax(28rem,.88fr); gap:clamp(2.5rem,5vw,5rem); align-items:center; }
 .hindiTitle { margin:0 0 .9rem; color:#a54b13; font-family:"Noto Sans Devanagari",sans-serif; font-size:clamp(.95rem,1.7vw,1.15rem); font-weight:700; }
 .hero h1 { max-width:48rem; margin:0; color:#25483c; font-size:clamp(3rem,6.3vw,5.9rem); letter-spacing:-.065em; line-height:.96; }
 .lead { max-width:43rem; margin:1.5rem 0 0; color:#53655e; font-size:clamp(1rem,1.6vw,1.16rem); line-height:1.65; }
@@ -14,7 +14,18 @@
 .primaryButton:hover,.secondaryButton:hover,.serviceCard:hover { transform:translateY(-3px); box-shadow:0 1rem 2.4rem rgba(83,77,51,.16); }
 .serviceNote { margin:1.4rem 0 0; display:flex; align-items:center; gap:.45rem; color:#5d6d65; font-size:.7rem; }
 .serviceNote span { color:#0a8b64; font-size:.55rem; }
-.quickPanel { overflow:hidden; padding:.75rem; background:rgba(255,255,255,.58); border:1px solid rgba(255,255,255,.86); border-radius:1.5rem; box-shadow:0 1.8rem 4rem rgba(93,70,39,.14),inset 0 1px rgba(255,255,255,.95); backdrop-filter:blur(24px); }
+.heroAside { display:grid; gap:.8rem; }
+.culturalWelcome { position:relative; min-height:14.25rem; overflow:hidden; padding:1.4rem 12.5rem 1.4rem 1.5rem; display:flex; align-items:center; background:linear-gradient(125deg,rgba(255,250,242,.88),rgba(255,255,255,.75)); border:1px solid rgba(131,92,55,.18); border-radius:1.5rem 1.5rem .65rem .65rem; box-shadow:0 1.3rem 3.2rem rgba(93,70,39,.1),inset 0 1px rgba(255,255,255,.96); backdrop-filter:blur(20px); }
+.culturalWelcome::before { position:absolute; inset:0; opacity:.13; background-image:linear-gradient(45deg,transparent 46%,#9b5a35 47% 53%,transparent 54%),linear-gradient(-45deg,transparent 46%,#9b5a35 47% 53%,transparent 54%); background-position:0 0,8px 0; background-size:16px 16px; mask-image:linear-gradient(90deg,rgba(0,0,0,.8),transparent 56%); content:""; pointer-events:none; }
+.culturalWelcome::after { position:absolute; inset:.55rem; border:1px solid rgba(153,91,47,.16); border-radius:1.15rem 1.15rem .45rem .45rem; content:""; pointer-events:none; }
+.welcomeCopy { position:relative; z-index:2; }
+.welcomeCopy p { margin:0 0 .45rem; color:#8a502e; font-family:"Noto Sans Devanagari",sans-serif; font-size:.68rem; font-weight:800; letter-spacing:.06em; }
+.welcomeCopy h2 { margin:0; color:#3d463f; font-family:"Noto Sans Devanagari",sans-serif; font-size:clamp(1.6rem,3vw,2.3rem); letter-spacing:-.035em; line-height:1.13; }
+.welcomeCopy span { max-width:12rem; margin-top:.65rem; display:block; color:#6e746d; font-family:"Noto Sans Devanagari",sans-serif; font-size:.74rem; font-weight:650; line-height:1.55; }
+.jharokhaFrame { position:absolute; z-index:1; right:.8rem; bottom:0; width:11.6rem; height:13.45rem; overflow:hidden; display:flex; justify-content:center; border:1px solid rgba(137,83,45,.22); border-bottom:0; border-radius:6rem 6rem 0 0; background:radial-gradient(circle at 50% 28%,rgba(255,255,255,.95),rgba(245,225,200,.52) 58%,rgba(164,95,51,.1)); box-shadow:inset 0 0 0 .45rem rgba(255,255,255,.38); }
+.jharokhaFrame::before { position:absolute; z-index:2; inset:.45rem; border:1px solid rgba(141,84,45,.18); border-bottom:0; border-radius:5.5rem 5.5rem 0 0; content:""; pointer-events:none; }
+.jharokhaFrame img { width:auto; height:15.2rem; margin-top:.2rem; object-fit:contain; filter:drop-shadow(0 .7rem 1rem rgba(65,47,35,.15)); }
+.quickPanel { overflow:hidden; padding:.75rem; background:rgba(255,255,255,.62); border:1px solid rgba(255,255,255,.88); border-radius:.65rem .65rem 1.5rem 1.5rem; box-shadow:0 1.2rem 3rem rgba(93,70,39,.11),inset 0 1px rgba(255,255,255,.95); backdrop-filter:blur(24px); }
 .panelHeader { padding:.8rem .85rem 1rem; display:flex; align-items:center; gap:.7rem; border-bottom:1px solid rgba(77,106,94,.13); }
 .panelHeader > span { width:2.55rem; height:2.55rem; display:grid; place-items:center; color:#fff; background:linear-gradient(145deg,#ee791e,#098561); border-radius:.78rem; }
 .panelHeader strong,.panelHeader small { display:block; }
@@ -22,7 +33,7 @@
 .panelHeader small { margin-top:.15rem; color:#718078; font-family:"Noto Sans Devanagari",sans-serif; font-size:.65rem; }
 .quickPanel > a { padding:.9rem .8rem; display:grid; grid-template-columns:2.25rem 1fr auto; align-items:center; gap:.7rem; color:inherit; border-bottom:1px solid rgba(77,106,94,.11); border-radius:.8rem; text-decoration:none; transition:background .2s ease,transform .2s ease; }
 .quickPanel > a:hover { background:rgba(255,255,255,.7); transform:translateX(.18rem); }
-.quickPanel > a > span { width:2.1rem; height:2.1rem; display:grid; place-items:center; color:#fff; background:linear-gradient(145deg,#f18a3d,#118966); border-radius:.65rem; font-size:.59rem; font-weight:850; }
+.quickPanel > a > span { width:2.1rem; height:2.1rem; display:grid; place-items:center; color:#3f4d47; background:#f5f4ef; border:1px solid #d8ddd8; border-radius:.65rem; font-size:.59rem; font-weight:850; }
 .quickPanel a strong,.quickPanel a small { display:block; }
 .quickPanel a strong { color:#314b42; font-size:.77rem; }
 .quickPanel a small { margin-top:.15rem; color:#75827b; font-size:.62rem; }
@@ -41,7 +52,8 @@
 .alertBanner { color:#4e4c31; background:rgba(255,253,232,.92); }
 .alertBanner > span { width:2.65rem; height:2.65rem; flex:0 0 auto; display:grid; place-items:center; color:#fff; background:#9a8121; border-radius:.75rem; font-weight:850; }
 .serviceSection,.processSection,.informationGrid,.ecosystem { width:min(82rem,calc(100% - 2rem)); margin:0 auto; }
-.serviceSection { padding:clamp(4rem,7vw,6rem) 0; }
+.serviceSection { position:relative; padding:clamp(4rem,7vw,6rem) 0; }
+.serviceSection::before { position:absolute; top:1.7rem; left:50%; width:min(28rem,72vw); height:.55rem; opacity:.3; background:linear-gradient(135deg,transparent 42%,#a65b31 43% 57%,transparent 58%) 0 0/1rem 1rem; mask-image:linear-gradient(90deg,transparent,#000 25% 75%,transparent); content:""; transform:translateX(-50%); }
 .sectionHeading { margin-bottom:1.5rem; display:flex; align-items:flex-end; justify-content:space-between; gap:1rem; }
 .sectionHeading p,.sectionHeading h2 { margin:0; }
 .sectionHeading p,.processIntro > p { color:#a24b16; font-size:.7rem; font-weight:850; letter-spacing:.08em; text-transform:uppercase; }
@@ -59,7 +71,7 @@
 .processIntro span { display:block; margin-top:1rem; color:#6a7972; font-size:.76rem; line-height:1.6; }
 .processSection ol { margin:0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:.8rem; list-style:none; }
 .processSection li { padding:1rem; display:flex; gap:.8rem; background:rgba(255,255,255,.7); border:1px solid rgba(72,111,95,.13); border-radius:.9rem; }
-.processSection li > span { width:2.15rem; height:2.15rem; flex:0 0 auto; display:grid; place-items:center; color:#fff; background:linear-gradient(145deg,#ee7c23,#0c8964); border-radius:.65rem; font-size:.58rem; font-weight:850; }
+.processSection li > span { width:2.15rem; height:2.15rem; flex:0 0 auto; display:grid; place-items:center; color:#3f4d47; background:#f7f6f2; border:1px solid #d8ddd8; border-radius:.65rem; font-size:.58rem; font-weight:850; }
 .processSection strong,.processSection small { display:block; }
 .processSection strong { font-size:.78rem; }
 .processSection small { margin-top:.25rem; color:#748078; font-size:.63rem; line-height:1.45; }
@@ -95,6 +107,6 @@
 .tourActions { display:flex; justify-content:space-between; gap:.7rem; }
 .tourActions button { min-height:2.9rem; padding:.7rem .9rem; color:#465a52; background:#fff; border:1px solid #d4ddd8; border-radius:.75rem; cursor:pointer; font-weight:800; }
 .tourActions button:last-child { color:#fff; background:linear-gradient(115deg,#e86d1c,#0a8661); border-color:transparent; }
-@media (max-width:68rem) { .heroInner { grid-template-columns:1fr; } .quickPanel { width:min(36rem,100%); } .noticeBand { grid-template-columns:1fr 1fr; } .alertBanner { grid-column:1/-1; } .serviceGrid { grid-template-columns:1fr 1fr; } }
+@media (max-width:68rem) { .heroInner { grid-template-columns:1fr; } .heroAside { width:min(40rem,100%); } .quickPanel { width:100%; } .noticeBand { grid-template-columns:1fr 1fr; } .alertBanner { grid-column:1/-1; } .serviceGrid { grid-template-columns:1fr 1fr; } }
 @media (max-width:48rem) { .processSection,.informationGrid { grid-template-columns:1fr; } .processSection { padding:1.25rem; } }
-@media (max-width:36rem) { .heroInner { width:calc(100% - 1.25rem); min-height:0; padding:3.2rem 0 4rem; } .hero h1 { font-size:2.9rem; } .heroActions a { width:100%; } .noticeBand,.serviceGrid { grid-template-columns:1fr; } .alertBanner { grid-column:auto; } .serviceCard { min-height:11.5rem; } .sectionHeading { align-items:flex-start; flex-direction:column; } .processSection ol { grid-template-columns:1fr; } .publicNotice ul { columns:1; } .ecosystem { align-items:flex-start; flex-direction:column; } }
+@media (max-width:36rem) { .heroInner { width:calc(100% - 1.25rem); min-height:0; padding:3.2rem 0 4rem; } .hero h1 { font-size:2.9rem; } .heroActions a { width:100%; } .culturalWelcome { min-height:12.75rem; padding:1.15rem 8.7rem 1.15rem 1.05rem; } .welcomeCopy h2 { font-size:1.5rem; } .welcomeCopy span { font-size:.66rem; } .jharokhaFrame { right:.35rem; width:8.4rem; height:12rem; } .jharokhaFrame img { height:13rem; } .noticeBand,.serviceGrid { grid-template-columns:1fr; } .alertBanner { grid-column:auto; } .serviceCard { min-height:11.5rem; } .sectionHeading { align-items:flex-start; flex-direction:column; } .processSection ol { grid-template-columns:1fr; } .publicNotice ul { columns:1; } .ecosystem { align-items:flex-start; flex-direction:column; } }
