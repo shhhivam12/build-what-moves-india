@@ -149,3 +149,17 @@ This is the append-only implementation record. Major updates record what changed
 - **Public documentation:** `docs/implementation/checkpoints/tricolour-government-portal-redesign.md`
 - **Open:** User visual review, public deployment and submission packaging.
 - **Next user action:** Review the complete experience at `/`, especially the homepage identity, tricolour balance, sign-in fallback and compact layout; provide one consolidated visual correction list.
+
+---
+
+## Update 010 — Compact masthead and 1–3–10 grievance record
+
+- **Date:** 26 August 2026
+- **Prompt:** Prompt 017
+- **Phase:** Dashboard density and grievance-detail comprehension
+- **Status:** Ready for user test
+- **Changed:** Reduced the official identity block, navigation height, dashboard opening space and greeting scale. Rebuilt the grievance record around a 1–3–10 second hierarchy: identity/status first, at-a-glance facts and progress second, then outcome evidence, history and appeal. Added page jump links, completed/pending outcome treatments, a four-stage progress visual and progressive disclosure for the original requested relief.
+- **Validated:** Live browser inspection at desktop and 390 × 844; no compact horizontal overflow; strict TypeScript, ESLint and seven unit/component tests pass; the targeted compact/wide filing and Action Taken Report/appeal journeys pass with no serious or critical automated accessibility findings.
+- **Public documentation:** `docs/implementation/checkpoints/grievance-record-1-3-10.md`
+- **Open:** Final user visual approval, public deployment and submission packaging.
+- **Next user action:** Review `/dashboard` and `/grievances/CPG-DEMO-2026-001`, focusing on information order and whether the active stage and pending action are immediately clear.

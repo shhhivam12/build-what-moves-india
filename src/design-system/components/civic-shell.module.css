@@ -9,15 +9,15 @@
 .govStrip span:first-child { font-family:"Noto Sans Devanagari",sans-serif; font-weight:700; }
 .utilityLinks a { color:#40514b; text-decoration:none; }
 .utilityLinks a:hover { text-decoration:underline; }
-.identityRow { width:min(86rem,calc(100% - 2rem)); min-height:5.9rem; margin:0 auto; display:flex; align-items:center; gap:1.4rem; }
-.department { display:block; width:min(24rem,48vw); }
+.identityRow { width:min(86rem,calc(100% - 2rem)); min-height:4.05rem; margin:0 auto; display:flex; align-items:center; gap:1rem; }
+.department { display:block; width:min(14.75rem,38vw); }
 .department img { display:block; width:100%; height:auto; }
 .serviceBrand { margin-left:auto; text-align:right; }
-.serviceBrand strong { display:block; color:var(--green-deep); font-size:clamp(1.15rem,2vw,1.55rem); letter-spacing:.05em; }
+.serviceBrand strong { display:block; color:var(--green-deep); font-size:clamp(1.05rem,1.6vw,1.35rem); letter-spacing:.05em; }
 .serviceBrand span { display:block; margin-top:.2rem; color:#6c776f; font-family:"Noto Sans Devanagari",sans-serif; font-size:.68rem; font-weight:650; }
-.navigation { min-height:3.65rem; padding:0 max(1rem,calc((100% - 86rem)/2)); display:flex; align-items:center; justify-content:space-between; gap:1rem; background:linear-gradient(100deg,rgba(255,238,220,.94),rgba(255,255,255,.96) 45%,rgba(222,244,235,.94)); border-top:1px solid rgba(196,147,84,.12); border-bottom:1px solid rgba(65,124,101,.18); }
+.navigation { min-height:3.3rem; padding:0 max(1rem,calc((100% - 86rem)/2)); display:flex; align-items:center; justify-content:space-between; gap:1rem; background:linear-gradient(100deg,rgba(255,238,220,.94),rgba(255,255,255,.96) 45%,rgba(222,244,235,.94)); border-top:1px solid rgba(196,147,84,.12); border-bottom:1px solid rgba(65,124,101,.18); }
 .navLinks,.navTools,.authLinks,.userMenu { display:flex; align-items:center; }
-.navLinks > a { min-height:3.65rem; padding:0 .9rem; display:grid; place-items:center; color:#354640; border-bottom:.2rem solid transparent; text-decoration:none; font-size:.78rem; font-weight:750; transition:color .2s ease,background .2s ease,border-color .2s ease; }
+.navLinks > a { min-height:3.3rem; padding:0 .9rem; display:grid; place-items:center; color:#354640; border-bottom:.2rem solid transparent; text-decoration:none; font-size:.76rem; font-weight:750; transition:color .2s ease,background .2s ease,border-color .2s ease; }
 .navLinks > a:hover,.navLinks > a.active { color:var(--green-deep); background:rgba(255,255,255,.58); border-bottom-color:var(--saffron); }
 .navTools { gap:.65rem; }
 .navTools select { min-height:2.55rem; max-width:9rem; padding:.5rem 2rem .5rem .7rem; color:#354640; background:rgba(255,255,255,.82); border:1px solid rgba(73,112,96,.22); border-radius:.75rem; font-size:.72rem; font-weight:700; }
@@ -57,8 +57,8 @@
 }
 @media (max-width:44rem) {
   .govStrip { justify-content:center; }
-  .identityRow { min-height:5.1rem; gap:.7rem; }
-  .department { width:min(19rem,calc(100% - 3.5rem)); }
+  .identityRow { min-height:3.9rem; gap:.7rem; }
+  .department { width:min(13.75rem,calc(100% - 3.5rem)); }
   .serviceBrand { display:none; }
   .footerMain,.footerBottom { align-items:flex-start; flex-direction:column; }
   .footerMain nav { flex-direction:column; }

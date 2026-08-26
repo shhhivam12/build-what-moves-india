@@ -206,4 +206,4 @@ User checkpoint 6:
 
 ## Current checkpoint
 
-Phases 0A–5 are complete for the proof of concept. The current light tricolour civic product is ready for user testing under [the tricolour government portal checkpoint](checkpoints/tricolour-government-portal-redesign.md); public deployment and submission packaging remain in Phase 6. The real Neon/Better Auth path is primary, with a database-independent HTTP-only sample journey available within roughly two seconds when the free service is unavailable.
+Phases 0A–5 are complete for the proof of concept. The current light tricolour civic product and its compact 1–3–10 grievance record are ready for user testing under [the grievance-record checkpoint](checkpoints/grievance-record-1-3-10.md); public deployment and submission packaging remain in Phase 6. The real Neon/Better Auth path is primary, with a database-independent HTTP-only sample journey available within roughly two seconds when the free service is unavailable.

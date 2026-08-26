@@ -48,7 +48,7 @@ The production-style civic product rebuild is complete and ready for user review
 
 ## Current decision gate
 
-The five product gates remain the research baseline in [docs/architecture/09-finalized-development-gates.md](architecture/09-finalized-development-gates.md). The current checkpoint is the [tricolour government portal review](implementation/checkpoints/tricolour-government-portal-redesign.md), covering `/` through filing, tracking, Action Taken Report and appeal before public deployment.
+The five product gates remain the research baseline in [docs/architecture/09-finalized-development-gates.md](architecture/09-finalized-development-gates.md). The current checkpoint is the [1–3–10 grievance-record review](implementation/checkpoints/grievance-record-1-3-10.md), covering the compact masthead, dashboard density and the information hierarchy from status through Action Taken Report and appeal before public deployment.
 
 ## Guardrail
 

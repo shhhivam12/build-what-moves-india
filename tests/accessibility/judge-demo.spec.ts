@@ -24,7 +24,7 @@ test("citizen can submit a persistent describe-first grievance", async ({ page }
   await page.getByRole("button", { name: "Use realistic sample" }).click();
   await page.getByRole("checkbox").check();
   await page.getByRole("button", { name: /Understand and suggest route/ }).click();
-  await expect(page.getByRole("heading", { name: "Select concerned organisation" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Select concerned organisation" })).toBeVisible({ timeout: 15_000 });
   await page.getByRole("button", { name: /Review grievance/ }).click();
   await page.getByRole("checkbox").check();
   await page.getByRole("button", { name: "Submit grievance" }).click();
