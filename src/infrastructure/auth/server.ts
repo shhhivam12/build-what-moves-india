@@ -12,7 +12,7 @@ const localDevelopmentOrigins = process.env.NODE_ENV === "development"
   : [];
 
 export const auth = betterAuth({
-  appName: "CPGRAMS Assured Journey",
+  appName: "CPGRAMS",
   baseURL: env.BETTER_AUTH_URL,
   secret: env.BETTER_AUTH_SECRET,
   trustedOrigins: [...new Set([...env.AUTH_TRUSTED_ORIGINS, ...localDevelopmentOrigins])],

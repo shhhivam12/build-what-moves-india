@@ -33,7 +33,7 @@ export async function ensureSampleGrievance(userId: string) {
     { grievanceId: created.id, title: "Grievance received", detail: "Both requested outcomes were recorded and the reference was created.", actor: "CPGRAMS intake", state: "acknowledged", occurredAt: new Date(Date.now() - 86_400_000 * 3) },
     { grievanceId: created.id, title: "Route confirmed", detail: "The case was assigned to the telecommunications service route.", actor: "Routing assistance", state: "routed", occurredAt: new Date(Date.now() - 86_400_000 * 2.5) },
     { grievanceId: created.id, title: "Service activation completed", detail: "A demonstration activation confirmation was added to the case.", actor: "Service grievance officer", state: "action-recorded", occurredAt: new Date(Date.now() - 86_400_000) },
-    { grievanceId: created.id, title: "Resolution Receipt issued", detail: "Activation is resolved; evidence for the ₹499 reversal is still missing.", actor: "Resolution assurance", state: "partly-resolved", occurredAt: new Date(Date.now() - 3_600_000) },
+    { grievanceId: created.id, title: "Action Taken Report issued", detail: "Activation is complete. Evidence for the ₹499 reversal is still pending.", actor: "Grievance Officer", state: "partly-resolved", occurredAt: new Date(Date.now() - 3_600_000) },
   ]);
   await db.insert(grievanceOutcome).values([
     { grievanceId: created.id, requested: "Activate the mobile service", result: "resolved", actionTaken: "Activation instruction completed", evidence: "Demonstration activation confirmation", remainingGap: "Nothing remains for this outcome", sortOrder: "1" },
@@ -74,7 +74,7 @@ export async function createAppealForUser(userId: string, caseReference: string,
   if (!record) return null;
   const [appeal] = await db.insert(grievanceAppeal).values({ grievanceId: record.id, userId, reference: reference("APL"), disputedOutcome, reason }).returning();
   if (!appeal) throw new Error("The appeal could not be created.");
-  await db.insert(grievanceEvent).values({ grievanceId: record.id, title: "Focused appeal received", detail: `The appeal carries forward the case history and disputes: ${disputedOutcome}.`, actor: "Appeal intake", state: "appeal-received" });
+  await db.insert(grievanceEvent).values({ grievanceId: record.id, title: "Appeal received", detail: `The appeal concerns the pending action: ${disputedOutcome}.`, actor: "Appeal authority", state: "appeal-received" });
   await db.update(grievance).set({ status: "appeal-received", updatedAt: new Date() }).where(eq(grievance.id, record.id));
   return appeal;
 }

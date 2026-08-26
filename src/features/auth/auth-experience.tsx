@@ -45,13 +45,28 @@ export function AuthExperience({ mode }: { mode: Mode }) {
     return authClient.signIn.email({ email, password, rememberMe: remember });
   }
 
-  async function retryDemoSignIn() {
-    for (let attempt = 0; attempt < 3; attempt += 1) {
-      const retry = await signIn(demoAccount.email, demoAccount.password);
-      if (!retry.error) return true;
-      await new Promise((resolve) => window.setTimeout(resolve, 500 * (attempt + 1)));
-    }
-    return false;
+  function withTimeout<T>(promise: Promise<T>, milliseconds = 1_200): Promise<T> {
+    return Promise.race([
+      promise,
+      new Promise<T>((_, reject) => window.setTimeout(() => reject(new Error("Database timeout")), milliseconds)),
+    ]);
+  }
+
+  async function openMockAccount() {
+    setNotice("Opening the sample account…");
+    const response = await fetch("/api/demo-access", { method: "POST" });
+    if (!response.ok) throw new Error("Sample access is temporarily unavailable.");
+    await new Promise((resolve) => window.setTimeout(resolve, 450));
+    await finishAuthentication();
+  }
+
+  async function provisionDatabaseDemo() {
+    const existing = await signIn(demoAccount.email, demoAccount.password);
+    if (!existing.error) return true;
+    const created = await authClient.signUp.email(demoAccount);
+    if (!created.error) return true;
+    const retry = await signIn(demoAccount.email, demoAccount.password);
+    return !retry.error;
   }
 
   async function finishAuthentication() {
@@ -92,25 +107,19 @@ export function AuthExperience({ mode }: { mode: Mode }) {
     setForm(demoAccount);
     setPending(true);
     setError("");
-    setNotice("Preparing the fictional citizen account…");
+    setNotice("Checking sample account…");
 
     try {
-      const existing = await signIn(demoAccount.email, demoAccount.password);
-      if (!existing.error) {
-        await finishAuthentication();
-        return;
-      }
-
-      const created = await authClient.signUp.email(demoAccount);
-      if (created.error) {
-        const recovered = await retryDemoSignIn();
-        if (!recovered) throw new Error("Demo access is temporarily unavailable. Please try again.");
-      }
-
-      await finishAuthentication();
+      const ready = await withTimeout(provisionDatabaseDemo(), 1_500).catch(() => false);
+      if (ready) await finishAuthentication();
+      else await openMockAccount();
     } catch (caught) {
-      setNotice("");
-      setError(caught instanceof Error ? caught.message : "Demo access is temporarily unavailable.");
+      try {
+        await openMockAccount();
+      } catch {
+        setNotice("");
+        setError(caught instanceof Error ? caught.message : "Sample access is temporarily unavailable.");
+      }
     } finally {
       setPending(false);
     }
@@ -134,34 +143,34 @@ export function AuthExperience({ mode }: { mode: Mode }) {
       <div className={styles.ambient} aria-hidden="true"><span /><span /><span /></div>
       <section className={styles.layout}>
         <div className={styles.story}>
-          <p className={styles.kicker}><span aria-hidden="true">●</span> One account. Every grievance. Clear progress.</p>
-          <h1>{isSignIn ? <>Welcome back to a <em>clearer</em> grievance journey.</> : <>Your voice deserves a <em>traceable</em> outcome.</>}</h1>
-          <p className={styles.storyCopy}>{isSignIn ? "Sign in to lodge a grievance, follow every action, and challenge only what remains unresolved." : "Create one secure citizen account to file, track and appeal without repeatedly entering the same information."}</p>
+          <p className={styles.kicker}>Centralised Public Grievance Redress and Monitoring System</p>
+          <h1>{isSignIn ? <>Citizen <em>Sign In</em></> : <>Citizen <em>Registration</em></>}</h1>
+          <p className={styles.storyCopy}>{isSignIn ? "Access your grievance dashboard using the registered email address and password." : "Register to lodge public grievances and view action taken by the concerned organisation."}</p>
 
           <div className={styles.journey} aria-label="Service journey">
-            <div><span>01</span><strong>Speak or type</strong><small>Explain the issue in your own words</small></div>
-            <div><span>02</span><strong>Confirm the route</strong><small>Assistance suggests; you decide</small></div>
-            <div><span>03</span><strong>Track the outcome</strong><small>See action, evidence and next steps</small></div>
+            <div><span>01</span><strong>Register grievance</strong><small>Submit public service details</small></div>
+            <div><span>02</span><strong>View status</strong><small>Check action taken</small></div>
+            <div><span>03</span><strong>File appeal</strong><small>For eligible disposed cases</small></div>
           </div>
 
           <aside className={styles.trustCard}>
-            <span className={styles.pulse} aria-hidden="true" />
-            <div><strong>Designed for every citizen</strong><small>Mobile-first · Keyboard accessible · Multilingual-ready</small></div>
+            <span aria-hidden="true">₹0</span>
+            <div><strong>No fee is charged</strong><small>Online grievance services are available 24 × 7</small></div>
           </aside>
         </div>
 
         <section className={styles.card} aria-labelledby="auth-title" aria-describedby={descriptionId}>
           <div className={styles.cardTopline} aria-hidden="true"><i /><i /><i /></div>
           <div className={styles.cardHeader}>
-            <p>{isSignIn ? "Citizen sign in" : "Create citizen account"}</p>
-            <h2 id="auth-title">{isSignIn ? "Continue your journey" : "Get started securely"}</h2>
-            <span id={descriptionId}>{isSignIn ? "Use your email and password, or enter instantly with the fictional demonstration account." : "Use fictional details for this concept environment. No OTP or real identity document is required."}</span>
+            <p>{isSignIn ? "Registered citizen" : "New citizen"}</p>
+            <h2 id="auth-title">{isSignIn ? "Sign in to CPGRAMS" : "Create citizen account"}</h2>
+            <span id={descriptionId}>{isSignIn ? "Enter your registered email address and password." : "Enter the required details to create an account. Use fictional information in this demonstration environment."}</span>
           </div>
 
           {isSignIn ? (
             <button className={styles.demoButton} disabled={pending} onClick={useDemoCitizen} type="button">
               <span className={styles.demoAvatar} aria-hidden="true">RM</span>
-              <span><strong>{pending ? "Preparing account…" : "Enter as demo citizen"}</strong><small>One-click fictional access for evaluation</small></span>
+              <span><strong>{pending ? "Opening sample account…" : "Continue with sample account"}</strong><small>Available even if the demonstration database is unavailable</small></span>
               <b aria-hidden="true">→</b>
             </button>
           ) : (

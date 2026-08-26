@@ -1,10 +1,9 @@
-import { headers } from "next/headers";
 import { PublicHome } from "@/src/features/home/public-home";
-import { auth } from "@/src/infrastructure/auth/server";
+import { getCitizenSession } from "@/src/infrastructure/auth/citizen-session";
 
 export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
-  const session = await auth.api.getSession({ headers: await headers() });
+  const session = await getCitizenSession();
   return <PublicHome user={session ? { name: session.user.name, email: session.user.email } : null} />;
 }

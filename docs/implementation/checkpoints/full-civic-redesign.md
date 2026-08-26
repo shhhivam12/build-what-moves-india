@@ -1,5 +1,7 @@
 # Full civic product redesign checkpoint
 
+> Superseded on 26 August 2026 by the [tricolour government portal redesign](tricolour-government-portal-redesign.md). This file remains as implementation history.
+
 Date: 26 August 2026
 Status: Ready for user test
 

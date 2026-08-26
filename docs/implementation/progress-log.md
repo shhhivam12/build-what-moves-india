@@ -134,3 +134,18 @@ This is the append-only implementation record. Major updates record what changed
 - **Public documentation:** `docs/implementation/checkpoints/full-civic-redesign.md`
 - **Known limitations:** Fictional data only; no live CPGRAMS, identity, notification, upload-scanning, voice or officer integration; public hosting remains pending.
 - **Next user action:** Test the complete journey from `/` and provide one consolidated blocking-change list. Public deployment and submission packaging follow approval.
+
+---
+
+## Update 009 — Modern tricolour government portal and resilient evaluator mode
+
+- **Date:** 26 August 2026
+- **Prompt:** Prompt 016
+- **Phase:** Visual-direction replacement and demonstration hardening
+- **Status:** Ready for user test
+- **Changed:** Replaced the dark-blue India Next Civic treatment with a light saffron/ivory/green glass system; reduced the official masthead; added formal bilingual identity, government-style service banners and restrained motion; removed design claims, marketing language, prototype narration and hard-coded-persona presentation from public pages.
+- **Resilience:** Kept Better Auth and Neon as the primary path, but isolated a database-independent HTTP-only sample session. The sample action waits 1.5 seconds for Neon, then enters a complete fictional dashboard, filing, tracking, Action Taken Report and appeal journey within roughly two seconds. Sign-out is also bounded.
+- **Validated:** Strict TypeScript, ESLint, seven unit/component tests and twenty-two compact/wide Chromium journeys pass. Tested accessibility paths contain no serious or critical automated findings. The local homepage returns HTTP 200.
+- **Public documentation:** `docs/implementation/checkpoints/tricolour-government-portal-redesign.md`
+- **Open:** User visual review, public deployment and submission packaging.
+- **Next user action:** Review the complete experience at `/`, especially the homepage identity, tricolour balance, sign-in fallback and compact layout; provide one consolidated visual correction list.

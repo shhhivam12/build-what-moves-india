@@ -1,15 +1,16 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { CivicShell, type ShellUser } from "@/src/design-system/components/civic-shell";
 import styles from "./public-home.module.css";
 
-const serviceCards = [
-  { icon: "◎", title: "Lodge a grievance", body: "Explain the problem in your words. We suggest a route; you stay in control.", href: "/grievances/new", tone: "primary" },
-  { icon: "⌁", title: "Track progress", body: "See who acted, what changed, and when the next update is due.", href: "/track", tone: "blue" },
-  { icon: "✓", title: "Understand the outcome", body: "Compare every request with the action and evidence recorded.", href: "/dashboard", tone: "green" },
-  { icon: "↗", title: "Make a focused appeal", body: "Challenge only the unresolved part without starting again.", href: "/dashboard", tone: "saffron" },
+const citizenServices = [
+  { icon: "＋", title: "Lodge Public Grievance", body: "Register a grievance relating to public service delivery.", href: "/grievances/new", tone: "saffron" },
+  { icon: "⌕", title: "View Grievance Status", body: "Check the latest action using your registration number.", href: "/track", tone: "green" },
+  { icon: "↗", title: "File an Appeal", body: "Submit an appeal for an eligible closed grievance.", href: "/dashboard", tone: "white" },
+  { icon: "◎", title: "Pension Grievance", body: "Proceed to the dedicated pension grievance service.", href: "/help#eligible", tone: "white" },
 ] as const;
 
 export function PublicHome({ user }: { user: ShellUser }) {
@@ -28,62 +29,52 @@ export function PublicHome({ user }: { user: ShellUser }) {
   return <CivicShell user={user}>
     <main id="main-content">
       <section className={styles.hero}>
-        <div className={styles.heroGlow} aria-hidden="true" />
+        <div className={styles.chakra} aria-hidden="true">☸</div>
         <div className={styles.heroInner}>
           <div className={styles.heroCopy}>
-            <p className={styles.kicker}><span>New citizen journey</span> Public grievances, made understandable</p>
-            <h1>Your grievance should not disappear into a <em>black box.</em></h1>
-            <p className={styles.lead}>Describe the issue once. Confirm where it goes. Follow every action. Appeal only what remains unresolved.</p>
+            <p className={styles.hindiTitle} lang="hi">केंद्रीकृत लोक शिकायत निवारण और निगरानी प्रणाली</p>
+            <h1>Public Grievance<br />Redressal Portal</h1>
+            <p className={styles.lead}>Lodge and monitor grievances relating to public service delivery by Central and State Government organisations.</p>
             <div className={styles.heroActions}>
-              <Link className={styles.primaryButton} href={user ? "/grievances/new" : "/signin?returnTo=/grievances/new"}>Lodge a grievance <span aria-hidden="true">→</span></Link>
-              <Link className={styles.secondaryButton} href="/track">Track a reference <span aria-hidden="true">⌁</span></Link>
+              <Link className={styles.primaryButton} href={user ? "/grievances/new" : "/signin?returnTo=/grievances/new"}>Lodge Public Grievance <span aria-hidden="true">→</span></Link>
+              <Link className={styles.secondaryButton} href="/track">View Status <span aria-hidden="true">⌕</span></Link>
             </div>
-            <ul className={styles.trustList} aria-label="Service qualities"><li><span aria-hidden="true">✓</span> No fee</li><li><span aria-hidden="true">✓</span> Mobile-first</li><li><span aria-hidden="true">✓</span> 23 language choices</li></ul>
+            <p className={styles.serviceNote}><span aria-hidden="true">●</span> Online grievance services are available 24 × 7. No fee is charged.</p>
           </div>
-          <div className={styles.assurancePanel} aria-label="Proposed grievance journey">
-            <div className={styles.panelTop}><span className={styles.liveDot} /> <strong>Assured journey</strong><small>From receipt to reasoned outcome</small></div>
-            <ol>
-              <li><span>01</span><div><strong>Tell us what happened</strong><small>Type or speak in everyday language</small></div><b>2 min</b></li>
-              <li><span>02</span><div><strong>Confirm the right route</strong><small>See why the department was suggested</small></div><b>You decide</b></li>
-              <li><span>03</span><div><strong>Receive a reference instantly</strong><small>One case, one clear timeline</small></div><b>Immediate</b></li>
-              <li><span>04</span><div><strong>See the complete outcome</strong><small>Action, evidence and unresolved gaps</small></div><b>Traceable</b></li>
-            </ol>
-            <div className={styles.panelFoot}><span aria-hidden="true">◇</span><p><strong>Nothing happens silently.</strong><br />Every state change tells you what comes next.</p></div>
-          </div>
+          <aside className={styles.quickPanel} aria-label="Citizen services">
+            <div className={styles.panelHeader}><span aria-hidden="true">☸</span><div><strong>Citizen Services</strong><small lang="hi">नागरिक सेवाएं</small></div></div>
+            <Link href={user ? "/grievances/new" : "/signin?returnTo=/grievances/new"}><span>01</span><div><strong>Lodge grievance</strong><small>Register a new grievance</small></div><b aria-hidden="true">→</b></Link>
+            <Link href="/track"><span>02</span><div><strong>View status</strong><small>Track an existing grievance</small></div><b aria-hidden="true">→</b></Link>
+            <Link href={user ? "/dashboard" : "/signin"}><span>03</span><div><strong>Appeal</strong><small>Review eligible cases</small></div><b aria-hidden="true">→</b></Link>
+            <button onClick={() => { setTourStep(0); setTourOpen(true); }} type="button">Need help using the portal?</button>
+          </aside>
         </div>
+      </section>
+
+      <section className={styles.noticeBand} aria-label="Public information">
+        <article className={styles.indiaBanner}><div className={styles.bannerMark} aria-hidden="true">☸</div><div><small lang="hi">जन शिकायत निवारण</small><strong>Responsive governance through citizen participation</strong></div></article>
+        <article className={styles.digitalBanner}><Image alt="Digital India" height={39} src="/identity/digital-india.jpg" width={69} /><div><small>Digital India</small><strong>Digital services for every citizen</strong></div></article>
+        <article className={styles.alertBanner}><span aria-hidden="true">i</span><div><small>Important</small><strong>CPGRAMS does not charge any fee</strong></div></article>
       </section>
 
       <section className={styles.serviceSection} aria-labelledby="services-heading">
-        <div className={styles.sectionHeading}><div><p>Start here</p><h2 id="services-heading">What do you need to do?</h2></div><button onClick={() => { setTourStep(0); setTourOpen(true); }} type="button">Show me around <span aria-hidden="true">▶</span></button></div>
-        <div className={styles.serviceGrid}>{serviceCards.map((card) => <Link className={`${styles.serviceCard} ${styles[card.tone]}`} href={user || card.href === "/track" ? card.href : "/signin"} key={card.title}><span className={styles.cardIcon} aria-hidden="true">{card.icon}</span><div><h3>{card.title}</h3><p>{card.body}</p></div><b aria-hidden="true">→</b></Link>)}</div>
+        <div className={styles.sectionHeading}><div><p>Online Services</p><h2 id="services-heading">How may we assist you?</h2></div><Link href="/help">Frequently asked questions <span aria-hidden="true">→</span></Link></div>
+        <div className={styles.serviceGrid}>{citizenServices.map((card) => <Link className={`${styles.serviceCard} ${styles[card.tone]}`} href={user || card.href === "/track" || card.href.startsWith("/help") ? card.href : "/signin"} key={card.title}><span className={styles.cardIcon} aria-hidden="true">{card.icon}</span><div><h3>{card.title}</h3><p>{card.body}</p></div><b aria-hidden="true">→</b></Link>)}</div>
       </section>
 
-      <section className={styles.explainSection}>
-        <div className={styles.explainVisual}>
-          <p className={styles.eyebrow}>Why this redesign matters</p>
-          <h2>One complaint.<br /><em>Every requested outcome.</em></h2>
-          <div className={styles.receiptMock}>
-            <div><span className={styles.resolved}>Resolved</span><strong>Restore mobile service</strong><small>Activation confirmation recorded</small></div>
-            <div><span className={styles.pending}>Needs action</span><strong>Reverse the ₹499 charge</strong><small>Refund evidence is still missing</small></div>
-          </div>
-        </div>
-        <div className={styles.explainCopy}>
-          <p className={styles.eyebrow}>Resolution Receipt</p>
-          <h2>A closure status is not enough.</h2>
-          <p>Citizens should see whether each thing they asked for was completed, what evidence supports the decision, and what remains appealable.</p>
-          <ul><li><span>1</span><div><strong>Outcome-by-outcome clarity</strong><small>No vague “disposed” label for a partly solved case.</small></div></li><li><span>2</span><div><strong>Accountable timeline</strong><small>Every action includes an actor, reason and next step.</small></div></li><li><span>3</span><div><strong>Context-preserving appeal</strong><small>The original record moves forward automatically.</small></div></li></ul>
-          <Link href={user ? "/dashboard" : "/signin"}>See the citizen dashboard <span aria-hidden="true">→</span></Link>
-        </div>
+      <section className={styles.processSection} aria-labelledby="process-heading">
+        <div className={styles.processIntro}><p>Grievance Process</p><h2 id="process-heading">From registration to disposal</h2><span>The registration number remains available in your dashboard and can be used to view the latest action.</span></div>
+        <ol><li><span>01</span><div><strong>Register</strong><small>Enter grievance details and the relief requested</small></div></li><li><span>02</span><div><strong>Forwarded</strong><small>Sent to the concerned Ministry Department or State</small></div></li><li><span>03</span><div><strong>Action Taken</strong><small>View the response and supporting information</small></div></li><li><span>04</span><div><strong>Appeal</strong><small>File an appeal when the case is eligible</small></div></li></ol>
       </section>
 
-      <section className={styles.guidance}>
-        <div><p className={styles.eyebrow}>Before you lodge</p><h2>We help you choose the right public-service path.</h2></div>
-        <div className={styles.guidanceGrid}><article><span aria-hidden="true">i</span><div><strong>Public service grievance</strong><p>Use this journey for issues with service delivery by a central or state public authority.</p></div></article><article><span aria-hidden="true">↗</span><div><strong>Another route may be better</strong><p>RTI, court, pension, emergency and government-employee service matters use dedicated channels.</p></div></article></div>
+      <section className={styles.informationGrid}>
+        <article className={styles.publicNotice}><header><span aria-hidden="true">!</span><div><small>Public Notice</small><h2>Matters not taken up as public grievances</h2></div></header><ul><li>Right to Information matters</li><li>Court-related or subjudice matters</li><li>Religious matters</li><li>Government employee service matters before prescribed channels are exhausted</li></ul><Link href="/help#eligible">View detailed guidance →</Link></article>
+        <article className={styles.assistance}><p lang="hi">सहायता</p><h2>Help with grievance registration</h2><span>Guidance is available for choosing the correct organisation writing grievance details and understanding status updates.</span><div><Link href="/help">Open Help Centre</Link><a href="https://pgportal.gov.in/" rel="noreferrer" target="_blank">Official portal ↗</a></div></article>
       </section>
 
-      <aside className={styles.noFee}><span aria-hidden="true">₹0</span><div><strong>There is no government fee for filing a grievance.</strong><p>This redesign never asks for payment or an OTP. Use the official portal for any real grievance.</p></div><a href="https://pgportal.gov.in/" rel="noreferrer" target="_blank">Open official CPGRAMS ↗</a></aside>
+      <section className={styles.ecosystem}><p>Government Digital Services</p><div><Image alt="Digital India" height={39} src="/identity/digital-india.jpg" width={69} /><Image alt="National Portal of India" height={38} src="/identity/india-gov.jpg" width={98} /><Image alt="National Informatics Centre" height={39} src="/identity/nic.jpg" width={113} /></div></section>
     </main>
 
-    {tourOpen ? <div className={styles.tourBackdrop} role="presentation"><section aria-labelledby="tour-title" aria-modal="true" className={styles.tour} role="dialog"><button aria-label="Close guided tour" className={styles.tourClose} onClick={closeTour} type="button">×</button><p>Quick orientation · {tourStep + 1} of 3</p><h2 id="tour-title">{["Start with your problem, not a department.", "You confirm every intelligent suggestion.", "Track outcomes—not just status labels."][tourStep]}</h2><span>{["Describe what happened in plain language. The system extracts the issue and possible outcomes without forcing you through a maze of departments.", "Routing assistance shows the suggested public authority, confidence and reason. You can always change it before submission.", "The dashboard carries your real signed-in name and shows a case timeline, Resolution Receipt and focused appeal."][tourStep]}</span><div className={styles.tourDots}>{[0,1,2].map((step) => <i className={step === tourStep ? styles.tourDotActive : ""} key={step} />)}</div><div className={styles.tourActions}><button onClick={closeTour} type="button">Skip tour</button>{tourStep < 2 ? <button onClick={() => setTourStep((step) => step + 1)} type="button">Next <span aria-hidden="true">→</span></button> : <button onClick={closeTour} type="button">Explore the service <span aria-hidden="true">→</span></button>}</div></section></div> : null}
+    {tourOpen ? <div className={styles.tourBackdrop} role="presentation"><section aria-labelledby="tour-title" aria-modal="true" className={styles.tour} role="dialog"><button aria-label="Close guidance" className={styles.tourClose} onClick={closeTour} type="button">×</button><p>Portal guidance {tourStep + 1} of 3</p><h2 id="tour-title">{["Choose the required service", "Enter grievance details", "Keep the registration number"][tourStep]}</h2><span>{["Use Lodge Public Grievance for a new matter or View Status for an existing registration number.", "Describe the public service issue and specify the action you are requesting. Review the selected organisation before submission.", "A registration number is issued after submission. Use it to view action taken and file an appeal where applicable."][tourStep]}</span><div className={styles.tourDots}>{[0,1,2].map((step) => <i className={step === tourStep ? styles.tourDotActive : ""} key={step} />)}</div><div className={styles.tourActions}><button onClick={closeTour} type="button">Close</button>{tourStep < 2 ? <button onClick={() => setTourStep((step) => step + 1)} type="button">Next <span aria-hidden="true">→</span></button> : <button onClick={closeTour} type="button">Continue to portal</button>}</div></section></div> : null}
   </CivicShell>;
 }

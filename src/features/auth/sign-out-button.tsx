@@ -10,7 +10,11 @@ export function SignOutButton() {
 
   async function signOut() {
     setPending(true);
-    await authClient.signOut();
+    await fetch("/api/demo-access", { method: "DELETE" }).catch(() => undefined);
+    await Promise.race([
+      authClient.signOut().catch(() => undefined),
+      new Promise((resolve) => window.setTimeout(resolve, 800)),
+    ]);
     router.push("/signin");
     router.refresh();
   }
