@@ -1,14 +1,17 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import Link from "next/link";
+import { CivicShell } from "@/src/design-system/components/civic-shell";
+import { auth } from "@/src/infrastructure/auth/server";
+import styles from "@/src/features/grievances/help.module.css";
 
-export const metadata: Metadata = { title: "Account help" };
+export const dynamic = "force-dynamic";
+export const metadata: Metadata = { title: "Citizen help and accessibility" };
 
-export default function HelpPage() {
-  return <main style={{maxWidth:"48rem",margin:"0 auto",padding:"clamp(2rem,7vw,5rem) 1rem",color:"#172741"}}>
-    <p style={{color:"#0b5a52",fontWeight:800,textTransform:"uppercase",letterSpacing:".08em",fontSize:".76rem"}}>Citizen help</p>
-    <h1 style={{fontSize:"clamp(2.2rem,6vw,4rem)",letterSpacing:"-.045em",margin:"0 0 1rem"}}>Account and access help</h1>
-    <p style={{lineHeight:1.7,color:"#5f6d82"}}>This concept environment supports fictional demonstration accounts only. Never enter a real password, OTP, identity number or personal document.</p>
-    <section id="account-recovery" style={{marginTop:"2rem",padding:"1.5rem",background:"#fff",border:"1px solid #dce3ed",borderRadius:"1rem"}}><h2 style={{marginTop:0}}>Cannot sign in?</h2><p style={{lineHeight:1.7}}>Return to citizen sign in and choose <strong>Enter as demo citizen</strong>. The service will securely prepare the fictional account and sign you in. Password recovery through email or OTP is intentionally not connected in this concept environment.</p><Link href="/signin">Return to citizen sign in</Link></section>
-    <p style={{marginTop:"2rem",fontSize:".75rem",color:"#788599"}}>Concept redesign · Not connected to live government systems</p>
-  </main>;
+export default async function HelpPage() {
+  const session = await auth.api.getSession({ headers: await headers() });
+  return <CivicShell user={session ? { name: session.user.name, email: session.user.email } : null}>
+    <main className={styles.page} id="main-content"><header><p>Citizen help centre</p><h1>Clear help before, during and after a grievance.</h1><span>Short guidance, correct handoffs and accessible interaction—without making citizens understand government structure first.</span></header><div className={styles.grid}><nav aria-label="Help topics"><a href="#eligible">What belongs here?</a><a href="#write">Write a clear grievance</a><a href="#account-recovery">Account access</a><a href="#accessibility">Accessibility</a><a href="#privacy">Privacy</a><a href="#limitations">Prototype limitations</a></nav><div className={styles.content}><section id="eligible"><span>01</span><div><h2>What belongs in CPGRAMS?</h2><p>Use the grievance journey for a service-delivery issue involving a central or state public authority. RTI, court or subjudice, religious, emergency, specialised pension, and certain government-employee service matters use other channels.</p><aside><strong>Good handoff design</strong><p>The system detects likely RTI or pension matters after you describe them and explains the correct route. It does not punish you for choosing the wrong dropdown.</p></aside></div></section><section id="write"><span>02</span><div><h2>Write a grievance that is easy to act on</h2><ul><li>Name the public service you used.</li><li>Say what happened and when.</li><li>Include the result you expected.</li><li>List each outcome you want separately.</li><li>Never include passwords, OTPs or unnecessary identity data.</li></ul></div></section><section id="account-recovery"><span>03</span><div><h2>Account access</h2><p>Use <strong>Enter as demo citizen</strong> on the sign-in page for instant evaluation access. It creates or reuses a fictional Raghav Mehta account. A manually registered account keeps its own name everywhere; the dashboard never substitutes a hard-coded persona.</p><Link href="/signin">Return to citizen sign in →</Link></div></section><section id="accessibility"><span>04</span><div><h2>Accessibility and device support</h2><p>The redesign targets keyboard navigation, visible focus, screen-reader structure, large touch targets, 200% zoom, reduced motion, high contrast and responsive layouts from small phones to desktop displays. English and Hindi are reviewed; the other 21 scheduled-language catalogues are clearly marked as translation previews until human review.</p></div></section><section id="privacy"><span>05</span><div><h2>Privacy and safety</h2><p>Account identity and cases persist in the project database. Every grievance in this prototype is synthetic. Do not enter a real Aadhaar number, payment credential, OTP, address, personal document or confidential complaint.</p></div></section><section id="limitations"><span>06</span><div><h2>Honest prototype limitations</h2><p>This is a citizen-side hackathon proof of concept, not the live CPGRAMS service. It does not contact a government officer, send email or WhatsApp, use DigiLocker or Aadhaar, or create a case in official systems. Routing intelligence is a transparent local demonstration so it remains fast and free to evaluate.</p><a href="https://pgportal.gov.in/" rel="noreferrer" target="_blank">Open the official CPGRAMS portal ↗</a></div></section></div></div>
+    </main>
+  </CivicShell>;
 }

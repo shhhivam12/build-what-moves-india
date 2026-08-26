@@ -1,0 +1,20 @@
+.page > header { padding: clamp(3.5rem,7vw,6rem) max(1rem,calc((100% - 82rem)/2)); color: #fff; background: radial-gradient(circle at 90% 5%,rgba(255,153,53,.27),transparent 23rem),linear-gradient(135deg,#071d3d,#0b3d84); }
+.page > header p { margin: 0 0 .7rem; color: #ffad5a; font-size: .72rem; font-weight: 850; letter-spacing: .09em; text-transform: uppercase; }
+.page > header h1 { max-width: 58rem; margin: 0; font-size: clamp(2.6rem,6vw,5rem); letter-spacing: -.06em; line-height: 1; }
+.page > header span { max-width: 48rem; margin-top: 1rem; display: block; color: #bdcfe8; line-height: 1.6; }
+.grid { width: min(78rem,calc(100% - 2rem)); margin: 2rem auto 5rem; display: grid; grid-template-columns: 15rem 1fr; gap: 1rem; align-items: start; }
+.grid > nav { position: sticky; top: 1rem; padding: .7rem; display: grid; gap: .2rem; background: #fff; border: 1px solid #dce3ed; border-radius: .9rem; }
+.grid > nav a { padding: .7rem .75rem; color: #4d6078; border-radius: .6rem; text-decoration: none; font-size: .7rem; font-weight: 750; }
+.grid > nav a:hover { color: #0b4aa6; background: #edf4ff; }
+.content { overflow: hidden; background: #fff; border: 1px solid #dce3ed; border-radius: 1rem; }
+.content section { padding: clamp(1.2rem,3vw,2rem); display: grid; grid-template-columns: 2.7rem 1fr; gap: 1rem; border-bottom: 1px solid #e4e9ef; scroll-margin-top: 1rem; }
+.content section:last-child { border: 0; }
+.content section > span { width: 2.7rem; height: 2.7rem; display: grid; place-items: center; color: #0b4aa6; background: #edf4ff; border-radius: .7rem; font-size: .65rem; font-weight: 850; }
+.content h2 { margin: .2rem 0 .7rem; color: #17314e; font-size: 1.2rem; }
+.content p, .content li { color: #637389; font-size: .74rem; line-height: 1.65; }
+.content ul { padding-left: 1.2rem; }
+.content aside { margin-top: 1rem; padding: .9rem; color: #4a371d; background: #fff1df; border: 1px solid #f0d2aa; border-radius: .75rem; }
+.content aside p { margin-bottom: 0; color: #70573a; }
+.content a { color: #0b4aa6; font-size: .72rem; font-weight: 850; }
+@media (max-width: 48rem) { .grid { grid-template-columns: 1fr; } .grid > nav { position: static; grid-template-columns: 1fr 1fr; } }
+@media (max-width: 32rem) { .grid { width: calc(100% - 1rem); } .grid > nav { grid-template-columns: 1fr; } .content section { grid-template-columns: 1fr; } }

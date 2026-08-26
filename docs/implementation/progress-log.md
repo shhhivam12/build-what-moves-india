@@ -118,3 +118,19 @@ This is the append-only implementation record. Major updates record what changed
 - **Public documentation:** `docs/implementation/checkpoints/identity-experience.md`
 - **Open:** Replace the legacy `/demo` presentation with the production-style filing, tracking, receipt and appeal routes; finish the public landing page and first-visit walkthrough.
 - **Next user action:** Review `/signin` and `/signup` as the representative visual direction for the wider redesign.
+
+---
+
+## Update 008 — Full civic product and visual rebuild
+
+- **Date:** 26 August 2026
+- **Prompt:** Prompt 015
+- **Phase:** End-to-end citizen product rebuild
+- **Status:** Ready for user test
+- **Changed:** Replaced the legacy judge-only presentation with a public service home, optional first-visit orientation, one shared tricolour civic shell, official-source DARPG/CPGRAMS identity, consistent session-owned Raghav evaluator identity, persistent dashboard, describe-first filing, explainable route assistance, private tracking, case timeline, outcome-level Resolution Receipt, focused appeal and help guidance. Removed the old Asha/Samadhan-style presentation from the shipped interface.
+- **Persistence:** Added and applied reviewed Neon migrations for grievances, append-only events, outcomes and appeals. New submissions remain acknowledged until a real or explicitly simulated authority action exists; only the labeled sample case demonstrates resolution.
+- **AI/cost boundary:** Route assistance is a free deterministic classifier with reasons, confidence, correct-channel handoffs and citizen override. It requires no paid model or external runtime and cannot autonomously reject, close or decide an appeal.
+- **Validated:** Lint, strict TypeScript, seven unit/component tests, twenty compact/wide Playwright journeys, evaluated accessibility scans and the standalone production build pass.
+- **Public documentation:** `docs/implementation/checkpoints/full-civic-redesign.md`
+- **Known limitations:** Fictional data only; no live CPGRAMS, identity, notification, upload-scanning, voice or officer integration; public hosting remains pending.
+- **Next user action:** Test the complete journey from `/` and provide one consolidated blocking-change list. Public deployment and submission packaging follow approval.

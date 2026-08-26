@@ -1,0 +1,41 @@
+.page { min-height: 44rem; padding-bottom: 5rem; }
+.hero { padding: clamp(3rem,6vw,5.5rem) max(1rem,calc((100% - 82rem)/2)); color: #fff; background: radial-gradient(circle at 90% 0,rgba(255,153,52,.28),transparent 22rem),linear-gradient(135deg,#071d3d,#0b3e87); }
+.hero > p { margin: 0 0 .6rem; color: #ffae5c; font-size: .72rem; font-weight: 850; letter-spacing: .09em; text-transform: uppercase; }
+.hero h1 { margin: 0; font-size: clamp(2.4rem,5vw,4.5rem); letter-spacing: -.055em; line-height: 1.02; }
+.hero > span { margin-top: 1rem; display: block; color: #bdcee7; }
+.layout { width: min(70rem,calc(100% - 2rem)); margin: -2.5rem auto 0; position: relative; display: grid; grid-template-columns: 1.25fr .75fr; gap: 1rem; align-items: start; }
+.searchCard, .guide, .result { padding: clamp(1.3rem,3vw,2rem); background: #fff; border: 1px solid #dce3ed; border-radius: 1.1rem; box-shadow: 0 1.2rem 3rem rgba(22,47,82,.12); }
+.searchIcon { width: 2.9rem; height: 2.9rem; display: grid; place-items: center; color: #fff; background: #0b4aa6; border-radius: .75rem; }
+.searchCard h2 { margin: 1rem 0 .4rem; color: #132e4c; font-size: 1.4rem; }
+.searchCard > p { color: #6c7b90; font-size: .72rem; }
+.searchCard label > span { display: block; margin: 1.3rem 0 .4rem; color: #344a64; font-size: .7rem; font-weight: 850; }
+.searchCard label > div { display: flex; }
+.searchCard input { min-width: 0; flex: 1; padding: .9rem; color: #19314d; background: #fafcff; border: 1px solid #b9c6d7; border-radius: .7rem 0 0 .7rem; }
+.searchCard form button:not(.fillButton) { padding: .8rem 1rem; color: #fff; background: #0b4aa6; border: 0; border-radius: 0 .7rem .7rem 0; cursor: pointer; font-size: .72rem; font-weight: 850; }
+.fillButton { margin-top: .6rem; color: #0b4aa6; background: transparent; border: 0; cursor: pointer; font-size: .65rem; font-weight: 800; }
+.signinPrompt { margin-top: 1.2rem; padding: 1rem; color: #273f5b; background: #edf4ff; border: 1px solid #cfdef1; border-radius: .8rem; }
+.signinPrompt p { color: #67788e; font-size: .68rem; line-height: 1.55; }
+.signinPrompt a { color: #0b4aa6; font-size: .7rem; font-weight: 850; }
+.notFound { padding: .75rem; color: #842e24 !important; background: #fff0ed; border: 1px solid #efc8c2; border-radius: .7rem; }
+.guide > p { margin: 0 0 1rem; color: #223b58; font-size: .75rem; font-weight: 850; }
+.referenceMock { padding: 1rem; color: #fff; background: linear-gradient(145deg,#071d3d,#0a3b80); border-radius: .8rem; }
+.referenceMock small, .referenceMock strong, .referenceMock span { display: block; }
+.referenceMock small { color: #9eb2ce; font-size: .55rem; }
+.referenceMock strong { margin-top: .4rem; font-size: .8rem; letter-spacing: .04em; }
+.referenceMock span { margin-top: .35rem; color: #bccde3; font-size: .58rem; }
+.guide ul { margin: 1rem 0 0; padding: 0; list-style: none; }
+.guide li { padding: .6rem 0; display: flex; align-items: center; gap: .55rem; color: #65758a; border-bottom: 1px solid #e4e9ef; font-size: .66rem; }
+.guide li span { width: 1.6rem; height: 1.6rem; display: grid; place-items: center; color: #0b4aa6; background: #edf4ff; border-radius: .4rem; font-weight: 850; }
+.resultTop { display: flex; align-items: flex-start; gap: .75rem; }
+.resultTop > span { width: 2.6rem; height: 2.6rem; flex: 0 0 auto; display: grid; place-items: center; color: #fff; background: #16875d; border-radius: .7rem; }
+.resultTop small { color: #0b6e50; font-size: .58rem; font-weight: 850; text-transform: uppercase; }
+.resultTop h2 { margin: .2rem 0; color: #17314e; font-size: .95rem; }
+.resultTop p { margin: 0; color: #76859a; font-size: .62rem; }
+.resultTop b { margin-left: auto; padding: .32rem .45rem; color: #0b6c4c; background: #e3f5ec; border-radius: 999px; font-size: .57rem; text-transform: capitalize; }
+.result dl { margin: 1rem 0; }
+.result dl > div { padding: .65rem 0; border-bottom: 1px solid #e5eaf0; }
+.result dt { color: #77869a; font-size: .57rem; font-weight: 800; text-transform: uppercase; }
+.result dd { margin: .2rem 0 0; color: #334961; font-size: .68rem; line-height: 1.45; }
+.result > a { color: #0b4aa6; font-size: .7rem; font-weight: 850; }
+@media (max-width: 48rem) { .layout { grid-template-columns: 1fr; } }
+@media (max-width: 34rem) { .layout { width: calc(100% - 1rem); } .searchCard label > div { flex-direction: column; gap: .45rem; } .searchCard input, .searchCard form button:not(.fillButton) { width: 100%; border-radius: .7rem; } .resultTop { flex-wrap: wrap; } .resultTop b { margin-left: 3.35rem; } }

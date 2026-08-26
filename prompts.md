@@ -179,3 +179,17 @@ The entries in this section are temporary, faithful paraphrases of the planning-
 ### Prompt (verbatim)
 
 > make actual pages of login/sign up with by adding some button to fill mock data and login quicky, but it should be there as i want to show them my vision
+
+---
+
+## Prompt 015
+
+- **Date:** 26 August 2026
+- **Phase:** Full civic product and visual rebuild
+- **Purpose:** Replace the underwhelming judge-only interface with a complete production-style civic website using verified Indian government identity, a modern functional tricolour system, responsive and inclusive interaction, consistent signed-in identity, real product pages and working citizen-facing intelligence.
+- **Result:** Rebuilt the complete public and signed-in experience, removed the legacy Asha presentation, added a first-visit orientation, persistent filing/tracking/receipt/appeal workflows, a free explainable route assistant and a shared official-identity-aware responsive design system.
+- **Public record:** `docs/implementation/checkpoints/full-civic-redesign.md`; `docs/implementation/progress-log.md`; `docs/project-status.md`
+
+### Prompt (verbatim)
+
+> You still have not fixed the UI and UX. I told you in the last message to add back the Indian actual logos. You didn't even change in the demo part. You only added this sign up and sign in. Fix everything and come back to me. I need a full website now with proper UI and without this Asha logo. We are logging in as Raghav and in the demo it is showing as Asha Verma. I told you to remove this whole thing and I want you. You follow my last prompt, whatever I said. I told a big prompt where you have to put the UI very nicely and put the official website's logo as well and give it a tricolor theme. Now I give you freedom to use any buttons and transitions, but it should be functional and should work on scale and with proper colors. The colors are very bad of this application and not inconsistent as well. You'll have to fix it all. You didn't fix anything. You just added sign up page now.

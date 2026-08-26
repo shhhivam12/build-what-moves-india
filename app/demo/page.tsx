@@ -1,5 +1,5 @@
-import { JudgeDemo } from "@/src/features/judge-demo/judge-demo";
+import { redirect } from "next/navigation";
 
 export default function DemoPage() {
-  return <JudgeDemo />;
+  redirect("/dashboard");
 }

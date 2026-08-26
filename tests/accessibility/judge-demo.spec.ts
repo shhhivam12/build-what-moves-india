@@ -1,59 +1,64 @@
 import AxeBuilder from "@axe-core/playwright";
-import { expect, test } from "@playwright/test";
+import { expect, type Page, test } from "@playwright/test";
 
-test("judge can complete the focused appeal journey without serious accessibility violations", async ({ page }) => {
-  await page.goto("/demo");
-  await expect(page.getByRole("heading", { name: /Know what happened/ })).toBeVisible();
+async function createCitizen(page: Page) {
+  await page.goto("/signup");
+  await page.getByRole("button", { name: "Fill fictional details" }).click();
+  await page.getByRole("button", { name: "Create account" }).click();
+  await expect(page).toHaveURL(/\/dashboard$/, { timeout: 30_000 });
+}
 
-  await page.getByRole("button", { name: "Try as Asha Verma" }).click();
-  await page.getByRole("button", { name: /BWMI-TEL-2026-00499/ }).click();
-  await page.getByRole("button", { name: /Start focused appeal/ }).click();
-
-  const results = await new AxeBuilder({ page }).analyze();
-  expect(results.violations.filter((violation) => ["critical", "serious"].includes(violation.impact ?? ""))).toEqual([]);
-
-  await page.getByRole("button", { name: /Submit demonstration appeal/ }).click();
-  await expect(page.getByRole("heading", { name: "You did not have to start again" })).toBeVisible();
+test("public homepage uses official identity and contains no hard-coded persona", async ({ page }) => {
+  await page.goto("/");
+  const skip = page.getByRole("button", { name: "Skip tour" });
+  if (await skip.isVisible()) await skip.click();
+  await expect(page.getByAltText("Department of Administrative Reforms and Public Grievances")).toBeVisible();
+  await expect(page.getByRole("heading", { name: /black box/ })).toBeVisible();
+  await expect(page.getByText(/fictional citizen account/i)).toHaveCount(0);
+  const accessibility = await new AxeBuilder({ page }).analyze();
+  expect(accessibility.violations.filter((violation) => ["critical", "serious"].includes(violation.impact ?? ""))).toEqual([]);
 });
 
-test("judge can submit the describe-first grievance journey", async ({ page }) => {
-  await page.goto("/demo");
-  await page.getByRole("button", { name: "Try as Asha Verma" }).click();
-  await page.getByRole("button", { name: "Lodge a grievance" }).first().click();
-  await page.getByRole("button", { name: /Find the right route/ }).click();
-  await page.getByRole("button", { name: "Use this route" }).click();
-  await page.getByRole("button", { name: /Review grievance/ }).click();
-  await page.getByRole("button", { name: /Submit demonstration grievance/ }).click();
-
-  await expect(page.getByRole("heading", { name: "Your grievance has been received" })).toBeVisible();
-  await expect(page.getByText("BWMI-TEL-2026-00499", { exact: true })).toBeVisible();
-});
-
-test("manual routing works when assistance is unavailable", async ({ page }) => {
-  await page.goto("/demo");
-  await page.getByRole("button", { name: "Try as Asha Verma" }).click();
-  await page.getByRole("button", { name: "Lodge a grievance" }).first().click();
-  await page.getByRole("button", { name: /Find the right route/ }).click();
-  await page.getByRole("checkbox", { name: "Assistance available" }).uncheck();
-  await page.getByText("Financial services", { exact: true }).click();
-  await page.getByRole("button", { name: "Confirm selected route" }).click();
-  await page.getByRole("button", { name: /Review grievance/ }).click();
-
-  await expect(page.getByText("Financial services", { exact: true })).toBeVisible();
-  await page.getByRole("button", { name: "Change route" }).click();
+test("citizen can submit a persistent describe-first grievance", async ({ page }) => {
+  await createCitizen(page);
+  await page.goto("/grievances/new");
+  await page.getByRole("button", { name: "Use realistic sample" }).click();
+  await page.getByRole("checkbox").check();
+  await page.getByRole("button", { name: /Understand and suggest route/ }).click();
   await expect(page.getByRole("heading", { name: "Confirm where this should go" })).toBeVisible();
+  await page.getByRole("button", { name: /Review grievance/ }).click();
+  await page.getByRole("checkbox").check();
+  await page.getByRole("button", { name: "Submit grievance" }).click();
+  await expect(page).toHaveURL(/\/grievances\/CPG-/, { timeout: 30_000 });
+  await expect(page.getByText("Your grievance has been received once.")).toBeVisible();
 });
 
-test("the primary journey remains usable in Hindi", async ({ page }) => {
-  await page.goto("/demo");
-  await page.getByRole("combobox", { name: "Language" }).selectOption("hi");
-  await expect(page.getByRole("heading", { name: /जानें क्या हुआ/ })).toBeVisible();
-  await page.getByRole("button", { name: "आशा वर्मा के रूप में देखें" }).click();
-  await page.getByRole("button", { name: "शिकायत दर्ज करें" }).first().click();
-  await expect(page.getByRole("heading", { name: "बताएँ क्या हुआ" })).toBeVisible();
-  await page.getByRole("button", { name: /सही मार्ग खोजें/ }).click();
-  await page.getByRole("button", { name: "यह मार्ग चुनें" }).click();
-  await page.getByRole("button", { name: /शिकायत की समीक्षा करें/ }).click();
-  await page.getByRole("button", { name: /प्रदर्शन शिकायत जमा करें/ }).click();
-  await expect(page.getByRole("heading", { name: "आपकी शिकायत प्राप्त हो गई है" })).toBeVisible();
+test("signed-in citizen can inspect a Resolution Receipt and submit a focused appeal", async ({ page }) => {
+  await createCitizen(page);
+  await page.getByRole("link", { name: /Mobile service activation and ₹499 charge/ }).first().click();
+  await expect(page.getByRole("heading", { name: /What you asked for/ })).toBeVisible();
+  const accessibility = await new AxeBuilder({ page }).analyze();
+  expect(accessibility.violations.filter((violation) => ["critical", "serious"].includes(violation.impact ?? ""))).toEqual([]);
+  await page.getByRole("button", { name: /Start focused appeal/ }).click();
+  await page.getByRole("button", { name: "Submit appeal" }).click();
+  await expect(page.getByText(/Focused appeal .* is active/)).toBeVisible({ timeout: 30_000 });
+});
+
+test("routing assistance hands RTI matters to the correct official channel", async ({ page }) => {
+  await createCitizen(page);
+  await page.goto("/grievances/new");
+  await page.getByLabel("What happened?").fill("I need records under the Right to Information Act about this public service decision.");
+  await page.getByRole("checkbox").check();
+  await page.getByRole("button", { name: /Understand and suggest route/ }).click();
+  await expect(page.getByRole("heading", { name: "This matter has a better official route" })).toBeVisible();
+  await expect(page.getByRole("link", { name: /Open RTI Online/ })).toHaveAttribute("href", "https://rtionline.gov.in/");
+});
+
+test("tracking uses the signed-in account instead of asking for contact details again", async ({ page }) => {
+  await createCitizen(page);
+  await page.goto("/track");
+  await page.getByRole("button", { name: "Use my sample reference" }).click();
+  await page.getByRole("button", { name: /View progress/ }).click();
+  await expect(page.getByText("Reference found")).toBeVisible();
+  await expect(page.getByRole("link", { name: /Open complete case/ })).toBeVisible();
 });

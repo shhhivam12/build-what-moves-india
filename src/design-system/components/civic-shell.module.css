@@ -1,0 +1,67 @@
+.shell { min-height: 100svh; color: #12223a; background: #f5f7fb; }
+.skipLink { position: fixed; z-index: 1000; top: .6rem; left: .6rem; padding: .8rem 1rem; color: #fff; background: #071d3d; border-radius: .55rem; transform: translateY(-160%); }
+.skipLink:focus { transform: translateY(0); }
+.flagLine { display: grid; height: .28rem; grid-template-columns: 1fr 1fr 1fr; }
+.flagLine i:nth-child(1) { background: #ff8a1f; }
+.flagLine i:nth-child(2) { background: #fff; }
+.flagLine i:nth-child(3) { background: #138a5b; }
+.conceptBar { min-height: 2.2rem; padding: .45rem max(1rem, calc((100% - 88rem) / 2)); display: flex; justify-content: space-between; gap: 1rem; color: #53300f; background: #fff3e2; border-bottom: 1px solid #f3d3aa; font-size: .74rem; }
+.conceptBar a { color: #503214; font-weight: 750; }
+.header { position: relative; z-index: 50; color: #fff; background: #fff; box-shadow: 0 .5rem 1.8rem rgba(20, 41, 72, .08); }
+.govStrip { min-height: 2.45rem; padding: .5rem max(1rem, calc((100% - 88rem) / 2)); display: flex; align-items: center; gap: .65rem; color: #fff; background: #071d3d; font-size: .72rem; }
+.govStrip span:first-child { font-family: "Noto Sans Devanagari", sans-serif; font-weight: 700; }
+.govDivider { width: 1px; height: 1rem; background: rgba(255,255,255,.3); }
+.identityRow { width: min(88rem, calc(100% - 2rem)); min-height: 7.4rem; margin: 0 auto; display: flex; align-items: center; gap: 2rem; }
+.department { display: block; width: min(31rem, 49vw); }
+.department img { display: block; width: 100%; height: auto; }
+.serviceBrand { margin-left: auto; color: #071d3d; text-decoration: none; text-align: right; }
+.serviceBrand strong { display: block; width: max-content; margin-left: auto; padding: .36rem .7rem .26rem; color: #fff; background: #082e70; border-radius: .45rem; font-size: clamp(1.25rem, 2.5vw, 1.9rem); letter-spacing: .04em; line-height: 1; }
+.serviceBrand span { display: block; margin-top: .42rem; color: #46556b; font-size: .72rem; font-weight: 700; line-height: 1.35; }
+.navigation { min-height: 3.75rem; padding: 0 max(1rem, calc((100% - 88rem) / 2)); display: flex; align-items: center; justify-content: space-between; gap: 1rem; background: linear-gradient(90deg, #082754, #0a397c); }
+.navLinks, .navTools, .authLinks, .userMenu { display: flex; align-items: center; }
+.navLinks { min-width: 0; }
+.navLinks > a { min-height: 3.75rem; padding: 0 .9rem; display: grid; place-items: center; color: #edf4ff; border-bottom: .2rem solid transparent; text-decoration: none; font-size: .82rem; font-weight: 730; }
+.navLinks > a:hover, .navLinks > a.active { color: #fff; background: rgba(255,255,255,.07); border-bottom-color: #ff9c3a; }
+.navTools { gap: .7rem; }
+.navTools select { min-height: 2.65rem; max-width: 9.5rem; padding: .55rem 2rem .55rem .75rem; color: #10284d; background: #fff; border: 1px solid rgba(255,255,255,.4); border-radius: .6rem; font-size: .75rem; font-weight: 700; }
+.authLinks { gap: .45rem; }
+.authLinks a { min-height: 2.65rem; padding: .65rem .85rem; display: inline-flex; align-items: center; color: #fff; border: 1px solid rgba(255,255,255,.25); border-radius: .65rem; text-decoration: none; font-size: .78rem; font-weight: 800; }
+.authLinks a:last-child { color: #071d3d; background: #ff9b32; border-color: #ff9b32; }
+.userMenu { gap: .55rem; }
+.avatar { width: 2.35rem; height: 2.35rem; display: grid; place-items: center; color: #071d3d; background: #fff; border-radius: .65rem; font-size: .72rem; font-weight: 850; }
+.userMenu small, .userMenu strong { display: block; }
+.userMenu small { color: #b9c8e1; font-size: .6rem; }
+.userMenu strong { max-width: 8rem; overflow: hidden; color: #fff; font-size: .78rem; text-overflow: ellipsis; white-space: nowrap; }
+.userMenu button { min-height: 2.45rem; margin-left: .25rem; padding: .5rem .7rem; color: #fff; background: transparent; border: 1px solid rgba(255,255,255,.25); border-radius: .6rem; cursor: pointer; font-size: .72rem; }
+.menuButton { display: none; }
+.compactContent { min-height: 42rem; }
+.footer { color: #dce7f7; background: #071a37; border-top: .28rem solid #ff8a1f; }
+.footerMain, .footerBottom { width: min(88rem, calc(100% - 2rem)); margin: 0 auto; display: flex; justify-content: space-between; gap: 2rem; }
+.footerMain { padding: 2.6rem 0 2rem; }
+.footerMain strong { color: #fff; font-size: 1.05rem; }
+.footerMain p { max-width: 35rem; margin: .55rem 0 0; color: #aebfd7; font-size: .78rem; line-height: 1.6; }
+.footerMain nav { display: flex; flex-wrap: wrap; align-items: flex-start; gap: .7rem 1.2rem; }
+.footerMain a { color: #dbe7f8; font-size: .76rem; }
+.footerBottom { padding: 1.1rem 0 1.5rem; align-items: center; border-top: 1px solid rgba(255,255,255,.12); }
+.officialMarks { display: flex; align-items: center; gap: .45rem; }
+.officialMarks img { width: auto; height: 2rem; border-radius: .2rem; }
+.footerBottom p { margin: 0; color: #91a5c2; font-size: .68rem; }
+@media (max-width: 68rem) {
+  .menuButton { width: 2.9rem; height: 2.9rem; margin-left: auto; padding: .65rem; display: grid; gap: .28rem; background: #f1f5fb; border: 1px solid #d9e1ed; border-radius: .7rem; }
+  .menuButton span { display: block; height: 2px; background: #071d3d; border-radius: 1rem; }
+  .serviceBrand { margin-left: 0; }
+  .navigation { display: none; padding: 1rem; align-items: stretch; flex-direction: column; }
+  .navigationOpen { display: flex; }
+  .navLinks { align-items: stretch; flex-direction: column; }
+  .navLinks > a { min-height: 3rem; padding: .7rem; display: flex; border: 0; border-radius: .6rem; }
+  .navTools { justify-content: space-between; padding-top: .8rem; border-top: 1px solid rgba(255,255,255,.14); }
+}
+@media (max-width: 44rem) {
+  .conceptBar { align-items: flex-start; flex-direction: column; gap: .2rem; }
+  .govStrip span:nth-child(4) { display: none; }
+  .identityRow { min-height: 5.8rem; gap: .8rem; }
+  .department { width: min(22rem, calc(100% - 4rem)); }
+  .serviceBrand { display: none; }
+  .footerMain, .footerBottom { align-items: flex-start; flex-direction: column; }
+  .footerMain nav { flex-direction: column; }
+}

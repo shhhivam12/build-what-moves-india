@@ -1,5 +1,7 @@
 # Accelerated judge slice checkpoint
 
+> Superseded on 26 August 2026 by [the full civic redesign checkpoint](full-civic-redesign.md). The legacy `/demo` presentation and named Asha fixture no longer ship in the citizen interface; `/demo` now safely redirects to the signed-in dashboard.
+
 Status: ready for user test
 Date: 25 August 2026
 Prompt: Prompt 012

@@ -8,11 +8,11 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
   title: {
-    default: "CPGRAMS Assured Journey — unofficial prototype",
+    default: "CPGRAMS Assured Journey — civic service redesign",
     template: "%s — CPGRAMS Assured Journey",
   },
   description:
-    "An unofficial hackathon prototype using synthetic data to demonstrate a clearer grievance journey.",
+    "A citizen-first hackathon redesign using synthetic data to demonstrate clearer grievance routing, progress and appeals.",
   openGraph: {
     type: "website",
     title: "CPGRAMS Assured Journey",

@@ -3,7 +3,6 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { authClient } from "@/src/infrastructure/auth/client";
-import styles from "./dashboard.module.css";
 
 export function SignOutButton() {
   const router = useRouter();
@@ -16,5 +15,5 @@ export function SignOutButton() {
     router.refresh();
   }
 
-  return <button className={styles.signOut} disabled={pending} onClick={signOut} type="button">{pending ? "Signing out…" : "Sign out"}</button>;
+  return <button disabled={pending} onClick={signOut} type="button">{pending ? "Signing out…" : "Sign out"}</button>;
 }

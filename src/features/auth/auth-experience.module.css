@@ -3,7 +3,7 @@
   --auth-blue: #0b4aaa;
   --auth-saffron: #ff8a1f;
   --auth-green: #138a5b;
-  min-height: 100svh;
+  min-height: 44rem;
   overflow: hidden;
   position: relative;
   color: #f7f9ff;
@@ -34,7 +34,7 @@
 .headerActions a:hover { background: rgba(255, 255, 255, 0.08); }
 .languageTag { color: #aebed6; font-size: 0.78rem; }
 
-.layout { width: min(82rem, calc(100% - 3rem)); margin: 1.5rem auto 0; padding: 1.25rem 0 4rem; display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(25rem, 0.74fr); gap: clamp(3rem, 7vw, 7rem); align-items: center; position: relative; z-index: 1; }
+.layout { width: min(82rem, calc(100% - 3rem)); margin: 0 auto; padding: clamp(3rem, 6vw, 5rem) 0; display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(25rem, 0.74fr); gap: clamp(3rem, 7vw, 7rem); align-items: center; position: relative; z-index: 1; }
 .story { padding: 2rem 0; }
 .kicker { display: flex; align-items: center; gap: 0.65rem; margin: 0 0 1.35rem; color: #b9cae7; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
 .kicker span { color: var(--auth-saffron); font-size: 0.62rem; filter: drop-shadow(0 0 0.5rem rgba(255, 138, 31, 0.8)); }

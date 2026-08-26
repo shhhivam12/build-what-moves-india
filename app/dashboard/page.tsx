@@ -2,41 +2,36 @@ import type { Metadata } from "next";
 import { headers } from "next/headers";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { SignOutButton } from "@/src/features/auth/sign-out-button";
-import styles from "@/src/features/auth/dashboard.module.css";
+import { CivicShell } from "@/src/design-system/components/civic-shell";
+import { listGrievancesForUser } from "@/src/features/grievances/store";
+import styles from "@/src/features/grievances/portal.module.css";
 import { auth } from "@/src/infrastructure/auth/server";
 
 export const dynamic = "force-dynamic";
+export const metadata: Metadata = { title: "My grievance dashboard" };
 
-export const metadata: Metadata = {
-  title: "Citizen dashboard",
-  description: "Lodge and follow demonstration public grievances from one citizen account.",
-};
+function statusLabel(status: string) {
+  return ({ "partly-resolved": "Partly resolved", acknowledged: "Acknowledged", "appeal-received": "Appeal received" } as Record<string,string>)[status] ?? status;
+}
 
 export default async function DashboardPage() {
   const currentSession = await auth.api.getSession({ headers: await headers() });
   if (!currentSession) redirect("/signin");
-
-  const initials = currentSession.user.name.split(/\s+/).map((part) => part[0]).join("").slice(0, 2).toUpperCase();
-
-  return <main className={styles.page}>
-    <div className={styles.topbar} aria-hidden="true"><i /><i /><i /></div>
-    <header className={styles.header}>
-      <Link className={styles.brand} href="/dashboard"><strong>CPGRAMS</strong><small>Assured Journey</small></Link>
-      <nav aria-label="Account navigation"><Link href="/help">Help</Link><SignOutButton /></nav>
-    </header>
-    <section className={styles.main}>
-      <div className={styles.welcome}>
-        <div><p className={styles.eyebrow}>Citizen workspace</p><h1>Namaste, {currentSession.user.name.split(" ")[0]}</h1><p>Start a grievance, find an existing reference, or review the complete outcome of a case from one place.</p></div>
-        <div className={styles.identity}><span className={styles.avatar}>{initials}</span><span><strong>{currentSession.user.name}</strong><small>{currentSession.user.email}</small></span></div>
+  const cases = await listGrievancesForUser(currentSession.user.id);
+  const firstName = currentSession.user.name.split(/\s+/)[0];
+  const sampleCase = (cases.find((item) => item.isSample) ?? cases[0])!;
+  return <CivicShell user={{ name: currentSession.user.name, email: currentSession.user.email }}>
+    <main className={styles.dashboard} id="main-content">
+      <section className={styles.welcome}><div><p className={styles.eyebrow}>Citizen dashboard</p><h1>Namaste, {firstName}.</h1><p>Your identity now stays consistent across the complete journey. Every case below belongs to this signed-in account.</p></div><Link className={styles.newButton} href="/grievances/new"><span aria-hidden="true">＋</span> Lodge a grievance</Link></section>
+      <section className={styles.summary} aria-label="Account summary"><article><span aria-hidden="true">◎</span><div><small>All grievances</small><strong>{cases.length}</strong></div></article><article><span aria-hidden="true">⌁</span><div><small>In progress</small><strong>{cases.filter((item) => item.status === "acknowledged").length}</strong></div></article><article><span aria-hidden="true">✓</span><div><small>Outcomes issued</small><strong>{cases.filter((item) => item.status.includes("resolved")).length}</strong></div></article><article><span aria-hidden="true">↗</span><div><small>Appeals active</small><strong>{cases.filter((item) => item.status === "appeal-received").length}</strong></div></article></section>
+      <div className={styles.dashboardGrid}>
+        <section className={styles.caseList} aria-labelledby="my-cases-heading"><header><div><p className={styles.eyebrow}>Your records</p><h2 id="my-cases-heading">My grievances</h2></div><Link href="/track">Find by reference</Link></header>{cases.map((item) => <Link className={styles.caseRow} href={`/grievances/${encodeURIComponent(item.reference)}`} key={item.id}><span className={styles.statusIcon} aria-hidden="true">{item.status === "acknowledged" ? "⌁" : item.status === "appeal-received" ? "↗" : "✓"}</span><div className={styles.caseBody}><div><span className={styles.statusPill}>{statusLabel(item.status)}</span>{item.isSample ? <span className={styles.samplePill}>Sample case</span> : null}</div><h3>{item.title}</h3><p>{item.department}</p><small>Reference {item.reference} · Updated {item.updatedAt.toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" })}</small></div><b aria-hidden="true">→</b></Link>)}</section>
+        <aside className={styles.dashboardAside}>
+          <section className={styles.nextAction}><p className={styles.eyebrow}>Recommended next step</p><span aria-hidden="true">◇</span><h2>Review the sample Resolution Receipt</h2><p>See how a partly resolved case separates completed and unresolved outcomes.</p><Link href={`/grievances/${encodeURIComponent(sampleCase.reference)}`}>Open receipt <span aria-hidden="true">→</span></Link></section>
+          <section className={styles.helpCard}><h2>Get help without starting over</h2><p>Understand eligible matters, write a clearer description, or learn how focused appeals work.</p><Link href="/help">Open citizen help →</Link></section>
+          <section className={styles.accountCard}><span className={styles.secureDot} /><div><strong>Secure demonstration session</strong><p>Signed in as {currentSession.user.email}</p></div></section>
+        </aside>
       </div>
-      <div className={styles.quickGrid}>
-        <Link className={styles.primaryAction} href="/demo"><span aria-hidden="true">＋</span><div><strong>Lodge a grievance</strong><small>Describe the issue first. Routing assistance follows.</small></div></Link>
-        <Link className={styles.secondaryAction} href="/demo"><span aria-hidden="true">⌁</span><div><strong>View my grievances</strong><small>Follow actions, evidence and next steps.</small></div></Link>
-        <Link className={styles.secondaryAction} href="/demo"><span aria-hidden="true">✓</span><div><strong>Review an outcome</strong><small>Understand the decision or start a focused appeal.</small></div></Link>
-      </div>
-      <aside className={styles.statusCard}><div><strong>Demonstration account is active</strong><p>This identity and every associated case use fictional data.</p></div><span>Secure session · 8 hours</span></aside>
-      <p className={styles.disclaimer}>Concept redesign · Not connected to live government systems</p>
-    </section>
-  </main>;
+    </main>
+  </CivicShell>;
 }

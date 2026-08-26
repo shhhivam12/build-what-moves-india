@@ -25,5 +25,5 @@ test("one-click demo access creates or reuses the fictional citizen", async ({ p
 
   await page.getByRole("button", { name: /Enter as demo citizen/ }).click();
   await expect(page).toHaveURL(/\/dashboard$/, { timeout: 30_000 });
-  await expect(page.getByText("demo.citizen@assured.example")).toBeVisible();
+  await expect(page.getByText("raghav.demo@assured.example")).toBeVisible();
 });

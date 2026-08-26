@@ -3,12 +3,13 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { FormEvent, useId, useState } from "react";
+import { CivicShell } from "@/src/design-system/components/civic-shell";
 import { authClient } from "@/src/infrastructure/auth/client";
 import styles from "./auth-experience.module.css";
 
 const demoAccount = {
-  name: "Aarav Sharma",
-  email: "demo.citizen@assured.example",
+  name: "Raghav Mehta",
+  email: "raghav.demo@assured.example",
   password: "DemoCitizen#2026",
 };
 
@@ -54,7 +55,8 @@ export function AuthExperience({ mode }: { mode: Mode }) {
   }
 
   async function finishAuthentication() {
-    router.push("/dashboard");
+    const requested = typeof window === "undefined" ? null : new URLSearchParams(window.location.search).get("returnTo");
+    router.push(requested?.startsWith("/") && !requested.startsWith("//") ? requested : "/dashboard");
     router.refresh();
   }
 
@@ -127,19 +129,9 @@ export function AuthExperience({ mode }: { mode: Mode }) {
   }
 
   return (
-    <main className={styles.page}>
+    <CivicShell compact>
+    <main className={styles.page} id="main-content">
       <div className={styles.ambient} aria-hidden="true"><span /><span /><span /></div>
-      <header className={styles.header}>
-        <Link className={styles.brand} href="/">
-          <span className={styles.brandMark} aria-hidden="true"><i /><i /><i /></span>
-          <span><strong>CPGRAMS</strong><small>Assured Journey</small></span>
-        </Link>
-        <div className={styles.headerActions}>
-          <span className={styles.languageTag}>English</span>
-          <Link href="/help">Help</Link>
-        </div>
-      </header>
-
       <section className={styles.layout}>
         <div className={styles.story}>
           <p className={styles.kicker}><span aria-hidden="true">●</span> One account. Every grievance. Clear progress.</p>
@@ -168,7 +160,7 @@ export function AuthExperience({ mode }: { mode: Mode }) {
 
           {isSignIn ? (
             <button className={styles.demoButton} disabled={pending} onClick={useDemoCitizen} type="button">
-              <span className={styles.demoAvatar} aria-hidden="true">AS</span>
+              <span className={styles.demoAvatar} aria-hidden="true">RM</span>
               <span><strong>{pending ? "Preparing account…" : "Enter as demo citizen"}</strong><small>One-click fictional access for evaluation</small></span>
               <b aria-hidden="true">→</b>
             </button>
@@ -200,5 +192,6 @@ export function AuthExperience({ mode }: { mode: Mode }) {
         </section>
       </section>
     </main>
+    </CivicShell>
   );
 }

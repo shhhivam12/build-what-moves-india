@@ -14,7 +14,7 @@ The source of truth for product and architecture decisions remains `docs/archite
 
 - The public demo must run on verified free tiers without a credit card, paid add-on, paid overage, or dependency on the developer's computer.
 - English plus all 22 scheduled Indian languages are interface targets. English/Hindi are human-reviewed first-class catalogues; other catalogues carry visible translation provenance until reviewed.
-- Government identity and public communications are retained as accessible content patterns, while the hackathon build remains unmistakably unofficial and does not use restricted official emblems.
+- Government identity and public communications are retained as accessible content patterns. The product uses an unaltered DARPG/CPGRAMS masthead sourced from the official portal, keeps the redesign-concept disclaimer visible, and never claims official ownership or endorsement.
 - The component laboratory is not the final visual direction. Authenticated product routes must use the refined Indian civic masthead, task hierarchy, and public-updates pattern described in [Decision 001](decisions/001-zero-cost-identity-and-language.md).
 
 ## Checkpoint contract
@@ -93,7 +93,7 @@ User checkpoint 0B:
 
 Build:
 
-- `My grievances` with the seeded Asha Verma case;
+- `My grievances` with a session-owned fictional sample case and the Raghav Mehta quick evaluator account;
 - stable authorised case-detail URLs;
 - append-only case events and current case projection;
 - same-tab, new-tab, direct-link, refresh, back/forward, and reauthentication recovery;
@@ -201,9 +201,9 @@ User checkpoint 6:
 - Small implementation choices that do not alter the agreed journey may be made and logged.
 - A change to the core journey, product wedge, data boundary, selected stack, language scope, or accessibility target requires an explicit decision before implementation.
 - New features remain deferred unless they unblock a phase exit criterion.
-- Voice, additional categories, real notifications, external identity, official emblems/logos, and live government integration remain outside the core build.
+- Voice automation, real notifications, external identity and live government integration remain outside the core build. Verified first-party identity assets may be displayed unaltered only with the persistent unofficial-concept boundary.
 - Every major implementation update must add an append-only entry to `progress-log.md` and reference the relevant prompt number.
 
 ## Current checkpoint
 
-Phase 0A is approved as a component-foundation checkpoint with required visual, language, identity, and hosting follow-ups. Phase 0B is active under [Decision 001](decisions/001-zero-cost-identity-and-language.md).
+Phases 0A–5 are complete for the proof of concept. The full civic product rebuild is ready for user testing under [the full redesign checkpoint](checkpoints/full-civic-redesign.md); public deployment and submission packaging remain in Phase 6.

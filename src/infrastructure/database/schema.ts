@@ -1,4 +1,4 @@
-import { boolean, index, pgTable, text, timestamp, uniqueIndex, uuid } from "drizzle-orm/pg-core";
+import { boolean, index, jsonb, pgTable, text, timestamp, uniqueIndex, uuid } from "drizzle-orm/pg-core";
 
 const auditTimestamps = {
   createdAt: timestamp("created_at", { mode: "date", withTimezone: true }).defaultNow().notNull(),
@@ -87,4 +87,85 @@ export const citizenProfile = pgTable(
   (table) => [uniqueIndex("citizen_profile_user_unique").on(table.userId)],
 );
 
-export const schema = { account, citizenProfile, session, user, verification };
+export const grievance = pgTable(
+  "grievance",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    userId: text("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    reference: text("reference").notNull(),
+    title: text("title").notNull(),
+    description: text("description").notNull(),
+    category: text("category").notNull(),
+    department: text("department").notNull(),
+    routeReason: text("route_reason").notNull(),
+    status: text("status").default("acknowledged").notNull(),
+    desiredOutcomes: jsonb("desired_outcomes").$type<string[]>().default([]).notNull(),
+    isSample: boolean("is_sample").default(false).notNull(),
+    sampleKey: text("sample_key"),
+    isSynthetic: boolean("is_synthetic").default(true).notNull(),
+    submittedAt: timestamp("submitted_at", { mode: "date", withTimezone: true }).defaultNow().notNull(),
+    ...auditTimestamps,
+  },
+  (table) => [
+    uniqueIndex("grievance_reference_unique").on(table.reference),
+    uniqueIndex("grievance_user_sample_unique").on(table.userId, table.sampleKey),
+    index("grievance_user_id_idx").on(table.userId),
+    index("grievance_status_idx").on(table.status),
+  ],
+);
+
+export const grievanceEvent = pgTable(
+  "grievance_event",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    grievanceId: uuid("grievance_id")
+      .notNull()
+      .references(() => grievance.id, { onDelete: "cascade" }),
+    title: text("title").notNull(),
+    detail: text("detail").notNull(),
+    actor: text("actor").notNull(),
+    state: text("state").notNull(),
+    occurredAt: timestamp("occurred_at", { mode: "date", withTimezone: true }).defaultNow().notNull(),
+  },
+  (table) => [index("grievance_event_case_idx").on(table.grievanceId)],
+);
+
+export const grievanceOutcome = pgTable(
+  "grievance_outcome",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    grievanceId: uuid("grievance_id")
+      .notNull()
+      .references(() => grievance.id, { onDelete: "cascade" }),
+    requested: text("requested").notNull(),
+    result: text("result").notNull(),
+    actionTaken: text("action_taken").notNull(),
+    evidence: text("evidence").notNull(),
+    remainingGap: text("remaining_gap").notNull(),
+    sortOrder: text("sort_order").notNull(),
+  },
+  (table) => [index("grievance_outcome_case_idx").on(table.grievanceId)],
+);
+
+export const grievanceAppeal = pgTable(
+  "grievance_appeal",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    grievanceId: uuid("grievance_id")
+      .notNull()
+      .references(() => grievance.id, { onDelete: "cascade" }),
+    userId: text("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    reference: text("reference").notNull(),
+    disputedOutcome: text("disputed_outcome").notNull(),
+    reason: text("reason").notNull(),
+    status: text("status").default("received").notNull(),
+    submittedAt: timestamp("submitted_at", { mode: "date", withTimezone: true }).defaultNow().notNull(),
+  },
+  (table) => [uniqueIndex("grievance_appeal_reference_unique").on(table.reference), index("grievance_appeal_case_idx").on(table.grievanceId)],
+);
+
+export const schema = { account, citizenProfile, grievance, grievanceAppeal, grievanceEvent, grievanceOutcome, session, user, verification };

@@ -1,10 +1,10 @@
 # Project status
 
-Last updated: 25 August 2026
+Last updated: 26 August 2026
 
 ## Phase
 
-The deployable citizen journey baseline is undergoing a production-style product and visual rebuild. Real Better Auth email/password identities, Neon-backed sessions, separate sign-in/registration pages, one-click fictional evaluator access and a protected dashboard are now implemented. The earlier synthetic case flow remains behind the dashboard until its filing, tracking, receipt and appeal screens are rebuilt in the same India Next Civic direction. User checkpoints and change control are defined in [docs/implementation/README.md](implementation/README.md).
+The production-style civic product rebuild is complete and ready for user review. The public landing page, first-visit orientation, real Better Auth identity, describe-first filing, citizen-confirmed route assistance, persistent dashboard, private tracking, case timeline, Resolution Receipt and focused appeal now share one responsive India Next Civic system. User checkpoints and change control are defined in [docs/implementation/README.md](implementation/README.md).
 
 ## Confirmed
 
@@ -29,12 +29,12 @@ The deployable citizen journey baseline is undergoing a production-style product
 - OpenAI role: advisory route candidates/summary using strict schemas and synthetic data; never autonomous rejection, closure, or appeal decision.
 - Browser-first responsive public demo with seeded test credentials.
 - One deeply complete synthetic category journey before breadth.
-- Frozen main fixture: fictional citizen Asha Verma, telecommunications activation plus ₹499 fee, with one resolved and one partly resolved requested outcome.
+- Main evaluator fixture: a session-owned fictional telecommunications activation and ₹499 fee case, with one resolved and one partly resolved requested outcome. The quick evaluator account is Raghav Mehta.
 - Frozen initial catalogue: telecommunications, banking, labour/employment and posts; 48 publication-safe English/Hindi/Hinglish evaluation inputs.
 - Frozen design direction: Indian Civic Calm, using UX4G-aligned foundations, restrained civic blue/saffron/green accents, Noto English/Devanagari typography, semantic compact-first layouts and WCAG 2.2 AA as the engineering target.
 - Zero-cost demo decision: retain PostgreSQL and initially target Neon Free through a serverless driver; no payment method, paid add-on, or automatic paid overage is permitted.
 - Language parity decision: English plus all 22 scheduled Indian languages are interface targets. English/Hindi are reviewed first-class catalogues; other languages must be demoable with explicit translation provenance before submission freeze.
-- Identity decision: retain a restrained service masthead and accessible public-updates pattern, but do not use the State Emblem or present this unofficial prototype as a government-owned site.
+- Identity decision: use the unaltered official DARPG/CPGRAMS masthead sourced from the live CPGRAMS portal as a factual reference, paired with a persistent redesign-concept disclaimer. Do not present the product as government-owned or imply endorsement.
 - Identity decision: use Better Auth with Neon for real fictional accounts and sessions; retain one-click judge access without making the interface look like a judge-only prototype.
 - Deadline decision: keep government case actions synthetic while progressively replacing the client-only journey with real application persistence; prioritize a stable public URL and complete citizen value over simulated government integrations.
 
@@ -48,7 +48,7 @@ The deployable citizen journey baseline is undergoing a production-style product
 
 ## Current decision gate
 
-The five product gates remain frozen in [docs/architecture/09-finalized-development-gates.md](architecture/09-finalized-development-gates.md). The current checkpoint is approval of `/signin` and `/signup` as the visual and interaction direction before rebuilding the public landing page and remaining citizen workflow.
+The five product gates remain the research baseline in [docs/architecture/09-finalized-development-gates.md](architecture/09-finalized-development-gates.md). The current checkpoint is an end-to-end visual and product review from `/` through filing, tracking, Resolution Receipt and appeal before public deployment.
 
 ## Guardrail
 

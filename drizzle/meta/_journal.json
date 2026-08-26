@@ -15,6 +15,20 @@
       "when": 1787681764838,
       "tag": "0001_typical_sleepwalker",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1787683908056,
+      "tag": "0002_luxuriant_fenris",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1787684562993,
+      "tag": "0003_spotty_vengeance",
+      "breakpoints": true
     }
   ]
 }
