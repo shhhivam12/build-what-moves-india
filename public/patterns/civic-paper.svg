@@ -1,22 +1,48 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="360" height="360" viewBox="0 0 360 360">
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="480" viewBox="0 0 480 480">
   <defs>
     <filter id="paper" x="0" y="0" width="100%" height="100%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.78" numOctaves="3" seed="17"/>
+      <feTurbulence type="fractalNoise" baseFrequency=".72" numOctaves="3" seed="23"/>
       <feColorMatrix type="saturate" values="0"/>
     </filter>
-    <g id="petal">
-      <path d="M180 104c16 19 16 38 0 57-16-19-16-38 0-57Z"/>
+    <path id="outer-petal" d="M240 69c22 27 27 57 0 91-27-34-22-64 0-91Z"/>
+    <path id="inner-petal" d="M240 126c15 18 17 38 0 58-17-20-15-40 0-58Z"/>
+    <g id="corner-flower">
+      <circle r="27"/>
+      <path d="M0-27c11 8 11 19 0 27-11-8-11-19 0-27ZM27 0C19 11 8 11 0 0c8-11 19-11 27 0ZM0 27c-11-8-11-19 0-27 11 8 11 19 0 27ZM-27 0c8-11 19-11 27 0-8 11-19 11-27 0Z"/>
     </g>
   </defs>
-  <rect width="360" height="360" fill="#7c6a4d" filter="url(#paper)" opacity=".075"/>
-  <g fill="none" stroke="#17654d" stroke-width="1" opacity=".13">
-    <path d="M0 45 45 0l45 45-45 45L0 45Zm90 0 45-45 45 45-45 45-45-45Zm90 0 45-45 45 45-45 45-45-45Zm90 0 45-45 45 45-45 45-45-45Z"/>
-    <path d="M0 315 45 270l45 45-45 45L0 315Zm90 0 45-45 45 45-45 45-45-45Zm90 0 45-45 45 45-45 45-45-45Zm90 0 45-45 45 45-45 45-45-45Z"/>
+  <rect width="480" height="480" fill="#6d624f" filter="url(#paper)" opacity=".06"/>
+  <g fill="none" stroke="#17654d" stroke-linecap="round" stroke-linejoin="round" opacity=".2">
+    <circle cx="240" cy="240" r="164" stroke-width="1.1"/>
+    <circle cx="240" cy="240" r="126" stroke-width=".9"/>
+    <circle cx="240" cy="240" r="87" stroke-width="1.1"/>
+    <circle cx="240" cy="240" r="47" stroke-width=".9"/>
+    <g stroke-width="1.25">
+      <use href="#outer-petal"/><use href="#outer-petal" transform="rotate(22.5 240 240)"/>
+      <use href="#outer-petal" transform="rotate(45 240 240)"/><use href="#outer-petal" transform="rotate(67.5 240 240)"/>
+      <use href="#outer-petal" transform="rotate(90 240 240)"/><use href="#outer-petal" transform="rotate(112.5 240 240)"/>
+      <use href="#outer-petal" transform="rotate(135 240 240)"/><use href="#outer-petal" transform="rotate(157.5 240 240)"/>
+      <use href="#outer-petal" transform="rotate(180 240 240)"/><use href="#outer-petal" transform="rotate(202.5 240 240)"/>
+      <use href="#outer-petal" transform="rotate(225 240 240)"/><use href="#outer-petal" transform="rotate(247.5 240 240)"/>
+      <use href="#outer-petal" transform="rotate(270 240 240)"/><use href="#outer-petal" transform="rotate(292.5 240 240)"/>
+      <use href="#outer-petal" transform="rotate(315 240 240)"/><use href="#outer-petal" transform="rotate(337.5 240 240)"/>
+    </g>
+    <g stroke-width="1">
+      <use href="#inner-petal"/><use href="#inner-petal" transform="rotate(45 240 240)"/>
+      <use href="#inner-petal" transform="rotate(90 240 240)"/><use href="#inner-petal" transform="rotate(135 240 240)"/>
+      <use href="#inner-petal" transform="rotate(180 240 240)"/><use href="#inner-petal" transform="rotate(225 240 240)"/>
+      <use href="#inner-petal" transform="rotate(270 240 240)"/><use href="#inner-petal" transform="rotate(315 240 240)"/>
+    </g>
+    <path d="M90 90 28 28M390 90l62-62M90 390l-62 62M390 390l62 62" stroke-dasharray="2 8"/>
+    <use href="#corner-flower" transform="translate(0 0)"/>
+    <use href="#corner-flower" transform="translate(480 0)"/>
+    <use href="#corner-flower" transform="translate(0 480)"/>
+    <use href="#corner-flower" transform="translate(480 480)"/>
   </g>
-  <g fill="none" stroke="#b35c23" stroke-width="1.25" opacity=".12">
-    <circle cx="180" cy="180" r="70"/>
-    <circle cx="180" cy="180" r="50"/>
-    <use href="#petal"/><use href="#petal" transform="rotate(45 180 180)"/><use href="#petal" transform="rotate(90 180 180)"/><use href="#petal" transform="rotate(135 180 180)"/><use href="#petal" transform="rotate(180 180 180)"/><use href="#petal" transform="rotate(225 180 180)"/><use href="#petal" transform="rotate(270 180 180)"/><use href="#petal" transform="rotate(315 180 180)"/>
-    <circle cx="180" cy="180" r="10"/>
+  <g fill="none" stroke="#b35c23" stroke-linecap="round" opacity=".16">
+    <circle cx="240" cy="240" r="105" stroke-dasharray="2 8"/>
+    <circle cx="240" cy="240" r="66" stroke-dasharray="1 6"/>
+    <path d="M240 198c24 0 42 18 42 42s-18 42-42 42-42-18-42-42 18-42 42-42Z"/>
+    <path d="m240 211 9 20 21 9-21 9-9 20-9-20-21-9 21-9 9-20Z"/>
   </g>
 </svg>

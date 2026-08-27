@@ -341,3 +341,17 @@ The entries in this section are temporary, faithful paraphrases of the planning-
 ### Completion note
 
 - **Result:** Completed the Vercel production/preview URL and authentication configuration, pinned a Vercel-supported toolchain, added a deployment runbook, corrected the release accessibility defect, and passed lint, strict types, 10 unit/component tests, a simulated-Vercel production build and all 34 compact/wide browser journeys before publication.
+
+---
+
+## Prompt 026
+
+- **Date:** 28 August 2026
+- **Phase:** Mandala surface system, favicon and route titles
+- **Purpose:** Give the full website a subtle repeated Indian mandala texture, extend the treatment into loading states, add a professional CPGRAMS-style favicon and standardise browser titles with the CPGRAMS name first.
+- **Result:** Added an original seamless mandala SVG rather than copying the watermarked reference, strengthened its subtle site-wide visibility, created a motion-safe mandala loading treatment, added a tricolour Chakra favicon and standardised route metadata as `CPGRAMS — Page`.
+- **Public record:** `docs/implementation/progress-log.md`
+
+### Prompt (verbatim)
+
+> So I have a few more requests to you. First of all, can you give a website in the background? Currently it is plain. What I want is can we make very subtle mandala art type pattern? So like the background of whole website will have a very light texture of mandala art all over the website to give a more aesthetic feeling, more Indian feel. So you can take any mandala art vector art and you can just multiply it all over the website. I hope you are getting my vision, what I'm trying to say. I just want to decorate my website now with more of mandala art type style. Also maybe in loading screen as well we can add some mandala art type pattern and wherever so that my website can have a whole mandala art type look and feel, little bit. It will give a more Indian aesthetic. It should be very subtle. It should not very prominent outside. It should be subtle in the background. Also can we add a favicon of just like the actual website, so that we have a more professional look. also the tab name should start from cpgrams - Dashboard, cpgram - ... etc

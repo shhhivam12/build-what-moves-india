@@ -4,7 +4,7 @@ import { CivicShell } from "@/src/design-system/components/civic-shell";
 import { getCitizenSession } from "@/src/infrastructure/auth/citizen-session";
 import styles from "./service-directory.module.css";
 
-export const metadata: Metadata = { title: "Citizen services and information" };
+export const metadata: Metadata = { title: "Services & Information" };
 
 const serviceCards = [
   { number: "01", title: "Lodge public grievance", description: "Describe the service issue, confirm the concerned organisation and retain the registration number.", href: "/grievances/new", action: "Start grievance" },

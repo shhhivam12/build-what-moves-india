@@ -5,7 +5,7 @@ import { getCitizenSession } from "@/src/infrastructure/auth/citizen-session";
 import styles from "@/src/features/grievances/help.module.css";
 
 export const dynamic = "force-dynamic";
-export const metadata: Metadata = { title: "Citizen help and accessibility" };
+export const metadata: Metadata = { title: "Help & Accessibility" };
 
 export default async function HelpPage() {
   const session = await getCitizenSession();

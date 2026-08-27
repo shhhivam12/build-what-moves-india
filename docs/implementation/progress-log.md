@@ -285,3 +285,17 @@ This is the append-only implementation record. Major updates record what changed
 - **Public documentation:** `docs/deployment/vercel.md`
 - **Open:** Import the GitHub repository into Vercel, configure the five protected environment values, run the reviewed Neon migration once, and complete the live production verification list.
 - **Next user action:** Follow `docs/deployment/vercel.md` to create the Vercel project and provide the resulting production URL for live verification.
+
+---
+
+## Update 019 — Mandala surface system and browser identity
+
+- **Date:** 28 August 2026
+- **Prompt:** Prompt 026
+- **Phase:** Cultural surface detailing and browser polish
+- **Status:** Implemented and verified
+- **Changed:** Replaced the nearly invisible paper tile with an original seamless saffron-and-green mandala drawing, recalibrated the ivory overlay so the repeat remains visible but quiet, adapted the tile scale for compact screens, and introduced a larger breathing mandala layer behind the loading indicator with reduced-motion support.
+- **Browser identity:** Added an original tricolour Ashoka Chakra SVG favicon and changed the metadata convention so every browser title begins with `CPGRAMS —`, including Dashboard, Sign In, Create Account, Services, Help, tracking, filing and grievance-record routes.
+- **Rights boundary:** The supplied mandala images were used only as visual direction. No watermarked or third-party artwork was copied into the repository.
+- **Verified:** Production build, 10 unit/component tests, all 34 compact/wide browser journeys, favicon discovery, route-title convention, zero mobile horizontal overflow, and visual checks of the landing page, dashboard, guided spotlight and loading transition.
+- **Next user action:** Import the updated GitHub branch into Vercel and complete the live deployment checklist.

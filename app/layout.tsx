@@ -10,8 +10,8 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(getPublicSiteOrigin()),
   title: {
-    default: "CPGRAMS — Public Grievance Redressal Portal",
-    template: "%s — CPGRAMS",
+    default: "CPGRAMS — Public Grievance Portal",
+    template: "CPGRAMS — %s",
   },
   description: "Lodge and monitor public service grievances through the CPGRAMS demonstration portal.",
   openGraph: {

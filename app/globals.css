@@ -25,12 +25,13 @@ body {
   overflow-x: hidden;
   background-color: #f5f1e8;
   background-image:
-    linear-gradient(rgba(255, 253, 247, .9), rgba(255, 253, 247, .9)),
+    linear-gradient(rgba(255, 253, 247, .78), rgba(255, 253, 247, .78)),
     url("/patterns/civic-paper.svg"),
     radial-gradient(circle at 4% 22%, rgba(244, 122, 31, 0.1), transparent 24rem),
     radial-gradient(circle at 96% 72%, rgba(8, 127, 91, 0.09), transparent 26rem);
   background-attachment: fixed;
-  background-size: auto, 360px 360px, auto, auto;
+  background-position: 0 0, center top, center, center;
+  background-size: auto, 420px 420px, auto, auto;
 }
 
 body::before {
@@ -103,6 +104,13 @@ a {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+  }
+}
+
+@media (max-width: 44rem) {
+  body {
+    background-attachment: scroll;
+    background-size: auto, 320px 320px, auto, auto;
   }
 }
 

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import { CivicShell } from "@/src/design-system/components/civic-shell";
 import { TrackExperience } from "@/src/features/grievances/track-experience";
@@ -6,6 +7,7 @@ import { listGrievancesForUser } from "@/src/features/grievances/store";
 import { getCitizenSession } from "@/src/infrastructure/auth/citizen-session";
 
 export const dynamic = "force-dynamic";
+export const metadata: Metadata = { title: "Track Grievance" };
 
 export default async function TrackPage() {
   const session = await getCitizenSession();

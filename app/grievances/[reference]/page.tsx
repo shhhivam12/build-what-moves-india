@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
@@ -9,6 +10,7 @@ import styles from "@/src/features/grievances/portal.module.css";
 import { getCitizenSession } from "@/src/infrastructure/auth/citizen-session";
 
 export const dynamic = "force-dynamic";
+export const metadata: Metadata = { title: "Grievance Record" };
 
 const progressSteps = [
   { label: "Registered", detail: "Grievance recorded" },

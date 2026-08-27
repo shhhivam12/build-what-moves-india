@@ -19,6 +19,7 @@ test("public homepage uses official identity and contains no hard-coded persona"
   if (await skip.isVisible()) await skip.click();
   await expect(page.getByAltText("Department of Administrative Reforms and Public Grievances")).toBeVisible();
   await expect(page.getByRole("heading", { name: /Public Grievance Redressal Portal/ })).toBeVisible();
+  await expect(page).toHaveTitle("CPGRAMS — Public Grievance Portal");
   await expect(page.getByRole("heading", { name: "Mahatma Gandhi" })).toBeVisible();
   await expect(page.getByAltText("Shri Narendra Modi, Prime Minister of India")).toBeVisible();
   await expect(page.getByText(/fictional citizen account/i)).toHaveCount(0);
@@ -50,6 +51,7 @@ test("English and Hindi switch updates the core citizen landing experience", asy
 
 test("signed-in citizens are kept in the account experience", async ({ page }) => {
   await createCitizen(page);
+  await expect(page).toHaveTitle("CPGRAMS — Dashboard");
   await page.goto("/");
   await expect(page).toHaveURL(/\/dashboard$/);
   await expect(page.getByRole("link", { name: "Home", exact: true })).toHaveCount(0);

@@ -6,7 +6,7 @@ import { getCitizenSession } from "@/src/infrastructure/auth/citizen-session";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Create citizen account",
+  title: "Create Account",
   description: "Create a citizen account for the CPGRAMS demonstration portal.",
 };
 

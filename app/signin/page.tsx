@@ -6,7 +6,7 @@ import { getCitizenSession } from "@/src/infrastructure/auth/citizen-session";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Citizen sign in",
+  title: "Sign In",
   description: "Sign in to lodge, track and appeal a demonstration public grievance.",
 };
 

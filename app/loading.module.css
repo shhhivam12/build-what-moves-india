@@ -1,5 +1,6 @@
-.loading { min-height: 68svh; display: grid; place-content: center; justify-items: center; color: #073f2d; background: radial-gradient(circle at 50% 44%, rgba(255,139,37,.16), transparent 18rem), #fffdf8; text-align: center; }
-.mark { width: 5.4rem; height: 5.4rem; display: grid; place-items: center; color: #087750; background: #fff; border: 1px solid #dce7e0; border-radius: 50%; box-shadow: 0 1rem 3rem rgba(7,85,58,.13); }
+.loading { position: relative; min-height: 68svh; isolation: isolate; display: grid; place-content: center; justify-items: center; overflow: hidden; color: #073f2d; background-color: #fffdf8; background-image: linear-gradient(rgba(255,253,248,.72),rgba(255,253,248,.72)), url("/patterns/civic-paper.svg"), radial-gradient(circle at 50% 44%, rgba(255,139,37,.16), transparent 18rem); background-position: center; background-size: auto, 360px 360px, auto; text-align: center; }
+.loading::before { position: absolute; z-index: -1; width: min(68vw, 34rem); aspect-ratio: 1; opacity: .08; background: url("/patterns/civic-paper.svg") center / contain no-repeat; filter: saturate(.75); animation: mandalaBreathe 4.8s ease-in-out infinite; content: ""; }
+.mark { width: 5.4rem; height: 5.4rem; display: grid; place-items: center; color: #087750; background: rgba(255,255,255,.92); border: 1px solid #cfded6; border-radius: 50%; box-shadow: 0 1rem 3rem rgba(7,85,58,.13); backdrop-filter: blur(8px); }
 .mark svg { width: 3.5rem; stroke: currentColor; stroke-width: 2; animation: chakraTurn 2.2s linear infinite; }
 .loading p { margin: 1.2rem 0 .2rem; color: #af4c0d; font-family: "Noto Sans Devanagari", sans-serif; font-weight: 700; }
 .loading strong { font-size: .78rem; }
@@ -7,4 +8,5 @@
 .line span { width: 42%; height: 100%; display: block; background: linear-gradient(90deg,#f47b20,#07905f); border-radius: 1rem; animation: lineMove 1.15s ease-in-out infinite; }
 @keyframes chakraTurn { to { transform: rotate(360deg); } }
 @keyframes lineMove { from { transform: translateX(-110%); } to { transform: translateX(270%); } }
-@media (prefers-reduced-motion: reduce) { .mark svg, .line span { animation: none; } }
+@keyframes mandalaBreathe { 50% { opacity: .13; transform: scale(1.035) rotate(2deg); } }
+@media (prefers-reduced-motion: reduce) { .loading::before, .mark svg, .line span { animation: none; } }

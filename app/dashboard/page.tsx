@@ -8,7 +8,7 @@ import { listGrievancesForUser } from "@/src/features/grievances/store";
 import { getCitizenSession } from "@/src/infrastructure/auth/citizen-session";
 
 export const dynamic = "force-dynamic";
-export const metadata: Metadata = { title: "My grievance dashboard" };
+export const metadata: Metadata = { title: "Dashboard" };
 
 export default async function DashboardPage() {
   const currentSession = await getCitizenSession();

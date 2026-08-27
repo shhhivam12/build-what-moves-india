@@ -1,9 +1,11 @@
+import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { CivicShell } from "@/src/design-system/components/civic-shell";
 import { GrievanceIntake } from "@/src/features/grievances/grievance-intake";
 import { getCitizenSession } from "@/src/infrastructure/auth/citizen-session";
 
 export const dynamic = "force-dynamic";
+export const metadata: Metadata = { title: "Lodge Grievance" };
 
 export default async function NewGrievancePage() {
   const session = await getCitizenSession();
