@@ -1,0 +1,10 @@
+.loading { min-height: 68svh; display: grid; place-content: center; justify-items: center; color: #073f2d; background: radial-gradient(circle at 50% 44%, rgba(255,139,37,.16), transparent 18rem), #fffdf8; text-align: center; }
+.mark { width: 5.4rem; height: 5.4rem; display: grid; place-items: center; color: #087750; background: #fff; border: 1px solid #dce7e0; border-radius: 50%; box-shadow: 0 1rem 3rem rgba(7,85,58,.13); }
+.mark svg { width: 3.5rem; stroke: currentColor; stroke-width: 2; animation: chakraTurn 2.2s linear infinite; }
+.loading p { margin: 1.2rem 0 .2rem; color: #af4c0d; font-family: "Noto Sans Devanagari", sans-serif; font-weight: 700; }
+.loading strong { font-size: .78rem; }
+.line { width: 11rem; height: .22rem; margin-top: 1rem; overflow: hidden; background: #e5e9e4; border-radius: 1rem; }
+.line span { width: 42%; height: 100%; display: block; background: linear-gradient(90deg,#f47b20,#07905f); border-radius: 1rem; animation: lineMove 1.15s ease-in-out infinite; }
+@keyframes chakraTurn { to { transform: rotate(360deg); } }
+@keyframes lineMove { from { transform: translateX(-110%); } to { transform: translateX(270%); } }
+@media (prefers-reduced-motion: reduce) { .mark svg, .line span { animation: none; } }

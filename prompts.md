@@ -235,3 +235,109 @@ The entries in this section are temporary, faithful paraphrases of the planning-
 ### Prompt (verbatim)
 
 > can we make it more for grievence like with indian rajasthani art elements in the website maybe, and a lady will be standing with namaste hands and tagline of the website maybe asuvidha ke liye khed hai, indian elemets should be very subtle but marvolouly beautiful showcasing indian culture, also dont put the tricolor on the numbers , number should be normal colors for clean reading
+
+---
+
+## Prompt 019
+
+- **Date:** 26 August 2026
+- **Phase:** Modern Indian civic design refinement
+- **Purpose:** Fix the remaining aesthetic and functional inconsistencies, strengthen the modern Indian visual identity, and verify the shared public-service experience at desktop and compact widths.
+- **Result:** Reworked the shared masthead, navigation and footer; refined the homepage with sandstone, ivory and deep-green surfaces, jharokha and jaali references, crisp civic iconography and clearer hierarchy; and replaced the decorative text-size label with functional persistent controls.
+- **Public record:** `docs/implementation/checkpoints/modern-indian-civic-polish.md`; `docs/implementation/progress-log.md`; `docs/project-status.md`
+
+### Prompt (verbatim)
+
+> please fix this website and make it aesthetic with modern indian design
+
+---
+
+## Prompt 020
+
+- **Date:** 26 August 2026
+- **Phase:** Original-service feature parity and information architecture
+- **Purpose:** Bring the useful citizen-facing breadth of the original CPGRAMS website into the redesigned experience while retaining the clearer, more aesthetic modern Indian presentation.
+- **Result:** Added a complete citizen service directory, concise official-source guidance and handoffs, dashboard summaries, searchable and filterable grievance records, appeal oversight, recent activity, account/session information and direct routes to pension, officers, reminders, FAQs, contact and site map content.
+- **Public record:** `docs/implementation/checkpoints/original-feature-parity-information-architecture.md`; `docs/implementation/original-parity-audit.md`; `docs/implementation/progress-log.md`; `docs/project-status.md`
+
+### Prompt (verbatim)
+
+> add all similar features from the original website, make it similarly informative, clear to the point as them but with aesthetics
+
+---
+
+## Prompt 021
+
+- **Date:** 26 August 2026
+- **Phase:** Header and identity correction
+- **Purpose:** Remove the visually duplicated navigation and conflicting logo treatments from the shared civic header.
+- **Result:** Consolidated the primary navigation into the identity row, reduced the official department mark, removed the repeated CPGRAMS wordmark block and simplified the government strip to contextual information and text-size controls.
+- **Public record:** `docs/implementation/progress-log.md`
+
+### Prompt (verbatim)
+
+> fix the ugly double navbar and logo issues
+
+---
+
+## Prompt 022
+
+- **Date:** 27 August 2026
+- **Phase:** Premium bilingual civic landing and guided citizen experience
+- **Purpose:** Raise the product to a high-effort Indian government-first presentation with original civic vector artwork, the namaste citizen-assistance figure, responsive English/Hindi content and an interactive visual guide after sample login.
+- **Result:** Rebuilt the landing presentation around premium ivory, sandstone, saffron and green surfaces; added original Parliament, India Gate and Constitution illustrations; retained the namaste assistance figure; introduced persistent English/Hindi content across the core citizen journey; and added a five-step illustrated dashboard guide that opens once per signed-in browser session and can be replayed.
+- **Public record:** `docs/implementation/checkpoints/premium-bilingual-civic-guide.md`; `docs/implementation/progress-log.md`; `docs/project-status.md`
+
+### Prompt (verbatim)
+
+> add more vector arts and the image i told of that lady something like that and make it look more premium and high effort website, also you canadd goverment symbols to make it look more authentic as a demo, and at end add an interactive step by step visual user guide , also whole platform should be compatible for hindi and english, , make sure everything is responsive and mobile pc compatible, everytime user opens the website they should start with beautiful gov landing page and then after login , platform interactive visual guide, make it look more high effort premium indian gov first aesthetic web design
+
+---
+
+## Prompt 023
+
+- **Date:** 27 August 2026
+- **Phase:** Multilingual conversational service access and vibrant civic refinement
+- **Purpose:** Add smooth route/loading transitions, a multilingual task-capable citizen assistant, stronger contrast and colour, prototype language restrictions, strict public/account route separation, Indian motion details and a Gandhi/current-Prime-Minister civic presentation.
+- **Result:** Added Samadhan Sahayak with English/Hindi intent handling, grievance-draft and tracking-reference handoffs, dashboard/appeal/services/help actions and protected sign-in routing; restricted the public selector to active English/Hindi options; redirected authenticated root/sign-in/sign-up visits to the dashboard; added loading and route transitions; strengthened contrast and tricolour saturation; and introduced original Gandhi line art beside an official-source current Prime Minister portrait.
+- **Public record:** `docs/implementation/checkpoints/multilingual-chatbot-vibrant-civic-experience.md`; `docs/implementation/progress-log.md`; `docs/project-status.md`
+
+### Prompt (verbatim)
+
+> add some smooth loading transition, also add the chatbot and make it capable to be multi language, and people should be able to do everything from that chatbot itself just like original website, also in the website make the colors more vibrant and contrasty , also in the language drop down keep english hindi in the top 2, else keep all disabled for this prototype, also seperate the login pages/landing pages from the user account page, currently home page is still visible when user logged in, also give small detailings in website india related, keep some moving elements as well , in the frontpage add mahatma gandhi and prime ministers photo , you can add mahatma gandhi vector art as well, improve the overall structure of the website while keeping it visually stunning and aesthetic and easy to use
+
+---
+
+## Prompt 024
+
+- **Date:** 27 August 2026
+- **Phase:** Spotlight onboarding and structured civic editorial refinement
+- **Purpose:** Replace the existing dashboard guide with a true live-element spotlight tour; add a sourced real Gandhi photograph and quote; remove the generic AI-interface feel through precise typography and keylines; introduce subtle Indian paper texture; animate the persistent tricolour ribbon; and replace initial-based account imagery with a vector citizen profile mark.
+- **Result:** Added a six-step English/Hindi spotlight guide that dims the page, cuts out each live dashboard control and repositions its teaching card responsively; added a verified public-domain 1940 Gandhi portrait and sourced service quote; introduced a tiled mandala/jaali paper texture, tighter Noto civic-publication typography, sharper cards and borders, a continuously moving tricolour ribbon and a neutral vector citizen avatar.
+- **Public record:** `docs/implementation/checkpoints/spotlight-guide-structured-civic-editorial.md`; `docs/implementation/progress-log.md`; `docs/project-status.md`
+
+### Prompt (verbatim)
+
+> I want you to add an interactive guide in the beginning, which will, like, blur out the whole screen and step by step show the only part, like how to use the platform itself. So you are understanding it, right? The whole screen will be translucent black, and there will be one rectangle box with a pop-up, which will teach, and then you can click next, and then this next interactive thing will be opened with the translucent screen. So I want an interactive guide in the beginning like that. also add the real photo of mahatma gandhi with his quote Also, like I have shown the screenshot, can we give that type of font all over the website, where the boxes and the fonts and the logos look very structured and professional? Currently it is giving very general AI feel. The fonts and the stroke width, it is giving AI feel. So you figure out some good font styles and aesthetics, which don't feel AI-like and look unique, structured and proper. Also try giving a texturized feel to the background of all of the website. Currently it is plain white background. So maybe a textured something aligned texture would look good on the whole website, and it will feel more professional and something. Maybe you can use some Indian cultural art for giving that thing, giving the aesthetic. I'm attaching the screenshot of the dashboard page. In the behind you see it is plain white. So there I'm talking about if we can add some Indian cultural art, mandala art or something very subtle, but giving a very beautiful effect. So I think we can add that. It may look very nice. Also on the very top, this one tri-color load bar. So if we can make it as some moving bar, this will gradiently move the tri-color. That may also look very nice. So we can try those things. So try these design enhancement, try to add something of yours as well, and try to make this more beautiful, this whole website and whole experience. Also in the user name, right now in the profile picture it is showing as RM. So maybe we can try adding some vector user logo type of thing instead of these alphabets. So that may give a personalized feel as well.
+
+### Screenshot clarification (verbatim)
+
+> this is the ss i was talking aboiut
+
+---
+
+## Prompt 025
+
+- **Date:** 28 August 2026
+- **Phase:** Vercel release readiness and GitHub publication
+- **Purpose:** Audit the complete application, make the authenticated Next.js prototype reliable on Vercel production and preview deployments, verify release quality, publish the cumulative code to GitHub and provide an exact Vercel handoff.
+- **Result:** Pending final release validation and publication.
+- **Public record:** `docs/deployment/vercel.md`; final release commit
+
+### Prompt (verbatim)
+
+> Okay, can we make it Vercel deployable now? And then we will push the code to GitHub. Then you guide me how to push it on Vercel, and check if everything is perfect and ready to push or not. Check all the code base and everything.
+
+### Completion note
+
+- **Result:** Completed the Vercel production/preview URL and authentication configuration, pinned a Vercel-supported toolchain, added a deployment runbook, corrected the release accessibility defect, and passed lint, strict types, 10 unit/component tests, a simulated-Vercel production build and all 34 compact/wide browser journeys before publication.

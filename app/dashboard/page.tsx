@@ -1,39 +1,25 @@
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
-import Link from "next/link";
 import { redirect } from "next/navigation";
 import { CivicShell } from "@/src/design-system/components/civic-shell";
-import { decodeMockCase, getMockCases, mockLatestCookie } from "@/src/features/grievances/mock-data";
+import { DashboardExperience } from "@/src/features/grievances/dashboard-experience";
+import { decodeMockAppeal, decodeMockCase, getMockCases, mockAppealCookie, mockLatestCookie } from "@/src/features/grievances/mock-data";
 import { listGrievancesForUser } from "@/src/features/grievances/store";
-import styles from "@/src/features/grievances/portal.module.css";
 import { getCitizenSession } from "@/src/infrastructure/auth/citizen-session";
 
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = { title: "My grievance dashboard" };
 
-function statusLabel(status: string) {
-  return ({ "partly-resolved": "Partly resolved", acknowledged: "Acknowledged", "appeal-received": "Appeal received" } as Record<string,string>)[status] ?? status;
-}
-
 export default async function DashboardPage() {
   const currentSession = await getCitizenSession();
   if (!currentSession) redirect("/signin");
-  const latest = decodeMockCase((await cookies()).get(mockLatestCookie)?.value);
-  const cases = currentSession.isMock ? getMockCases(latest) : await listGrievancesForUser(currentSession.user.id);
-  const firstName = currentSession.user.name.split(/\s+/)[0];
-  const sampleCase = (cases.find((item) => item.isSample) ?? cases[0])!;
+  const cookieStore = await cookies();
+  const latest = decodeMockCase(cookieStore.get(mockLatestCookie)?.value);
+  const mockAppeal = decodeMockAppeal(cookieStore.get(mockAppealCookie)?.value);
+  const storedCases = currentSession.isMock ? getMockCases(latest) : await listGrievancesForUser(currentSession.user.id);
+  const cases = storedCases.map((item) => mockAppeal?.caseReference === item.reference ? { ...item, status: "appeal-received" } : item);
+  const firstName = currentSession.user.name.split(/\s+/)[0] ?? currentSession.user.name;
   return <CivicShell user={{ name: currentSession.user.name, email: currentSession.user.email }}>
-    <main className={styles.dashboard} id="main-content">
-      <section className={styles.welcome}><div><p className={styles.eyebrow}>Citizen dashboard</p><h1>Namaste, {firstName}.</h1><p>View submitted grievances and the latest action recorded for this account.</p></div><Link className={styles.newButton} href="/grievances/new"><span aria-hidden="true">＋</span> Lodge a grievance</Link></section>
-      <section className={styles.summary} aria-label="Account summary"><article><span aria-hidden="true">◎</span><div><small>All grievances</small><strong>{cases.length}</strong></div></article><article><span aria-hidden="true">⌁</span><div><small>In progress</small><strong>{cases.filter((item) => item.status === "acknowledged").length}</strong></div></article><article><span aria-hidden="true">✓</span><div><small>Outcomes issued</small><strong>{cases.filter((item) => item.status.includes("resolved")).length}</strong></div></article><article><span aria-hidden="true">↗</span><div><small>Appeals active</small><strong>{cases.filter((item) => item.status === "appeal-received").length}</strong></div></article></section>
-      <div className={styles.dashboardGrid}>
-        <section className={styles.caseList} aria-labelledby="my-cases-heading"><header><div><p className={styles.eyebrow}>Your records</p><h2 id="my-cases-heading">My grievances</h2></div><Link href="/track">Find by reference</Link></header>{cases.map((item) => <Link className={styles.caseRow} href={`/grievances/${encodeURIComponent(item.reference)}`} key={item.id}><span className={styles.statusIcon} aria-hidden="true">{item.status === "acknowledged" ? "⌁" : item.status === "appeal-received" ? "↗" : "✓"}</span><div className={styles.caseBody}><div><span className={styles.statusPill}>{statusLabel(item.status)}</span>{item.isSample ? <span className={styles.samplePill}>Sample case</span> : null}</div><h3>{item.title}</h3><p>{item.department}</p><small>Reference {item.reference} · Updated {item.updatedAt.toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" })}</small></div><b aria-hidden="true">→</b></Link>)}</section>
-        <aside className={styles.dashboardAside}>
-          <section className={styles.nextAction}><p className={styles.eyebrow}>Action Taken Report</p><span aria-hidden="true">≡</span><h2>View the sample disposal report</h2><p>The sample record contains one completed action and one action that remains pending.</p><Link href={`/grievances/${encodeURIComponent(sampleCase.reference)}`}>Open grievance record <span aria-hidden="true">→</span></Link></section>
-          <section className={styles.helpCard}><h2>Citizen Help</h2><p>Read eligibility instructions and guidance for grievance descriptions and appeals.</p><Link href="/help">Open Help Centre →</Link></section>
-          <section className={styles.accountCard}><span className={styles.secureDot} aria-hidden="true">✓</span><div><strong>Demonstration session</strong><p>Signed in as {currentSession.user.email}</p></div></section>
-        </aside>
-      </div>
-    </main>
+    <DashboardExperience email={currentSession.user.email} firstName={firstName} records={cases.map((item) => ({ reference: item.reference, title: item.title, department: item.department, status: item.status, isSample: item.isSample, submittedAt: item.submittedAt.toISOString(), updatedAt: item.updatedAt.toISOString() }))} />
   </CivicShell>;
 }

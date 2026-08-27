@@ -49,3 +49,14 @@ Explicitly deferred:
 - production-grade identity, retention, audit and government-cloud decisions.
 
 This is feature discipline, not missing scope: these capabilities either already exist in the original service, require official integration, or do not strengthen the assured-lifecycle demonstration.
+
+## Implemented parity layer — 26 August 2026
+
+The citizen-facing information gaps identified above are now closed in the prototype:
+
+- `/services` provides concise About, redressal-process, reminder, clarification, feedback, appeal, officer, pension, mobile-access, FAQ, contact and site-map sections.
+- `/dashboard` provides summary totals, citizen-service navigation, search, status filters, sorting, pagination, appeal oversight, recent activity and account/session details.
+- The homepage, primary navigation and footer now expose the service directory and the most important public-information routes.
+- Current officer directories, pension access and real CPGRAMS actions remain official external handoffs; no live government action is simulated.
+
+The explicitly deferred integration scope remains unchanged.

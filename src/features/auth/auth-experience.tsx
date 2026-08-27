@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { FormEvent, useId, useState } from "react";
 import { CivicShell } from "@/src/design-system/components/civic-shell";
+import { useCivicLanguage } from "@/src/i18n/civic-language-context";
 import { authClient } from "@/src/infrastructure/auth/client";
 import styles from "./auth-experience.module.css";
 
@@ -23,7 +24,26 @@ type FormState = {
 
 const initialState: FormState = { name: "", email: "", password: "" };
 
+const authCopy = {
+  en: {
+    system: "Centralised Public Grievance Redress and Monitoring System", signTitle: "Citizen Sign In", registerTitle: "Citizen Registration", signStory: "Access your grievance dashboard using the registered email address and password.", registerStory: "Register to lodge public grievances and view action taken by the concerned organisation.",
+    journey: [["Register grievance", "Submit public service details"], ["View status", "Check action taken"], ["File appeal", "For eligible disposed cases"]], noFee: "No fee is charged", available: "Online grievance services are available 24 × 7",
+    registered: "Registered citizen", newCitizen: "New citizen", signHeading: "Sign in to CPGRAMS", createHeading: "Create citizen account", signBody: "Enter your registered email address and password.", createBody: "Enter the required details to create an account. Use fictional information in this demonstration environment.",
+    opening: "Opening sample account…", continueSample: "Continue with sample account", sampleAvailable: "Available even if the demonstration database is unavailable", fill: "Fill fictional details", review: "Review or edit them before continuing", form: "or use the form", fullName: "Full name", namePlaceholder: "Enter your full name", email: "Email address", password: "Password", forgot: "Forgot password?", characters: "10+ characters", passwordPlaceholder: "Enter your password", hide: "Hide", show: "Show", demoConsent: "I understand that this concept environment accepts fictional demonstration data only.", remember: "Keep me signed in on this device", wait: "Please wait…", signSecure: "Sign in securely", create: "Create account", newService: "New to the service?", haveAccount: "Already have an account?", createAccount: "Create an account", signIn: "Sign in", safety: "Concept redesign · Not connected to live government systems",
+    checking: "Checking sample account…", unavailable: "Sample access is temporarily unavailable.", fictionalAdded: "Fictional details added. You can edit them before creating the account.", confirmDemo: "Please confirm that this account uses demonstration data.", failed: "The service could not complete that request.",
+  },
+  hi: {
+    system: "केंद्रीकृत लोक शिकायत निवारण और निगरानी प्रणाली", signTitle: "नागरिक साइन इन", registerTitle: "नागरिक पंजीकरण", signStory: "पंजीकृत ईमेल और पासवर्ड से अपने शिकायत डैशबोर्ड तक पहुँचें।", registerStory: "लोक शिकायत दर्ज करने और संबंधित संगठन की कार्रवाई देखने के लिए पंजीकरण करें।",
+    journey: [["शिकायत पंजीकरण", "सार्वजनिक सेवा विवरण जमा करें"], ["स्थिति देखें", "की गई कार्रवाई देखें"], ["अपील दर्ज करें", "पात्र निस्तारित मामलों के लिए"]], noFee: "कोई शुल्क नहीं लिया जाता", available: "ऑनलाइन शिकायत सेवाएँ 24 × 7 उपलब्ध हैं",
+    registered: "पंजीकृत नागरिक", newCitizen: "नया नागरिक", signHeading: "सीपीग्राम्स में साइन इन करें", createHeading: "नागरिक खाता बनाएँ", signBody: "अपना पंजीकृत ईमेल और पासवर्ड दर्ज करें।", createBody: "खाता बनाने के लिए आवश्यक विवरण दर्ज करें। इस प्रदर्शन परिवेश में काल्पनिक जानकारी उपयोग करें।",
+    opening: "नमूना खाता खोला जा रहा है…", continueSample: "नमूना खाते से जारी रखें", sampleAvailable: "प्रदर्शन डेटाबेस उपलब्ध न होने पर भी प्रयोग किया जा सकता है", fill: "काल्पनिक विवरण भरें", review: "जारी रखने से पहले समीक्षा या संपादन करें", form: "या प्रपत्र का उपयोग करें", fullName: "पूरा नाम", namePlaceholder: "अपना पूरा नाम दर्ज करें", email: "ईमेल पता", password: "पासवर्ड", forgot: "पासवर्ड भूल गए?", characters: "10+ अक्षर", passwordPlaceholder: "अपना पासवर्ड दर्ज करें", hide: "छिपाएँ", show: "दिखाएँ", demoConsent: "मैं समझता/समझती हूँ कि यह परिवेश केवल काल्पनिक प्रदर्शन डेटा स्वीकार करता है।", remember: "इस उपकरण पर साइन इन रखें", wait: "कृपया प्रतीक्षा करें…", signSecure: "सुरक्षित साइन इन", create: "खाता बनाएँ", newService: "सेवा में नए हैं?", haveAccount: "पहले से खाता है?", createAccount: "खाता बनाएँ", signIn: "साइन इन", safety: "अवधारणा पुनर्रचना · लाइव सरकारी प्रणालियों से जुड़ा नहीं",
+    checking: "नमूना खाते की जाँच…", unavailable: "नमूना खाता अभी उपलब्ध नहीं है।", fictionalAdded: "काल्पनिक विवरण जोड़ दिए गए हैं। खाता बनाने से पहले संपादित कर सकते हैं।", confirmDemo: "कृपया पुष्टि करें कि यह खाता प्रदर्शन डेटा उपयोग करता है।", failed: "सेवा अनुरोध पूरा नहीं कर सकी।",
+  },
+} as const;
+
 export function AuthExperience({ mode }: { mode: Mode }) {
+  const { contentLocale } = useCivicLanguage();
+  const copy = authCopy[contentLocale];
   const router = useRouter();
   const descriptionId = useId();
   const [form, setForm] = useState<FormState>(initialState);
@@ -46,9 +66,9 @@ export function AuthExperience({ mode }: { mode: Mode }) {
   }
 
   async function openMockAccount() {
-    setNotice("Opening the sample account…");
+    setNotice(copy.opening);
     const response = await fetch("/api/demo-access", { method: "POST" });
-    if (!response.ok) throw new Error("Sample access is temporarily unavailable.");
+    if (!response.ok) throw new Error(copy.unavailable);
     await new Promise((resolve) => window.setTimeout(resolve, 450));
     await finishAuthentication();
   }
@@ -70,7 +90,7 @@ export function AuthExperience({ mode }: { mode: Mode }) {
         const result = await signIn(form.email.trim(), form.password, rememberMe);
         if (result.error) throw new Error(result.error.message || "We could not sign you in.");
       } else {
-        if (!accepted) throw new Error("Please confirm that this account uses demonstration data.");
+        if (!accepted) throw new Error(copy.confirmDemo);
         const result = await authClient.signUp.email({
           name: form.name.trim(),
           email: form.email.trim(),
@@ -81,7 +101,7 @@ export function AuthExperience({ mode }: { mode: Mode }) {
 
       await finishAuthentication();
     } catch (caught) {
-      setError(caught instanceof Error ? caught.message : "The service could not complete that request.");
+      setError(caught instanceof Error ? caught.message : copy.failed);
     } finally {
       setPending(false);
     }
@@ -91,13 +111,13 @@ export function AuthExperience({ mode }: { mode: Mode }) {
     setForm(demoAccount);
     setPending(true);
     setError("");
-    setNotice("Checking sample account…");
+    setNotice(copy.checking);
 
     try {
       await openMockAccount();
     } catch (caught) {
       setNotice("");
-      setError(caught instanceof Error ? caught.message : "Sample access is temporarily unavailable.");
+      setError(caught instanceof Error ? caught.message : copy.unavailable);
     } finally {
       setPending(false);
     }
@@ -112,7 +132,7 @@ export function AuthExperience({ mode }: { mode: Mode }) {
     });
     setAccepted(true);
     setError("");
-    setNotice("Fictional details added. You can edit them before creating the account.");
+    setNotice(copy.fictionalAdded);
   }
 
   return (
@@ -121,61 +141,59 @@ export function AuthExperience({ mode }: { mode: Mode }) {
       <div className={styles.ambient} aria-hidden="true"><span /><span /><span /></div>
       <section className={styles.layout}>
         <div className={styles.story}>
-          <p className={styles.kicker}>Centralised Public Grievance Redress and Monitoring System</p>
-          <h1>{isSignIn ? <>Citizen <em>Sign In</em></> : <>Citizen <em>Registration</em></>}</h1>
-          <p className={styles.storyCopy}>{isSignIn ? "Access your grievance dashboard using the registered email address and password." : "Register to lodge public grievances and view action taken by the concerned organisation."}</p>
+          <p className={styles.kicker}>{copy.system}</p>
+          <h1>{isSignIn ? copy.signTitle : copy.registerTitle}</h1>
+          <p className={styles.storyCopy}>{isSignIn ? copy.signStory : copy.registerStory}</p>
 
           <div className={styles.journey} aria-label="Service journey">
-            <div><span>01</span><strong>Register grievance</strong><small>Submit public service details</small></div>
-            <div><span>02</span><strong>View status</strong><small>Check action taken</small></div>
-            <div><span>03</span><strong>File appeal</strong><small>For eligible disposed cases</small></div>
+            {copy.journey.map((item, index) => <div key={item[0]}><span>0{index + 1}</span><strong>{item[0]}</strong><small>{item[1]}</small></div>)}
           </div>
 
           <aside className={styles.trustCard}>
             <span aria-hidden="true">₹0</span>
-            <div><strong>No fee is charged</strong><small>Online grievance services are available 24 × 7</small></div>
+            <div><strong>{copy.noFee}</strong><small>{copy.available}</small></div>
           </aside>
         </div>
 
         <section className={styles.card} aria-labelledby="auth-title" aria-describedby={descriptionId}>
           <div className={styles.cardTopline} aria-hidden="true"><i /><i /><i /></div>
           <div className={styles.cardHeader}>
-            <p>{isSignIn ? "Registered citizen" : "New citizen"}</p>
-            <h2 id="auth-title">{isSignIn ? "Sign in to CPGRAMS" : "Create citizen account"}</h2>
-            <span id={descriptionId}>{isSignIn ? "Enter your registered email address and password." : "Enter the required details to create an account. Use fictional information in this demonstration environment."}</span>
+            <p>{isSignIn ? copy.registered : copy.newCitizen}</p>
+            <h2 id="auth-title">{isSignIn ? copy.signHeading : copy.createHeading}</h2>
+            <span id={descriptionId}>{isSignIn ? copy.signBody : copy.createBody}</span>
           </div>
 
           {isSignIn ? (
             <button className={styles.demoButton} disabled={pending} onClick={useDemoCitizen} type="button">
               <span className={styles.demoAvatar} aria-hidden="true">RM</span>
-              <span><strong>{pending ? "Opening sample account…" : "Continue with sample account"}</strong><small>Available even if the demonstration database is unavailable</small></span>
+              <span><strong>{pending ? copy.opening : copy.continueSample}</strong><small>{copy.sampleAvailable}</small></span>
               <b aria-hidden="true">→</b>
             </button>
           ) : (
             <button className={styles.demoButton} disabled={pending} onClick={fillRegistrationDemo} type="button">
               <span className={styles.spark} aria-hidden="true">✦</span>
-              <span><strong>Fill fictional details</strong><small>Review or edit them before continuing</small></span>
+              <span><strong>{copy.fill}</strong><small>{copy.review}</small></span>
               <b aria-hidden="true">+</b>
             </button>
           )}
 
-          <div className={styles.divider}><span>or use the form</span></div>
+          <div className={styles.divider}><span>{copy.form}</span></div>
 
           <form onSubmit={submit}>
-            {!isSignIn ? <label className={styles.field}><span>Full name</span><input autoComplete="name" minLength={2} onChange={(event) => setField("name", event.target.value)} placeholder="Enter your full name" required value={form.name} /></label> : null}
-            <label className={styles.field}><span>Email address</span><input autoComplete="email" inputMode="email" onChange={(event) => setField("email", event.target.value)} placeholder="citizen@assured.example" required type="email" value={form.email} /></label>
-            <label className={styles.field}><span className={styles.fieldLine}>Password {isSignIn ? <Link href="/help#account-recovery">Forgot password?</Link> : <small>10+ characters</small>}</span><span className={styles.passwordWrap}><input autoComplete={isSignIn ? "current-password" : "new-password"} minLength={10} onChange={(event) => setField("password", event.target.value)} placeholder="Enter your password" required type={showPassword ? "text" : "password"} value={form.password} /><button aria-label={showPassword ? "Hide password" : "Show password"} onClick={() => setShowPassword((current) => !current)} type="button">{showPassword ? "Hide" : "Show"}</button></span></label>
+            {!isSignIn ? <label className={styles.field}><span>{copy.fullName}</span><input autoComplete="name" minLength={2} onChange={(event) => setField("name", event.target.value)} placeholder={copy.namePlaceholder} required value={form.name} /></label> : null}
+            <label className={styles.field}><span>{copy.email}</span><input autoComplete="email" inputMode="email" onChange={(event) => setField("email", event.target.value)} placeholder="citizen@assured.example" required type="email" value={form.email} /></label>
+            <label className={styles.field}><span className={styles.fieldLine}>{copy.password} {isSignIn ? <Link href="/help#account-recovery">{copy.forgot}</Link> : <small>{copy.characters}</small>}</span><span className={styles.passwordWrap}><input autoComplete={isSignIn ? "current-password" : "new-password"} minLength={10} onChange={(event) => setField("password", event.target.value)} placeholder={copy.passwordPlaceholder} required type={showPassword ? "text" : "password"} value={form.password} /><button aria-label={showPassword ? copy.hide : copy.show} onClick={() => setShowPassword((current) => !current)} type="button">{showPassword ? copy.hide : copy.show}</button></span></label>
 
-            {!isSignIn ? <label className={styles.consent}><input checked={accepted} onChange={(event) => setAccepted(event.target.checked)} type="checkbox" /><span>I understand that this concept environment accepts fictional demonstration data only.</span></label> : <label className={styles.remember}><input checked={rememberMe} onChange={(event) => setRememberMe(event.target.checked)} type="checkbox" /><span>Keep me signed in on this device</span></label>}
+            {!isSignIn ? <label className={styles.consent}><input checked={accepted} onChange={(event) => setAccepted(event.target.checked)} type="checkbox" /><span>{copy.demoConsent}</span></label> : <label className={styles.remember}><input checked={rememberMe} onChange={(event) => setRememberMe(event.target.checked)} type="checkbox" /><span>{copy.remember}</span></label>}
 
             {notice ? <p className={styles.notice} role="status">{notice}</p> : null}
             {error ? <p className={styles.error} role="alert"><span aria-hidden="true">!</span>{error}</p> : null}
 
-            <button className={styles.primary} disabled={pending} type="submit">{pending ? "Please wait…" : isSignIn ? "Sign in securely" : "Create account"}<span aria-hidden="true">→</span></button>
+            <button className={styles.primary} disabled={pending} type="submit">{pending ? copy.wait : isSignIn ? copy.signSecure : copy.create}<span aria-hidden="true">→</span></button>
           </form>
 
-          <p className={styles.switch}>{isSignIn ? "New to the service?" : "Already have an account?"} <Link href={isSignIn ? "/signup" : "/signin"}>{isSignIn ? "Create an account" : "Sign in"}</Link></p>
-          <p className={styles.safety}><span aria-hidden="true">◇</span> Concept redesign · Not connected to live government systems</p>
+          <p className={styles.switch}>{isSignIn ? copy.newService : copy.haveAccount} <Link href={isSignIn ? "/signup" : "/signin"}>{isSignIn ? copy.createAccount : copy.signIn}</Link></p>
+          <p className={styles.safety}><span aria-hidden="true">◇</span> {copy.safety}</p>
         </section>
       </section>
     </main>

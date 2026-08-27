@@ -3,6 +3,7 @@ import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { nextCookies } from "better-auth/next-js";
 import { getServerEnv } from "@/src/infrastructure/config/env";
+import { getAuthAllowedHosts } from "@/src/infrastructure/config/deployment-url";
 import { getDatabase } from "@/src/infrastructure/database/client";
 import { schema } from "@/src/infrastructure/database/schema";
 
@@ -13,7 +14,11 @@ const localDevelopmentOrigins = process.env.NODE_ENV === "development"
 
 export const auth = betterAuth({
   appName: "CPGRAMS",
-  baseURL: env.BETTER_AUTH_URL,
+  baseURL: {
+    allowedHosts: getAuthAllowedHosts(process.env, env.AUTH_TRUSTED_ORIGINS),
+    fallback: env.BETTER_AUTH_URL,
+    protocol: process.env.NODE_ENV === "development" ? "http" : "https",
+  },
   secret: env.BETTER_AUTH_SECRET,
   trustedOrigins: [...new Set([...env.AUTH_TRUSTED_ORIGINS, ...localDevelopmentOrigins])],
   database: drizzleAdapter(getDatabase(), {

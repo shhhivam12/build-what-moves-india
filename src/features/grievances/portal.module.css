@@ -151,7 +151,7 @@
 .timelineSection .latestEvent > span { background: #13875c; box-shadow: 0 0 0 .12rem #13875c; }
 .timelineSection time { color: #586a80; font-size: .58rem; }
 .timelineSection h3 { margin: .2rem 0; color: #344e45; font-size: .75rem; }
-.timelineSection li p { margin: 0; color: #69788c; font-size: .66rem; line-height: 1.45; }
+.timelineSection li p { margin: 0; color: #536377; font-size: .66rem; line-height: 1.45; }
 .timelineSection li small { margin-top: .3rem; display: block; color: #0b6d51; font-size: .58rem; font-weight: 750; }
 .caseDescription > p:not(.eyebrow) { color: #607087; font-size: .72rem; line-height: 1.65; }
 .caseDescription h3 { margin: 1.2rem 0 .5rem; color: #435a52; font-size: .76rem; }
@@ -160,7 +160,7 @@
 .appealSection { margin-top: 1rem; padding: 1.3rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; color: #334f45; background: radial-gradient(circle at 5% 5%,rgba(255,142,36,.18),transparent 14rem),linear-gradient(125deg,#fff0df,rgba(255,255,255,.9) 48%,#def4e9); border: 1px solid rgba(79,116,100,.15); border-radius: 1rem; }
 .appealSection h2 { color: #2d4a40; }
 .appealSection > div > p:last-child { margin-bottom: 0; color: #687970; font-size: .7rem; }
-.startAppeal { min-height: 3rem; padding: .75rem 1rem; color: #29493e; background: #ff9b35; border: 0; border-radius: .7rem; cursor: pointer; font-size: .72rem; font-weight: 850; white-space: nowrap; }
+.startAppeal { min-height: 3rem; padding: .75rem 1rem; color: #173b31; background: #ff9b35; border: 0; border-radius: .7rem; cursor: pointer; font-size: .72rem; font-weight: 850; white-space: nowrap; }
 .appealActive { padding: .5rem .7rem; color: #0b4f38; background: #dff4e9; border-radius: .6rem; font-size: .65rem; font-weight: 850; white-space: nowrap; }
 .appealForm { width: min(29rem,100%); padding: 1rem; color: #1f3854; background: #fff; border-radius: .8rem; }
 .appealForm label { margin-bottom: .65rem; display: block; color: #344960; font-size: .63rem; font-weight: 800; }

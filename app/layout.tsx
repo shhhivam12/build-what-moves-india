@@ -3,10 +3,12 @@ import "@fontsource-variable/noto-sans";
 import "@fontsource/noto-sans-devanagari/400.css";
 import "@fontsource/noto-sans-devanagari/600.css";
 import "@fontsource/noto-sans-devanagari/700.css";
+import { CivicLanguageProvider } from "@/src/i18n/civic-language-context";
+import { getPublicSiteOrigin } from "@/src/infrastructure/config/deployment-url";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+  metadataBase: new URL(getPublicSiteOrigin()),
   title: {
     default: "CPGRAMS — Public Grievance Redressal Portal",
     template: "%s — CPGRAMS",
@@ -32,8 +34,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html data-scroll-behavior="smooth" lang="en">
+      <body><CivicLanguageProvider>{children}</CivicLanguageProvider></body>
     </html>
   );
 }

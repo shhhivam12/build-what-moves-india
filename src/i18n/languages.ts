@@ -1,11 +1,11 @@
 export const languageCatalogues = [
   { code: "en", englishName: "English", nativeName: "English", provenance: "reviewed", direction: "ltr" },
+  { code: "hi", englishName: "Hindi", nativeName: "हिन्दी", provenance: "reviewed", direction: "ltr" },
   { code: "as", englishName: "Assamese", nativeName: "অসমীয়া", provenance: "preview", direction: "ltr" },
   { code: "bn", englishName: "Bengali", nativeName: "বাংলা", provenance: "preview", direction: "ltr" },
   { code: "brx", englishName: "Bodo", nativeName: "बड़ो", provenance: "preview", direction: "ltr" },
   { code: "doi", englishName: "Dogri", nativeName: "डोगरी", provenance: "preview", direction: "ltr" },
   { code: "gu", englishName: "Gujarati", nativeName: "ગુજરાતી", provenance: "preview", direction: "ltr" },
-  { code: "hi", englishName: "Hindi", nativeName: "हिन्दी", provenance: "reviewed", direction: "ltr" },
   { code: "kn", englishName: "Kannada", nativeName: "ಕನ್ನಡ", provenance: "preview", direction: "ltr" },
   { code: "ks", englishName: "Kashmiri", nativeName: "کٲشُر", provenance: "preview", direction: "rtl" },
   { code: "kok", englishName: "Konkani", nativeName: "कोंकणी", provenance: "preview", direction: "ltr" },

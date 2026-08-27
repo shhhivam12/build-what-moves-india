@@ -29,6 +29,8 @@ For evaluation, choose **Enter as demo citizen** on `/signin`. The app creates o
 
 Configure `DATABASE_URL`, `BETTER_AUTH_SECRET`, `BETTER_AUTH_URL`, `AUTH_TRUSTED_ORIGINS`, and `NEXT_PUBLIC_SITE_URL` in the free host's protected environment settings. Never commit `.env.local` or paste secrets into issues, prompts or documentation.
 
+For Vercel, import the GitHub repository as a Next.js project and keep the detected build settings. The repository pins Node 24 and a Vercel-supported pnpm release, supports Vercel preview origins for Better Auth, and derives public metadata from Vercel system URLs when needed. Apply database migrations separately before deployment; builds never mutate the database. Follow the exact environment and post-deploy checks in [`docs/deployment/vercel.md`](docs/deployment/vercel.md).
+
 The live comparison and deliberate parity/defer decisions are recorded in [`docs/implementation/original-parity-audit.md`](docs/implementation/original-parity-audit.md).
 
 ## Repository structure

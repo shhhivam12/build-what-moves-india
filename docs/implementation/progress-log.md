@@ -179,3 +179,109 @@ This is the append-only implementation record. Major updates record what changed
 - **Public documentation:** `docs/implementation/checkpoints/rajasthani-civic-cultural-layer.md`
 - **Open:** User approval of the cultural restraint, figure style and Hindi reassurance before public deployment.
 - **Next user action:** Review `/` at desktop and compact widths, then confirm whether the cultural layer is approved or request one focused visual adjustment.
+
+---
+
+## Update 012 — Modern Indian civic polish and functional utility controls
+
+- **Date:** 26 August 2026
+- **Prompt:** Prompt 019
+- **Phase:** Shared visual-system refinement
+- **Status:** Ready for user review
+- **Changed:** Rebuilt the masthead and navigation around a crisp deep-green civic band with restrained saffron accents; refined the homepage using sandstone, ivory and green surfaces, jharokha arches, low-contrast jaali geometry and consistent line icons; strengthened service-card and process hierarchy; and replaced gradient-heavy decorative treatments with quieter solid surfaces.
+- **Functionality:** Corrected the utility skip link and replaced the non-functional text-size label with persistent decrease, default and increase controls that update the document scale across routes.
+- **Validated:** Live desktop and 390 × 844 browser review, shared dashboard review, strict TypeScript, ESLint, seven unit/component tests, twenty-two compact/wide browser journeys, evaluated accessibility paths with no serious or critical findings, and the production build pass.
+- **Public documentation:** `docs/implementation/checkpoints/modern-indian-civic-polish.md`
+- **Open:** Final user visual approval, public deployment and submission packaging.
+- **Next user action:** Review `/` and the shared header at desktop and compact widths, then approve the modern Indian direction or request one focused adjustment.
+
+---
+
+## Update 013 — Original-service feature parity and concise information architecture
+
+- **Date:** 26 August 2026
+- **Prompt:** Prompt 020
+- **Phase:** Citizen feature breadth and information clarity
+- **Status:** Ready for user review
+- **Changed:** Rebuilt the signed-in dashboard with grievance totals, a citizen-services rail, searchable and filterable records, sorting, page-size controls, pagination, appeal oversight, recent case activity and account/session information. Added a public service directory covering lodging, tracking, reminders, feedback, appeal, pension, mobile access, nodal officers, FAQs, contact and site-map routes.
+- **Trust boundary:** Current official directories and pension information open on CPGRAMS; real reminders and other government actions are not simulated. Fictional case data and the unofficial demonstration boundary remain explicit.
+- **Validated:** Live desktop and 320 × 568 browser review, contained compact table scrolling with no document-level overflow, strict TypeScript, ESLint, seven unit/component tests, all twenty-six compact/wide browser journeys, no serious or critical accessibility findings on evaluated routes and the standalone production build.
+- **Public documentation:** `docs/implementation/checkpoints/original-feature-parity-information-architecture.md`
+- **Open:** Final user review, public deployment and submission packaging.
+- **Next user action:** Review `/dashboard` and `/services`, focusing on whether the information is as direct as the original while the hierarchy and visual treatment remain easier to scan.
+
+---
+
+## Update 014 — Unified navigation and corrected identity scale
+
+- **Date:** 26 August 2026
+- **Prompt:** Prompt 021
+- **Phase:** Shared header correction
+- **Status:** Ready for user review
+- **Changed:** Removed the competing utility-navigation links and duplicate CPGRAMS wordmark block, reduced the official department identity, and moved the primary navigation, language and account controls into one clean white masthead row. The mobile menu now expands within the same header instead of introducing a second coloured navigation band.
+- **Validated:** Desktop and compact browser review, responsive menu interaction, strict TypeScript and ESLint.
+- **Open:** User visual approval of the simplified masthead.
+- **Next user action:** Review the homepage and signed-in dashboard at desktop and phone widths, focusing on logo scale and header clarity.
+
+---
+
+## Update 015 — Premium bilingual landing and illustrated citizen guide
+
+- **Date:** 27 August 2026
+- **Prompt:** Prompt 022
+- **Phase:** Premium civic presentation, language parity and guided onboarding
+- **Status:** Ready for user review
+- **Changed:** Added original Parliament, India Gate and Constitution vector illustrations; retained the namaste citizen-assistance figure in its jharokha-inspired setting; refined the landing page into a premium Indian civic experience; and ensured `/` remains the opening public landing page even for a signed-in citizen.
+- **Language and guidance:** Added persistent English/Hindi switching across the shared shell, landing, sign-in/registration, dashboard, grievance filing and tracking. Added a five-step illustrated guide that appears after sample sign-in, advances interactively, remembers completion for the browser session and can be replayed from the dashboard.
+- **Responsive behavior:** Preserved a single masthead, compacted long Hindi navigation labels, moved crowded authenticated navigation into the mobile menu at intermediate widths and reduced compact hero typography for clean 320px reflow.
+- **Validated:** Live desktop, Hindi and 390 × 844 browser review; strict TypeScript and ESLint; seven unit/component tests; all thirty compact/wide Playwright journeys including language switching, onboarding and serious/critical accessibility scans; and the standalone production build.
+- **Public documentation:** `docs/implementation/checkpoints/premium-bilingual-civic-guide.md`
+- **Open:** User visual approval and public deployment/submission packaging.
+- **Next user action:** Open `/`, switch between English and Hindi, use the sample account and complete the five-step dashboard guide on desktop and phone widths.
+
+---
+
+## Update 016 — Multilingual Samadhan Sahayak and vibrant civic refinement
+
+- **Date:** 27 August 2026
+- **Prompt:** Prompt 023
+- **Phase:** Conversational service access, route separation and visual refinement
+- **Status:** Ready for user review
+- **Changed:** Added the responsive Samadhan Sahayak panel across public and account surfaces. It understands English/Hindi grievance, tracking, appeal, dashboard, service, help and language intents; captures a grievance draft or reference number; carries that context into the protected workflow; and keeps sensitive-data guidance visible.
+- **Structure:** Authenticated visits to `/`, `/signin` and `/signup` now enter the dashboard. The account masthead uses Dashboard rather than Home, while signed-out visitors retain the public landing and identity routes.
+- **Language:** English and हिन्दी are the first two active selector options. The remaining scheduled languages remain visible, disabled and explicitly marked coming soon for this prototype.
+- **Visuals:** Increased saffron/green saturation and contrast, added the original Gandhi line illustration, included the official current Prime Minister portrait from PM India, introduced restrained Chakra/orbit motion and added route/loading transitions with reduced-motion fallbacks.
+- **Validated:** Live desktop and 390 × 844 review; conversational grievance handoff; no compact document overflow; strict TypeScript and ESLint; seven unit/component tests; full compact/wide citizen journey coverage plus focused regression reruns; automated accessibility scans; and production build verification.
+- **Public documentation:** `docs/implementation/checkpoints/multilingual-chatbot-vibrant-civic-experience.md`
+- **Open:** User visual approval and public deployment/submission packaging.
+- **Next user action:** Test Samadhan Sahayak in English and Hindi, draft a grievance, track the sample reference and confirm the public/account separation.
+
+---
+
+## Update 017 — Live spotlight onboarding and structured civic editorial system
+
+- **Date:** 27 August 2026
+- **Prompt:** Prompt 024
+- **Phase:** Guided onboarding, typography and cultural surface refinement
+- **Status:** Ready for user review
+- **Changed:** Replaced the illustrated dashboard guide with a six-step English/Hindi live spotlight tour that dims the page, reveals one real control at a time, scrolls targets into view and positions its teaching card responsively. Added a public-domain 1940 Gandhi photograph with a sourced service quote, a subtle tiled mandala/jaali paper texture, tighter civic-publication typography, precise keylines and smaller radii.
+- **Motion and identity:** Converted the top tricolour rule into a continuously moving ribbon with a faster navigation state and reduced-motion fallback. Replaced the RM initials badge with an original neutral citizen-profile vector icon.
+- **Validated:** Live review at the browser default compact width, 390 × 844 and 1440 × 900; all six targets; English/Hindi guide copy; compact bounds; strict TypeScript and ESLint; and targeted compact/wide browser regression coverage.
+- **Public documentation:** `docs/implementation/checkpoints/spotlight-guide-structured-civic-editorial.md`
+- **Open:** User approval of the stronger editorial structure and texture intensity, followed by public deployment and submission packaging.
+- **Next user action:** Sign in with the sample account, complete the six-step spotlight tour in English and Hindi, then review the Gandhi section and dashboard surface texture.
+
+---
+
+## Update 018 — Vercel release readiness
+
+- **Date:** 28 August 2026
+- **Prompt:** Prompt 025
+- **Phase:** Production deployment audit and publication
+- **Status:** Ready for Vercel project creation
+- **Changed:** Added canonical Vercel production/preview URL handling for metadata and Better Auth, retained a fail-closed authentication host allowlist, pinned Node 24 and a Vercel-supported pnpm 10 release, kept standalone output for Docker while using Vercel's native Next.js adapter, and added the complete environment, migration, verification and rollback runbook.
+- **Release correction:** Darkened the appeal action text after the production accessibility scan found a 4.45:1 contrast ratio, just below the 4.5:1 WCAG AA requirement. Hardened the streamed-loading browser checks so the compact navigation and large service directory are tested deterministically.
+- **Validated:** ESLint; strict TypeScript; ten unit/component tests; a simulated-Vercel production build; HTTP 200 landing, liveness and database-independent demo entry; all thirty-four compact/wide browser journeys; zero high or critical production dependency advisories. One moderate advisory remains in an optional Drizzle build-tool path and concerns an esbuild development server that is not shipped or started by this application.
+- **Public documentation:** `docs/deployment/vercel.md`
+- **Open:** Import the GitHub repository into Vercel, configure the five protected environment values, run the reviewed Neon migration once, and complete the live production verification list.
+- **Next user action:** Follow `docs/deployment/vercel.md` to create the Vercel project and provide the resulting production URL for live verification.

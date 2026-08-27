@@ -2,7 +2,8 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   allowedDevOrigins: ["127.0.0.1"],
-  output: "standalone",
+  // Vercel uses the native Next.js adapter; the standalone bundle remains available for Docker/self-hosting.
+  output: process.env.VERCEL === "1" ? undefined : "standalone",
   poweredByHeader: false,
   reactStrictMode: true,
   async headers() {

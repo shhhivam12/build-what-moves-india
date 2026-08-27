@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "description": "Unofficial synthetic CPGRAMS Assured Journey hackathon prototype",
-  "packageManager": "pnpm@11.19.0",
+  "packageManager": "pnpm@10.34.5",
   "engines": {
     "node": ">=24.0.0 <25"
   },

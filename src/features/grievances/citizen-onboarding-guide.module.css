@@ -1,0 +1,69 @@
+.tourRoot { position: fixed; z-index: 1100; inset: 0; font-family: var(--font-sans); }
+.interactionBlocker { position: fixed; z-index: 1100; inset: 0; background: transparent; cursor: default; }
+.spotlight {
+  position: fixed;
+  z-index: 1101;
+  border: 2px solid #ff983f;
+  border-radius: .35rem;
+  box-shadow: 0 0 0 9999px rgba(5, 14, 11, .79), 0 0 0 5px rgba(255, 255, 255, .2), 0 .9rem 2.8rem rgba(0, 0, 0, .32);
+  transition: top .38s cubic-bezier(.22,.8,.22,1), left .38s cubic-bezier(.22,.8,.22,1), width .38s cubic-bezier(.22,.8,.22,1), height .38s cubic-bezier(.22,.8,.22,1);
+  pointer-events: none;
+}
+.spotlight::before { position: absolute; inset: -.42rem; border: 1px solid rgba(255,255,255,.62); border-radius: .55rem; content: ""; animation: guidePulse 1.9s ease-in-out infinite; }
+.spotlight span { position: absolute; top: -.65rem; right: -.65rem; width: 1.25rem; height: 1.25rem; background: #087455; border: .2rem solid #fff; border-radius: 50%; box-shadow: 0 .2rem .7rem rgba(0,0,0,.24); }
+.popover {
+  position: fixed;
+  z-index: 1102;
+  width: min(23.125rem, calc(100vw - 2rem));
+  overflow: hidden;
+  color: #1e3f34;
+  background: #fffdf7;
+  border: 1px solid #b8c8c0;
+  border-radius: .3rem;
+  box-shadow: 0 1.5rem 4.5rem rgba(0, 0, 0, .34);
+  transition: top .38s cubic-bezier(.22,.8,.22,1), left .38s cubic-bezier(.22,.8,.22,1);
+}
+.popoverTopline { height: .3rem; background: linear-gradient(90deg, #f17824 0 33%, #f4eee2 33% 66%, #087455 66%); background-size: 180% 100%; animation: guideTricolour 4.5s linear infinite; }
+.popover header { padding: 1rem 1rem .75rem; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: .8rem; border-bottom: 1px solid #e2e6e2; }
+.stepMark { width: 3.1rem; height: 3.1rem; display: grid; place-content: center; color: #fff; background: #174d3d; border-radius: 50%; text-align: center; box-shadow: inset 0 0 0 .22rem rgba(255,255,255,.16); }
+.stepMark span { font-size: .9rem; font-weight: 780; line-height: 1; }
+.stepMark small { margin-top: .2rem; color: rgba(255,255,255,.67); font-size: .5rem; letter-spacing: .05em; }
+.popover header p { margin: 0; color: #a94f17; font-size: .64rem; font-weight: 760; letter-spacing: .1em; text-transform: uppercase; }
+.popover header > div:nth-child(2) > span { display: block; margin-top: .12rem; color: #6a766f; font-size: .62rem; }
+.close { width: 2rem; height: 2rem; display: grid; place-items: center; color: #486057; background: transparent; border: 1px solid transparent; border-radius: .2rem; cursor: pointer; font-size: 1.35rem; line-height: 1; }
+.close:hover { color: #173f32; background: #eef3ef; border-color: #d7dfdb; }
+.guideContent { padding: 1rem; }
+.guideContent h2 { margin: 0; color: #183f32; font-size: 1.3rem; font-weight: 720; letter-spacing: -.025em; line-height: 1.2; }
+.guideContent > p { margin: .55rem 0 .8rem; color: #53655d; font-size: .75rem; line-height: 1.62; }
+.guideContent small { padding: .55rem .6rem; display: flex; align-items: flex-start; gap: .45rem; color: #6e5a45; background: #fff5e8; border-left: .18rem solid #eb7929; font-size: .6rem; line-height: 1.45; }
+.guideContent small i { color: #a84f17; font-style: normal; font-weight: 800; }
+.progress { padding: 0 1rem .9rem; display: grid; grid-template-columns: repeat(6, 1fr); gap: .3rem; }
+.progress i { height: .22rem; background: #d8dedb; }
+.progress .complete { background: #087455; }
+.popover footer { padding: .8rem 1rem 1rem; display: flex; align-items: center; justify-content: space-between; gap: .7rem; background: #f7f8f4; border-top: 1px solid #e1e5e1; }
+.popover footer > div { display: flex; gap: .45rem; }
+.popover footer button { min-height: 2.35rem; padding: .5rem .7rem; color: #304c42; background: #fff; border: 1px solid #bdcbc4; border-radius: .22rem; cursor: pointer; font-size: .65rem; font-weight: 720; }
+.popover footer button:hover:not(:disabled) { border-color: #718f82; transform: translateY(-1px); }
+.popover footer button:disabled { opacity: .38; cursor: not-allowed; }
+.popover footer .skip { padding-inline: 0; color: #6d7772; background: transparent; border-color: transparent; text-decoration: underline; text-underline-offset: .18rem; }
+.popover footer .next { color: #fff; background: #087455; border-color: #087455; }
+
+@keyframes guidePulse { 0%,100% { opacity: .42; transform: scale(1); } 50% { opacity: .92; transform: scale(1.006); } }
+@keyframes guideTricolour { to { background-position: 180% 0; } }
+
+@media (max-width: 38rem) {
+  .popover header { padding: .75rem; }
+  .guideContent { padding: .85rem; }
+  .guideContent h2 { font-size: 1.1rem; }
+  .popover footer { padding: .7rem .85rem .85rem; align-items: stretch; flex-direction: column; }
+  .popover footer > div { display: grid; grid-template-columns: 1fr 1fr; }
+  .popover footer button { width: 100%; }
+  .popover footer .skip { text-align: left; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spotlight,
+  .popover { transition: none; }
+  .spotlight::before,
+  .popoverTopline { animation: none; }
+}
