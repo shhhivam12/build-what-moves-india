@@ -62,12 +62,14 @@ test("multilingual assistant carries a grievance draft into the citizen workflow
   await createCitizen(page);
   await page.getByRole("button", { name: "Open Samadhan Sahayak" }).click();
   await page.getByRole("button", { name: "Lodge grievance", exact: true }).click();
+  await expect(page.getByLabel("Voice language")).toContainText("हिन्दी · Hindi");
   const draft = "My mobile service was not activated after payment and I need the charge reversed.";
-  await page.getByRole("textbox", { name: "Type in English or Hindi…" }).fill(draft);
+  await page.getByRole("textbox", { name: "Speak or type your issue…" }).fill(draft);
   await page.getByRole("button", { name: "Send", exact: true }).click();
+  await expect(page.getByText("Citizen-approved formal draft")).toBeVisible();
   await page.getByRole("button", { name: "Continue grievance" }).click();
   await expect(page).toHaveURL(/\/grievances\/new\?assistant=1$/);
-  await expect(page.getByRole("textbox", { name: /What happened/ })).toHaveValue(draft);
+  await expect(page.getByRole("textbox", { name: /What happened/ })).toHaveValue(new RegExp(draft.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
 });
 
 test("signed-in dashboard presents the interactive visual citizen guide", async ({ page }) => {

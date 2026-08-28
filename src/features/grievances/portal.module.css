@@ -1,7 +1,7 @@
 .dashboard, .detailPage { width: min(82rem, calc(100% - 2rem)); margin: 0 auto; padding: clamp(1.5rem,3vw,2.5rem) 0 5rem; }
 .eyebrow { margin: 0 0 .5rem; color: #0b7154; font-size: .69rem; font-weight: 850; letter-spacing: .09em; text-transform: uppercase; }
 .welcome { margin-bottom: 1.25rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
-.welcome h1 { margin: 0; color: #29493e; font-size: clamp(2rem,3.5vw,3rem); letter-spacing: -.045em; line-height: 1.05; }
+.welcome h1 { margin: 0; color: #15181d; font-size: clamp(2rem,3.5vw,3rem); letter-spacing: -.045em; line-height: 1.05; }
 .welcome p:last-child { max-width: 45rem; margin: .8rem 0 0; color: #65748a; line-height: 1.6; }
 .newButton { min-height: 3.25rem; padding: .8rem 1rem; display: inline-flex; align-items: center; gap: .55rem; color: #fff; background: #0a7f5c; border-radius: .75rem; box-shadow: 0 .9rem 1.7rem rgba(89,116,76,.18); text-decoration: none; font-size: .78rem; font-weight: 850; }
 .newButton span { font-size: 1.05rem; }
@@ -30,7 +30,7 @@
 .caseRow > b { color: #0a7f5c; }
 .dashboardAside { display: grid; gap: .8rem; }
 .nextAction, .helpCard, .accountCard { padding: 1.2rem; border-radius: 1rem; }
-.nextAction { color: #334f45; background: radial-gradient(circle at 5% 5%,rgba(255,143,39,.2),transparent 10rem),linear-gradient(135deg,#fff0df,rgba(255,255,255,.9) 48%,#def4e9); border: 1px solid rgba(79,116,100,.15); box-shadow: 0 1rem 2.5rem rgba(83,71,48,.08); backdrop-filter: blur(16px); }
+.nextAction { color: #334f45; background: #f3eee5; border: 1px solid rgba(79,116,100,.15); box-shadow: 0 1rem 2.5rem rgba(83,71,48,.08); }
 .nextAction > span { width: 2.7rem; height: 2.7rem; display: grid; place-items: center; background: rgba(255,255,255,.1); border-radius: .7rem; }
 .nextAction h2 { margin: 1rem 0 .55rem; color: #2c4a40; font-size: 1.15rem; line-height: 1.2; }
 .nextAction p:not(.eyebrow) { color: #687970; font-size: .7rem; line-height: 1.55; }
@@ -40,7 +40,7 @@
 .helpCard p { color: #69788d; font-size: .68rem; line-height: 1.5; }
 .helpCard a { color: #0a7f5c; font-size: .68rem; font-weight: 850; }
 .accountCard { display: flex; align-items: flex-start; gap: .65rem; color: #315349; background: #ebf7f1; border: 1px solid #cee9dc; }
-.secureDot { width: 1.75rem; height: 1.75rem; flex: 0 0 auto; display: grid; place-items: center; color: #fff; background: linear-gradient(145deg,#ed7920,#0b8662); border-radius: .5rem; font-size: .65rem; font-weight: 900; }
+.secureDot { width: 1.75rem; height: 1.75rem; flex: 0 0 auto; display: grid; place-items: center; color: #fff; background: #173b5f; border-radius: .5rem; font-size: .65rem; font-weight: 900; }
 .accountCard strong { font-size: .7rem; }
 .accountCard p { margin: .25rem 0 0; color: #608177; font-size: .61rem; overflow-wrap: anywhere; }
 .receivedBanner { margin-bottom: 1.2rem; padding: 1rem 1.1rem; display: flex; align-items: center; gap: .8rem; color: #215443; background: #e6f6ee; border: 1px solid #c2e8d6; border-radius: .9rem; }
@@ -52,12 +52,12 @@
 .caseJumpNav { display: flex; align-items: center; gap: .35rem; }
 .caseJumpNav a { padding: .45rem .65rem; color: #456158; background: rgba(255,255,255,.72); border: 1px solid #dce5df; border-radius: .55rem; text-decoration: none; font-size: .62rem; font-weight: 750; transition: color .18s ease, border-color .18s ease, transform .18s ease; }
 .caseJumpNav a:hover { color: #087355; border-color: #8fc7b2; transform: translateY(-1px); }
-.caseHero { padding: clamp(1.15rem,2.5vw,1.8rem); display: grid; grid-template-columns: minmax(0,1fr) 9rem; align-items: end; gap: 2rem; background: linear-gradient(118deg,rgba(255,244,232,.96),rgba(255,255,255,.96) 49%,rgba(230,247,239,.96)); border: 1px solid rgba(90,124,109,.18); border-radius: 1.1rem; box-shadow: 0 .8rem 2.1rem rgba(82,68,45,.07); }
-.caseIdentityLine { display: flex; flex-wrap: wrap; align-items: center; gap: .65rem; color: #63746d; font-size: .66rem; }
+.caseHero { padding: clamp(1.15rem,2.5vw,1.8rem); display: grid; grid-template-columns: minmax(0,1fr) 9rem; align-items: end; gap: 2rem; background: #f5f1e9; border: 1px solid rgba(90,124,109,.18); border-radius: 1.1rem; box-shadow: 0 .8rem 2.1rem rgba(82,68,45,.07); }
+.caseIdentityLine { display: flex; flex-wrap: wrap; align-items: center; gap: .65rem; color: #4e5f58; font-size: .66rem; }
 .caseIdentityLine > span:last-child { padding-left: .65rem; border-left: 1px solid #d7ded9; }
 .caseIdentityLine strong { color: #29493e; letter-spacing: .03em; }
 .caseHero h1 { max-width: 56rem; margin: .8rem 0 .4rem; color: #29493e; font-size: clamp(1.55rem,3.3vw,2.65rem); letter-spacing: -.04em; line-height: 1.08; }
-.caseHeroMain > p { margin: 0; color: #6d7b76; font-size: .68rem; }
+.caseHeroMain > p { margin: 0; color: #4f6059; font-size: .68rem; }
 .caseScore { min-height: 7.2rem; padding: .8rem; display: grid; place-content: center; text-align: center; background: rgba(255,255,255,.72); border: 1px solid rgba(8,127,91,.16); border-radius: .9rem; }
 .caseScore strong { color: #087354; font-size: 2rem; line-height: 1; }
 .caseScore span { max-width: 6.5rem; margin-top: .45rem; color: #64766f; font-size: .61rem; line-height: 1.35; }
@@ -115,7 +115,7 @@
 .caseHeader h1 { max-width: 54rem; margin: 0; color: #29493e; font-size: clamp(2rem,5vw,4.1rem); letter-spacing: -.055em; line-height: 1.04; }
 .caseHeader p:last-child { margin: .7rem 0 0; color: #53657c; font-size: .72rem; }
 .largeStatus { padding: .6rem .75rem; color: #765019; background: #ffefd9; border: 1px solid #f1d1a6; border-radius: .7rem; font-size: .7rem; font-weight: 850; white-space: nowrap; }
-.routeSummary { margin-bottom: 1rem; padding: 1.15rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; color: #334f45; background: linear-gradient(105deg,#ffead6,rgba(255,255,255,.88) 48%,#def4e9); border: 1px solid rgba(79,116,100,.15); border-radius: 1rem; }
+.routeSummary { margin-bottom: 1rem; padding: 1.15rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; color: #334f45; background: #f3eee5; border: 1px solid rgba(79,116,100,.15); border-radius: 1rem; }
 .routeSummary > div + div { padding-left: 1.5rem; border-left: 1px solid rgba(255,255,255,.15); }
 .routeSummary small, .routeSummary strong { display: block; }
 .routeSummary small { color: #9c541c; font-size: .6rem; font-weight: 800; text-transform: uppercase; }
@@ -157,9 +157,9 @@
 .caseDescription h3 { margin: 1.2rem 0 .5rem; color: #435a52; font-size: .76rem; }
 .caseDescription ol { margin: 0; padding-left: 1.15rem; }
 .caseDescription li { margin: .4rem 0; color: #627187; font-size: .68rem; }
-.appealSection { margin-top: 1rem; padding: 1.3rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; color: #334f45; background: radial-gradient(circle at 5% 5%,rgba(255,142,36,.18),transparent 14rem),linear-gradient(125deg,#fff0df,rgba(255,255,255,.9) 48%,#def4e9); border: 1px solid rgba(79,116,100,.15); border-radius: 1rem; }
+.appealSection { margin-top: 1rem; padding: 1.3rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; color: #334f45; background: #f3eee5; border: 1px solid rgba(79,116,100,.15); border-radius: 1rem; }
 .appealSection h2 { color: #2d4a40; }
-.appealSection > div > p:last-child { margin-bottom: 0; color: #687970; font-size: .7rem; }
+.appealSection > div > p:last-child { margin-bottom: 0; color: #506159; font-size: .7rem; }
 .startAppeal { min-height: 3rem; padding: .75rem 1rem; color: #173b31; background: #ff9b35; border: 0; border-radius: .7rem; cursor: pointer; font-size: .72rem; font-weight: 850; white-space: nowrap; }
 .appealActive { padding: .5rem .7rem; color: #0b4f38; background: #dff4e9; border-radius: .6rem; font-size: .65rem; font-weight: 850; white-space: nowrap; }
 .appealForm { width: min(29rem,100%); padding: 1rem; color: #1f3854; background: #fff; border-radius: .8rem; }

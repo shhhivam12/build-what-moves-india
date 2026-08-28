@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { FormEvent, useEffect, useMemo, useState } from "react";
+import { FormEvent, useCallback, useEffect, useMemo, useState } from "react";
 import { useCivicLanguage } from "@/src/i18n/civic-language-context";
+import { useSpeechInput } from "@/src/features/voice/use-speech-input";
 import type { Classification } from "./classifier";
 import styles from "./grievance-intake.module.css";
 
@@ -13,14 +14,14 @@ const departments = ["Department of Telecommunications", "Department of Financia
 const intakeCopy = {
   en: {
     eyebrow: "Lodge Public Grievance", title: "Enter grievance details", welcome: "Welcome", intro: "Describe the public service issue and the action requested.", sensitive: "Do not enter sensitive information", sensitiveBody: "Do not include Aadhaar bank details passwords OTPs or confidential documents.", steps: ["Describe the issue", "Confirm route", "Review & submit"], step: "Step",
-    description: "Grievance description", descriptionBody: "Provide the service details relevant dates and the action requested.", what: "What happened?", placeholder: "Example: I applied for… on… but…", characters: "characters", voice: "Speak grievance", sample: "Use realistic sample", before: "Before you continue", publicService: "This is about public-service delivery.", publicBody: "I understand emergencies, court matters, RTI and religious matters use another channel.", save: "Save and exit", understanding: "Understanding your issue…", understand: "Understand and suggest route",
+    description: "Grievance description", descriptionBody: "Provide the service details relevant dates and the action requested.", what: "What happened?", placeholder: "Example: I applied for… on… but…", characters: "characters", voice: "Speak grievance", listening: "Listening…", sample: "Use realistic sample", before: "Before you continue", publicService: "This is about public-service delivery.", publicBody: "I understand emergencies, court matters, RTI and religious matters use another channel.", save: "Save and exit", understanding: "Understanding your issue…", understand: "Understand and suggest route",
     designated: "Use the designated service", select: "Select concerned organisation", routeBody: "Review the suggested organisation and change it if required.", suggested: "Suggested organisation", match: "match", basis: "Basis of suggestion", confirm: "Confirm or change the department", unchanged: "Changing the route does not alter your original description.", relief: "Relief requested", reliefBody: "List each action requested from the concerned organisation.", add: "Add another requested action", back: "Back", return: "Return to dashboard", review: "Review grievance",
     reviewTitle: "Review before you submit", nothing: "Nothing is sent until you choose “Submit grievance”.", descriptionLabel: "Description", edit: "Edit", confirmed: "Confirmed route", change: "Change", outcomes: "Requested outcomes", declaration: "I have reviewed this grievance.", declarationBody: "The description is accurate for this synthetic demonstration and contains no sensitive real-world data.", creating: "Creating reference…", submit: "Submit grievance",
     instructions: "Instructions", include: "Include the following details", details: ["Name of the public service", "Description of the issue", "Relevant date or period", "Action requested"], reviewReminder: "Review the grievance before submission. Do not include passwords OTPs or unnecessary personal information.", detailed: "View detailed instructions",
   },
   hi: {
     eyebrow: "लोक शिकायत दर्ज करें", title: "शिकायत विवरण दर्ज करें", welcome: "स्वागत", intro: "सार्वजनिक सेवा की समस्या और अपेक्षित कार्रवाई लिखें।", sensitive: "संवेदनशील जानकारी दर्ज न करें", sensitiveBody: "आधार, बैंक विवरण, पासवर्ड, ओटीपी या गोपनीय दस्तावेज शामिल न करें।", steps: ["समस्या बताएँ", "मार्ग की पुष्टि", "समीक्षा और जमा"], step: "चरण",
-    description: "शिकायत विवरण", descriptionBody: "सेवा विवरण, संबंधित तिथियाँ और अपेक्षित कार्रवाई बताएँ।", what: "क्या हुआ?", placeholder: "उदाहरण: मैंने… के लिए… को आवेदन किया, लेकिन…", characters: "अक्षर", voice: "शिकायत बोलें", sample: "यथार्थ नमूना उपयोग करें", before: "आगे बढ़ने से पहले", publicService: "यह सार्वजनिक सेवा वितरण का विषय है।", publicBody: "मैं समझता/समझती हूँ कि आपातकाल, न्यायालय, आरटीआई और धार्मिक विषय अन्य माध्यम से जाते हैं।", save: "सहेजें और बाहर जाएँ", understanding: "समस्या समझी जा रही है…", understand: "समझें और मार्ग सुझाएँ",
+    description: "शिकायत विवरण", descriptionBody: "सेवा विवरण, संबंधित तिथियाँ और अपेक्षित कार्रवाई बताएँ।", what: "क्या हुआ?", placeholder: "उदाहरण: मैंने… के लिए… को आवेदन किया, लेकिन…", characters: "अक्षर", voice: "शिकायत बोलें", listening: "सुन रहा हूँ…", sample: "यथार्थ नमूना उपयोग करें", before: "आगे बढ़ने से पहले", publicService: "यह सार्वजनिक सेवा वितरण का विषय है।", publicBody: "मैं समझता/समझती हूँ कि आपातकाल, न्यायालय, आरटीआई और धार्मिक विषय अन्य माध्यम से जाते हैं।", save: "सहेजें और बाहर जाएँ", understanding: "समस्या समझी जा रही है…", understand: "समझें और मार्ग सुझाएँ",
     designated: "निर्धारित सेवा उपयोग करें", select: "संबंधित संगठन चुनें", routeBody: "सुझाए गए संगठन की समीक्षा करें और आवश्यकता होने पर बदलें।", suggested: "सुझाया गया संगठन", match: "मिलान", basis: "सुझाव का आधार", confirm: "विभाग की पुष्टि या बदलाव", unchanged: "मार्ग बदलने से आपका मूल विवरण नहीं बदलता।", relief: "अपेक्षित राहत", reliefBody: "संबंधित संगठन से अपेक्षित प्रत्येक कार्रवाई अलग लिखें।", add: "एक और अपेक्षित कार्रवाई जोड़ें", back: "पीछे", return: "डैशबोर्ड पर लौटें", review: "शिकायत की समीक्षा",
     reviewTitle: "जमा करने से पहले समीक्षा", nothing: "“शिकायत जमा करें” चुनने तक कुछ नहीं भेजा जाता।", descriptionLabel: "विवरण", edit: "संपादित करें", confirmed: "पुष्ट मार्ग", change: "बदलें", outcomes: "अपेक्षित परिणाम", declaration: "मैंने इस शिकायत की समीक्षा की है।", declarationBody: "यह काल्पनिक प्रदर्शन के लिए सही है और इसमें कोई वास्तविक संवेदनशील डेटा नहीं है।", creating: "पंजीकरण बनाया जा रहा है…", submit: "शिकायत जमा करें",
     instructions: "निर्देश", include: "इन विवरणों को शामिल करें", details: ["सार्वजनिक सेवा का नाम", "समस्या का विवरण", "संबंधित तिथि या अवधि", "अपेक्षित कार्रवाई"], reviewReminder: "जमा करने से पहले शिकायत की समीक्षा करें। पासवर्ड, ओटीपी या अनावश्यक निजी जानकारी शामिल न करें।", detailed: "विस्तृत निर्देश देखें",
@@ -38,6 +39,9 @@ export function GrievanceIntake({ firstName }: { firstName: string }) {
   const [outcomes, setOutcomes] = useState<string[]>([]);
   const [pending, setPending] = useState(false);
   const [error, setError] = useState("");
+  const onVoiceTranscript = useCallback((text: string) => { setDescription((current) => current ? `${current} ${text}` : text); setError(""); }, []);
+  const onVoiceError = useCallback((message: string) => setError(message), []);
+  const speech = useSpeechInput({ locale: contentLocale === "hi" ? "hi-IN" : "en-IN", onTranscript: onVoiceTranscript, onError: onVoiceError });
 
   useEffect(() => {
     const draft = window.sessionStorage.getItem("assured-chat-grievance-draft");
@@ -89,7 +93,7 @@ export function GrievanceIntake({ firstName }: { firstName: string }) {
         {step === 1 ? <form onSubmit={analyse}>
           <div className={styles.sectionTitle}><span aria-hidden="true">01</span><div><h2>{copy.description}</h2><p>{copy.descriptionBody}</p></div></div>
           <label className={styles.field}><span>{copy.what}</span><textarea autoFocus maxLength={5000} minLength={20} onChange={(event) => setDescription(event.target.value)} placeholder={copy.placeholder} required rows={9} value={description} /><small>{description.length} / 5,000 {copy.characters}</small></label>
-          <div className={styles.assistRow}><button className={styles.voiceButton} onClick={() => setError("Voice input needs browser microphone permission. For this reliable demo, use the sample or type the grievance.")} type="button"><span aria-hidden="true">●</span> {copy.voice}</button><button className={styles.sampleButton} onClick={() => { setDescription(sample); setError(""); }} type="button">{copy.sample}</button></div>
+          <div className={styles.assistRow}><button aria-pressed={speech.listening} className={styles.voiceButton} onClick={speech.toggle} type="button"><span aria-hidden="true">●</span> {speech.listening ? copy.listening : copy.voice}</button><button className={styles.sampleButton} onClick={() => { setDescription(sample); setError(""); }} type="button">{copy.sample}</button></div>
           <fieldset className={styles.safetyCheck}><legend>{copy.before}</legend><label><input required type="checkbox" /><span><strong>{copy.publicService}</strong><small>{copy.publicBody}</small></span></label></fieldset>
           {error ? <p className={styles.error} role="alert">{error}</p> : null}
           <div className={styles.actions}><Link href="/dashboard">{copy.save}</Link><button disabled={pending || description.trim().length < 20} type="submit">{pending ? copy.understanding : copy.understand} <span aria-hidden="true">→</span></button></div>

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { FormEvent, useId, useState } from "react";
-import { CivicShell } from "@/src/design-system/components/civic-shell";
+import { CivicShell, CitizenProfileIcon } from "@/src/design-system/components/civic-shell";
 import { useCivicLanguage } from "@/src/i18n/civic-language-context";
 import { authClient } from "@/src/infrastructure/auth/client";
 import styles from "./auth-experience.module.css";
@@ -165,7 +165,7 @@ export function AuthExperience({ mode }: { mode: Mode }) {
 
           {isSignIn ? (
             <button className={styles.demoButton} disabled={pending} onClick={useDemoCitizen} type="button">
-              <span className={styles.demoAvatar} aria-hidden="true">RM</span>
+              <span className={styles.demoAvatar} aria-hidden="true"><CitizenProfileIcon /></span>
               <span><strong>{pending ? copy.opening : copy.continueSample}</strong><small>{copy.sampleAvailable}</small></span>
               <b aria-hidden="true">→</b>
             </button>

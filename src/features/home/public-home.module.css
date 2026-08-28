@@ -1,11 +1,8 @@
 .hero {
   position: relative;
   overflow: hidden;
-  color: #263f36;
-  background:
-    radial-gradient(circle at 7% 12%, rgba(247, 112, 18, .26), transparent 23rem),
-    radial-gradient(circle at 93% 86%, rgba(0, 145, 91, .22), transparent 27rem),
-    linear-gradient(115deg, #fff3df 0%, #fffdf8 47%, #e4f7ed 100%);
+  color: #252a2e;
+  background: #f4efe6 url("/patterns/civic-paper.svg") right -7rem center / 34rem no-repeat;
   border-bottom: 1px solid #e7ded0;
 }
 
@@ -72,7 +69,7 @@
 .hero h1 {
   max-width: 48rem;
   margin: 0;
-  color: #184b39;
+  color: #15181d;
   font-size: clamp(3rem, 5.8vw, 5.45rem);
   font-weight: 760;
   letter-spacing: -.062em;
@@ -233,12 +230,12 @@
 .noticeBand strong { display: block; }
 .noticeBand small { margin-bottom: .18rem; font-size: .6rem; font-weight: 760; }
 .noticeBand strong { font-size: .74rem; line-height: 1.4; }
-.indiaBanner { color: #66300f; background: linear-gradient(135deg, #ffe2c3, #fff1df); }
+.indiaBanner { color: #66300f; background: #f4e5d4; }
 .bannerMark { width: 2.8rem; height: 2.8rem; flex: 0 0 auto; padding: .5rem; display: grid; place-items: center; color: #b65319; background: rgba(255, 255, 255, .6); border-radius: 50%; }
 .indiaBanner small { font-family: "Noto Sans Devanagari", sans-serif; font-size: .74rem; }
-.digitalBanner { color: #174f3b; background: linear-gradient(135deg, #d8f3e5, #edfaf3); }
+.digitalBanner { color: #174f3b; background: #e5efea; }
 .digitalBanner img { width: 4.2rem; height: auto; border-radius: .25rem; }
-.alertBanner { color: #4d431e; background: linear-gradient(135deg, #fff2ae, #fffbe3); }
+.alertBanner { color: #4d431e; background: #f4edc9; }
 .alertBanner > span { width: 2.55rem; height: 2.55rem; flex: 0 0 auto; display: grid; place-items: center; color: #fff; background: #987f1f; border-radius: 50%; font-weight: 850; }
 
 .serviceSection,
@@ -279,8 +276,8 @@
   transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
 }
 .serviceCard::after { position: absolute; right: -2.7rem; bottom: -2.7rem; width: 6rem; height: 6rem; border: 1rem solid rgba(121, 84, 54, .035); border-radius: 50%; content: ""; }
-.serviceCard.saffron { border-top-color: #f06f16; background: linear-gradient(145deg, #fff6eb, #fffdf9); }
-.serviceCard.green { border-top-color: #008b59; background: linear-gradient(145deg, #ecfaf3, #fbfffd); }
+.serviceCard.saffron { border-top-color: #aa4b08; background: #fffdf8; }
+.serviceCard.green { border-top-color: #17614a; background: #fffdf8; }
 .serviceCard.sand { border-top-color: #a8673d; background: #fffdf9; }
 .serviceCard.ivory { border-top-color: #c3a445; background: #fffdf4; }
 .serviceCard:hover { transform: translateY(-4px); border-color: #c9d8d0; box-shadow: 0 1.1rem 2.3rem rgba(74, 67, 46, .1); }
@@ -300,10 +297,7 @@
   padding: clamp(2rem, 4vw, 3.5rem);
   overflow: hidden;
   color: #29483d;
-  background:
-    radial-gradient(circle at 4% 8%, rgba(232, 111, 28, .11), transparent 19rem),
-    radial-gradient(circle at 96% 92%, rgba(11, 122, 87, .1), transparent 21rem),
-    #fffdf8;
+  background: #fffdf8 url("/patterns/civic-paper.svg") right -9rem bottom -10rem / 28rem no-repeat;
   border: 1px solid #deded6;
   border-radius: 1.4rem;
   box-shadow: 0 1.6rem 4rem rgba(74, 62, 42, .09);
@@ -322,9 +316,9 @@
 .heritageSection > header span { color: #64736c; font-size: .78rem; line-height: 1.65; }
 .heritageGrid { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(3, 1fr); gap: .8rem; }
 .heritageGrid article { position: relative; min-width: 0; padding: .75rem .75rem 1.15rem; overflow: hidden; background: rgba(255, 255, 255, .72); border: 1px solid rgba(204, 200, 188, .8); border-radius: .85rem; }
-.heritageGrid article > div { height: 11rem; display: grid; place-items: center; overflow: hidden; color: #85502f; background: linear-gradient(145deg, #fff7e9, #f7efe1); border-radius: .55rem; }
-.heritageGrid article:nth-child(2) > div { color: #195c46; background: linear-gradient(145deg, #eef8f2, #f9fcfa); }
-.heritageGrid article:nth-child(3) > div { color: #7b6330; background: linear-gradient(145deg, #fffae9, #f7f0d9); }
+.heritageGrid article > div { height: 11rem; display: grid; place-items: center; overflow: hidden; color: #85502f; background: #f3eadc; border-radius: .55rem; }
+.heritageGrid article:nth-child(2) > div { color: #195c46; background: #e7efeb; }
+.heritageGrid article:nth-child(3) > div { color: #7b6330; background: #f2ecd8; }
 .heritageGrid svg { width: 95%; height: 95%; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .heritageGrid article > span { width: 1.9rem; height: 1.9rem; margin-top: -1rem; display: grid; place-items: center; position: relative; color: #fff; background: #174c3b; border: .22rem solid #fff; border-radius: 50%; font-size: .5rem; font-weight: 850; }
 .heritageGrid h3 { margin: .65rem 0 .18rem; color: #29483d; font-size: .82rem; }
@@ -335,7 +329,7 @@
   margin-bottom: clamp(4rem, 7vw, 6.5rem);
   padding: clamp(2.2rem, 5vw, 4rem);
   overflow: hidden;
-  background: linear-gradient(125deg, #073f2e 0 47%, #0a6549 47% 100%);
+  background: #173b5f;
   border: 1px solid #07553d;
   border-radius: 1.35rem;
   box-shadow: 0 1.8rem 4.2rem rgba(6, 67, 47, .2);
@@ -374,7 +368,7 @@
   grid-template-columns: .75fr 1.25fr;
   gap: clamp(2rem, 6vw, 6rem);
   color: #fff;
-  background: linear-gradient(125deg, #063f2e, #096448);
+  background: #173b5f;
   border: 1px solid #07563d;
   border-radius: 1rem;
   box-shadow: 0 1.2rem 2.8rem rgba(35, 67, 56, .14);

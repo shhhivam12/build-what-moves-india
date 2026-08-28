@@ -299,3 +299,17 @@ This is the append-only implementation record. Major updates record what changed
 - **Rights boundary:** The supplied mandala images were used only as visual direction. No watermarked or third-party artwork was copied into the repository.
 - **Verified:** Production build, 10 unit/component tests, all 34 compact/wide browser journeys, favicon discovery, route-title convention, zero mobile horizontal overflow, and visual checks of the landing page, dashboard, guided spotlight and loading transition.
 - **Next user action:** Import the updated GitHub branch into Vercel and complete the live deployment checklist.
+
+---
+
+## Update 020 — Voice-first grievance co-author and higher-contrast civic surface
+
+- **Date:** 28 August 2026
+- **Prompt:** Prompt 027
+- **Phase:** Inclusive service entry and visual contrast refinement
+- **Status:** Implemented and verified
+- **Changed:** Added live browser speech input, 13 Indian speech locales, a deterministic no-permission sample journey, bounded fact extraction, one-question-at-a-time clarification, an editable professional grievance draft and direct handoff into the existing filing workflow. The original citizen statement remains visibly preserved in every generated draft.
+- **Architecture:** Documented a production-scale, privacy-gated voice/ASR, safety, extraction, clarification, drafting and routing-candidate architecture with human control, bounded schemas, fallbacks, audit events and phased government readiness.
+- **Visuals:** Removed mixed saffron-green gradients from content containers, darkened saffron accents, changed primary headings to near-black, converted the assistant and sample-account actions to civic navy, and replaced the expensive filtered repeating texture with three cached mandala placements plus a clearer loading motif. The existing navbar was left unchanged.
+- **Verified:** ESLint, strict TypeScript, 14 unit/component tests, optimized production build, all 34 compact/wide browser scenarios across the full and focused reruns, automated WCAG contrast checks, live English/Hindi sample drafting, citizen correction, no mobile horizontal overflow and rendered review of landing, sign-in and assistant surfaces.
+- **Public documentation:** `docs/architecture/11-multilingual-voice-grievance-agents.md`

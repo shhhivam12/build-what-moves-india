@@ -1,7 +1,7 @@
 .page { color: #29463c; background: #fbfaf6; }
-.hero { padding: clamp(3.5rem, 7vw, 5.8rem) max(1rem, calc((100% - 82rem) / 2)); display: grid; grid-template-columns: minmax(0, 1fr) 22rem; align-items: end; gap: 3rem; background: radial-gradient(circle at 8% 4%, rgba(232, 111, 28, .17), transparent 22rem), radial-gradient(circle at 94% 90%, rgba(11, 122, 87, .14), transparent 24rem), #fffdf8; border-bottom: 1px solid #e5ddd0; }
+.hero { padding: clamp(3.5rem, 7vw, 5.8rem) max(1rem, calc((100% - 82rem) / 2)); display: grid; grid-template-columns: minmax(0, 1fr) 22rem; align-items: end; gap: 3rem; background: #f4efe6 url("/patterns/civic-paper.svg") right -8rem center / 30rem no-repeat; border-bottom: 1px solid #e5ddd0; }
 .hero > div > p, .sectionHeading p, .information section > p { margin: 0; color: #9d4c20; font-size: .68rem; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
-.hero h1 { max-width: 53rem; margin: .55rem 0 .8rem; color: #194b39; font-size: clamp(2.65rem, 6vw, 5rem); letter-spacing: -.06em; line-height: .98; }
+.hero h1 { max-width: 53rem; margin: .55rem 0 .8rem; color: #15181d; font-size: clamp(2.65rem, 6vw, 5rem); letter-spacing: -.06em; line-height: .98; }
 .hero > div > span { max-width: 48rem; display: block; color: #5c6e66; font-size: .92rem; line-height: 1.65; }
 .hero aside { padding: 1.1rem; color: #6b3c1c; background: #fff1df; border: 1px solid #ebcba7; border-left: .25rem solid #df6b22; border-radius: .55rem; }
 .hero aside strong { font-size: .78rem; }
@@ -47,7 +47,7 @@
 .guidanceGrid a, .contactGrid a { color: #0a6d4f; font-size: .62rem; font-weight: 800; }
 .contactGrid p span { color: #3d5c50; font-weight: 750; }
 .appealSteps { margin-bottom: 1rem; display: grid; gap: .6rem; }
-.appealSteps article { padding: .8rem; display: grid; grid-template-columns: 2rem 1fr; gap: .75rem; background: linear-gradient(90deg, #fff7eb, #fff 60%, #eff8f3); border: 1px solid #e4e0d7; border-radius: .5rem; }
+.appealSteps article { padding: .8rem; display: grid; grid-template-columns: 2rem 1fr; gap: .75rem; background: #fffdf8; border: 1px solid #e4e0d7; border-radius: .5rem; }
 .appealSteps article > span { width: 2rem; height: 2rem; display: grid; place-items: center; color: #78411e; background: #f7a262; border-radius: 50%; font-size: .58rem; font-weight: 850; }
 .appealSteps strong { color: #304c42; font-size: .72rem; }
 .appealSteps p { margin: .2rem 0 0; color: #66766e; font-size: .64rem; line-height: 1.55; }

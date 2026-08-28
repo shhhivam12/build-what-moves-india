@@ -10,10 +10,11 @@
   align-items: center;
   gap: .65rem;
   color: #fff;
-  background: linear-gradient(115deg, #0a714d, #095339 64%, #e96f18 140%);
+  background: #173b5f;
   border: 1px solid rgba(255, 255, 255, .45);
   border-radius: 999px;
-  box-shadow: 0 1rem 2.6rem rgba(5, 57, 40, .28), 0 0 0 .22rem rgba(255, 255, 255, .7);
+  border-left: .28rem solid #b9540b;
+  box-shadow: 0 1rem 2.6rem rgba(18, 39, 61, .28), 0 0 0 .22rem rgba(255, 255, 255, .72);
   cursor: pointer;
   text-align: left;
 }
@@ -22,28 +23,28 @@
 .launcher > span:nth-child(2) { display: grid; gap: .12rem; }
 .launcher strong { font-size: .78rem; }
 .launcher small { color: rgba(255,255,255,.78); font-size: .62rem; }
-.launcher b { margin-left: auto; width: 1.8rem; height: 1.8rem; display: grid; place-items: center; color: #134c38; background: #fff; border-radius: 50%; font-size: .9rem; animation: assistantPulse 2.4s ease-in-out infinite; }
+.launcher b { margin-left: auto; width: 1.8rem; height: 1.8rem; display: grid; place-items: center; color: #173b5f; background: #fff; border-radius: 50%; font-size: .9rem; animation: assistantPulse 2.4s ease-in-out infinite; }
 
 .panel {
   position: fixed;
   z-index: 100;
   right: 1.2rem;
   bottom: 6.2rem;
-  width: min(25rem, calc(100vw - 1.5rem));
+  width: min(29rem, calc(100vw - 1.5rem));
   height: min(41rem, calc(100svh - 7.5rem));
   display: grid;
   grid-template-rows: auto minmax(8rem, 1fr) auto auto auto;
   overflow: hidden;
-  color: #193f32;
+  color: #1b2530;
   background: rgba(255, 253, 247, .985);
-  border: 1px solid rgba(8, 111, 75, .35);
-  border-top: .28rem solid #f47b20;
+  border: 1px solid rgba(23, 59, 95, .32);
+  border-top: .28rem solid #b9540b;
   border-radius: 1rem;
   box-shadow: 0 1.8rem 5rem rgba(26, 42, 35, .27);
   animation: panelEnter .28s cubic-bezier(.2,.85,.25,1);
 }
-.panel::before { position: absolute; top: 0; right: 0; width: 38%; height: .28rem; background: #07905f; content: ""; }
-.panel > header { min-height: 4.8rem; padding: .65rem .7rem; display: flex; align-items: center; gap: .6rem; color: #fff; background: linear-gradient(120deg, #063e2e, #0a6749); }
+.panel::before { position: absolute; top: 0; right: 0; width: 38%; height: .28rem; background: #234f75; content: ""; }
+.panel > header { min-height: 4.8rem; padding: .65rem .7rem; display: flex; align-items: center; gap: .6rem; color: #fff; background: #173b5f; }
 .assistantPortrait { width: 3.25rem; height: 3.25rem; overflow: hidden; flex: 0 0 auto; background: #fff0dd; border: 2px solid rgba(255,255,255,.75); border-radius: .65rem; }
 .assistantPortrait img { width: 100%; height: 4.8rem; object-fit: contain; object-position: top; }
 .panel > header > div:nth-child(2) { min-width: 0; display: grid; gap: .12rem; }
@@ -52,14 +53,17 @@
 .panel > header i { width: .45rem; height: .45rem; background: #56e09c; border-radius: 50%; box-shadow: 0 0 0 .2rem rgba(86,224,156,.15); }
 .panel > header button { width: 2rem; height: 2rem; margin-left: auto; color: #fff; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.16); border-radius: 50%; cursor: pointer; }
 .panel > header button + button { margin-left: -.35rem; font-size: 1.15rem; }
-.messages { padding: 1rem; display: flex; overflow-y: auto; flex-direction: column; gap: .7rem; background: radial-gradient(circle at 90% 0, rgba(255,138,45,.1), transparent 13rem), #f8f7f0; }
+.messages { padding: 1rem; display: flex; overflow-y: auto; flex-direction: column; gap: .7rem; background: #f3f1eb; }
 .botMessage, .userMessage { max-width: 88%; display: grid; gap: .55rem; font-size: .75rem; line-height: 1.55; }
 .botMessage { align-self: flex-start; }
 .userMessage { align-self: flex-end; }
 .botMessage > span, .userMessage > span { padding: .7rem .8rem; border-radius: .7rem; }
 .botMessage > span { background: #fff; border: 1px solid #dce6df; border-bottom-left-radius: .12rem; }
-.userMessage > span { color: #fff; background: #08754f; border-bottom-right-radius: .12rem; }
-.botMessage button { justify-self: start; padding: .55rem .7rem; color: #fff; background: #e86814; border: 0; border-radius: .4rem; cursor: pointer; font-weight: 800; }
+.userMessage > span { color: #fff; background: #234f75; border-bottom-right-radius: .12rem; }
+.botMessage button { justify-self: start; padding: .55rem .7rem; color: #fff; background: #9e4508; border: 0; border-radius: .4rem; cursor: pointer; font-weight: 800; }
+.draftMessage { max-width: 96%; padding: .72rem; background: #fffdf8; border: 1px solid #c9d4dd; border-left: .24rem solid #9e4508; border-radius: .65rem; }
+.draftMessage > small { color: #173b5f; font-size: .58rem; font-weight: 850; letter-spacing: .06em; text-transform: uppercase; }
+.draftMessage > span { padding: 0; white-space: pre-line; border: 0; font-size: .7rem; }
 .quickActions { padding: .7rem .85rem .8rem; border-top: 1px solid #e3e7e1; }
 .quickActions p { margin: 0 0 .55rem; color: #6b746f; font-size: .62rem; font-weight: 750; }
 .quickActions > div { display: grid; grid-template-columns: repeat(3, 1fr); gap: .35rem; }
@@ -67,9 +71,24 @@
 .quickActions button:hover { color: #fff; background: #08754f; border-color: #08754f; }
 .quickActions button span { color: #e56713; font-size: .9rem; }
 .quickActions button:hover span { color: #fff; }
+.voiceWorkbench { padding: .7rem .8rem; display: grid; gap: .65rem; background: #fffdf8; border-top: 1px solid #d9dedf; }
+.agentRail { display: grid; grid-template-columns: repeat(4, 1fr); gap: .25rem; }
+.agentRail span { display: grid; place-items: center; gap: .2rem; color: #7c8388; font-size: .54rem; font-weight: 750; }
+.agentRail span::after { width: 100%; height: .13rem; background: #d9ddde; border-radius: 2rem; content: ""; }
+.agentRail i { width: 1.25rem; height: 1.25rem; display: grid; place-items: center; background: #e5e6e4; border-radius: 50%; font-size: .52rem; font-style: normal; }
+.agentRail .activeAgent { color: #173b5f; }
+.agentRail .activeAgent::after, .agentRail .activeAgent i { color: #fff; background: #173b5f; }
+.voiceControls { display: grid; grid-template-columns: 1fr 1fr; gap: .45rem; align-items: end; }
+.voiceControls label { display: grid; gap: .25rem; color: #555f68; font-size: .56rem; font-weight: 750; }
+.voiceControls select { min-width: 0; height: 2.35rem; padding: 0 .45rem; color: #172b3d; background: #fff; border: 1px solid #c9d4dd; border-radius: .38rem; font: inherit; }
+.voiceControls button, .sampleJourney { min-height: 2.35rem; padding: .42rem .65rem; color: #fff; background: #173b5f; border: 0; border-radius: .38rem; cursor: pointer; font-size: .62rem; font-weight: 800; }
+.voiceControls button span { margin-right: .35rem; color: #dc5d12; }
+.voiceControls .listening { background: #8c2f28; }
+.voiceControls .listening span { color: #fff; animation: assistantPulse .8s ease-in-out infinite; }
+.sampleJourney { width: 100%; color: #823c0d; background: #f4e8d8; border: 1px solid #d5b893; }
 .panel > form { padding: .7rem; display: grid; grid-template-columns: 1fr 2.7rem; gap: .45rem; background: #fff; border-top: 1px solid #e0e6e2; }
 .panel > form input { width: 100%; min-height: 2.75rem; padding: .65rem .75rem; color: #173c30; background: #f7f8f4; border: 1px solid #ccd9d2; border-radius: .5rem; font: inherit; font-size: .72rem; }
-.panel > form button { color: #fff; background: #08754f; border: 0; border-radius: .5rem; cursor: pointer; font-size: 1.15rem; }
+.panel > form button { color: #fff; background: #173b5f; border: 0; border-radius: .5rem; cursor: pointer; font-size: 1.15rem; }
 .panel > footer { padding: .42rem .7rem; display: flex; align-items: center; justify-content: center; gap: .35rem; color: #737d78; background: #fff; border-top: 1px solid #eef0ed; font-size: .55rem; text-align: center; }
 .panel > footer span { color: #e56713; }
 

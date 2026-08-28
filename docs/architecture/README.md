@@ -68,6 +68,7 @@ This is intentionally not a microservice implementation. A small team can ship a
 - [08 — Pre-development gates and delivery roadmap](08-pre-development-gates-and-roadmap.md)
 - [09 — Finalized development gates](09-finalized-development-gates.md)
 - [10 — Inclusive civic design architecture](10-inclusive-civic-design-architecture.md)
+- [11 — Multilingual voice-to-grievance agents](11-multilingual-voice-grievance-agents.md)
 - [Primary source register](sources.md)
 
 ## What is already settled before coding

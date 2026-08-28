@@ -12,7 +12,7 @@ import styles from "./civic-shell.module.css";
 
 export type ShellUser = { name: string; email: string } | null;
 
-function CitizenProfileIcon() {
+export function CitizenProfileIcon() {
   return <svg aria-hidden="true" fill="none" viewBox="0 0 48 48">
     <circle cx="24" cy="19" r="7" />
     <path d="M11 39c1.7-7.2 6-10.8 13-10.8S35.3 31.8 37 39" />

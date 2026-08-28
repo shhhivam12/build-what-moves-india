@@ -1,4 +1,4 @@
-.page > header { padding: clamp(3.5rem,7vw,6rem) max(1rem,calc((100% - 82rem)/2)); color: #29493e; background: radial-gradient(circle at 8% 5%,rgba(244,122,31,.2),transparent 23rem),linear-gradient(125deg,#fff0df,#fffaf3 46%,#dff5e9); }
+.page > header { padding: clamp(3.5rem,7vw,6rem) max(1rem,calc((100% - 82rem)/2)); color: #252a2e; background: #f4efe6 url("/patterns/civic-paper.svg") right -8rem center / 30rem no-repeat; }
 .page > header p { margin: 0 0 .7rem; color: #a24b16; font-size: .72rem; font-weight: 850; letter-spacing: .09em; text-transform: uppercase; }
 .page > header h1 { max-width: 58rem; margin: 0; font-size: clamp(2.6rem,6vw,5rem); letter-spacing: -.06em; line-height: 1; }
 .page > header span { max-width: 48rem; margin-top: 1rem; display: block; color: #617169; line-height: 1.6; }

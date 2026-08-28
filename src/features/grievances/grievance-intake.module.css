@@ -44,7 +44,7 @@
 .actions > button:not(.backButton), .dashboardLink { min-height: 3rem; padding: .75rem 1rem; color: #fff; background: #0a7f5c; border: 0; border-radius: .7rem; cursor: pointer; font-size: .76rem; font-weight: 850; text-decoration: none; }
 .actions button:disabled { opacity: .52; cursor: not-allowed; }
 .error { padding: .75rem .9rem; color: #842d24; background: #fff0ed; border: 1px solid #f0c8c2; border-radius: .7rem; font-size: .72rem; }
-.sideHelp { padding: 1.2rem; color: #334f45; background: linear-gradient(145deg,#fff0df,rgba(255,255,255,.88) 48%,#e1f5eb); border: 1px solid rgba(79,116,100,.15); border-radius: 1rem; box-shadow: 0 1rem 2rem rgba(87,75,50,.08); backdrop-filter: blur(16px); }
+.sideHelp { padding: 1.2rem; color: #334f45; background: #f4efe6; border: 1px solid rgba(79,116,100,.15); border-radius: 1rem; box-shadow: 0 1rem 2rem rgba(87,75,50,.08); }
 .sideHelp h2 { margin: 0; color: #2e4b41; font-size: 1rem; }
 .sideHelp ul { margin: 1rem 0; padding: 0; list-style: none; }
 .sideHelp li { padding: .6rem 0; display: flex; align-items: center; gap: .55rem; border-bottom: 1px solid rgba(70,105,91,.12); font-size: .68rem; }
